@@ -1,0 +1,6 @@
+framework module Pods_Drinks_SwiftUI {
+  umbrella header "Pods-Drinks SwiftUI-umbrella.h"
+
+  export *
+  module * { export * }
+}
