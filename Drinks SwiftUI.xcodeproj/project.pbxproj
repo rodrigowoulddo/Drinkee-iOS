@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		54D4F3B41F3DDF0AEB11CF36 /* Pods_Drinks_SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90344AE1CA02C2BDA4A46B96 /* Pods_Drinks_SwiftUI.framework */; };
 		751C9B082437B98C001CDE2F /* DrinkListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751C9B072437B98C001CDE2F /* DrinkListViewModel.swift */; };
-		751C9B102437BBF8001CDE2F /* ReadEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751C9B0F2437BBF8001CDE2F /* ReadEndpoints.swift */; };
 		751C9B232437CAC7001CDE2F /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751C9B172437CAC7001CDE2F /* Api.swift */; };
 		751C9B242437CAC7001CDE2F /* ApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751C9B192437CAC7001CDE2F /* ApiError.swift */; };
 		751C9B252437CAC7001CDE2F /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751C9B1A2437CAC7001CDE2F /* Service.swift */; };
@@ -19,6 +18,11 @@
 		751C9B2A2437CAC7001CDE2F /* JSONDecoder+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751C9B212437CAC7001CDE2F /* JSONDecoder+Extensions.swift */; };
 		751C9B2B2437CAC7001CDE2F /* JSONEncoder+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751C9B222437CAC7001CDE2F /* JSONEncoder+Extensions.swift */; };
 		751C9B302437CCEB001CDE2F /* DateFormatter+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751C9B2F2437CCEB001CDE2F /* DateFormatter+Extensions.swift */; };
+		752318A3243CF3F000BE3484 /* HomePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752318A2243CF3F000BE3484 /* HomePage.swift */; };
+		752318A5243CF46700BE3484 /* FavoritesPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752318A4243CF46700BE3484 /* FavoritesPage.swift */; };
+		752318A7243CF48100BE3484 /* IngredientsPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752318A6243CF48100BE3484 /* IngredientsPage.swift */; };
+		752318A9243CF4A500BE3484 /* DrinksPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752318A8243CF4A500BE3484 /* DrinksPage.swift */; };
+		75267F5D243BBB1100636D7B /* Sidebar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75267F5C243BBB1100636D7B /* Sidebar.swift */; };
 		75CBB70B24351E1800CD6593 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CBB70A24351E1800CD6593 /* AppDelegate.swift */; };
 		75CBB70D24351E1800CD6593 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CBB70C24351E1800CD6593 /* SceneDelegate.swift */; };
 		75CBB70F24351E1800CD6593 /* DrinkList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CBB70E24351E1800CD6593 /* DrinkList.swift */; };
@@ -42,6 +46,11 @@
 		751C9B212437CAC7001CDE2F /* JSONDecoder+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "JSONDecoder+Extensions.swift"; sourceTree = "<group>"; };
 		751C9B222437CAC7001CDE2F /* JSONEncoder+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "JSONEncoder+Extensions.swift"; sourceTree = "<group>"; };
 		751C9B2F2437CCEB001CDE2F /* DateFormatter+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+Extensions.swift"; sourceTree = "<group>"; };
+		752318A2243CF3F000BE3484 /* HomePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePage.swift; sourceTree = "<group>"; };
+		752318A4243CF46700BE3484 /* FavoritesPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesPage.swift; sourceTree = "<group>"; };
+		752318A6243CF48100BE3484 /* IngredientsPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientsPage.swift; sourceTree = "<group>"; };
+		752318A8243CF4A500BE3484 /* DrinksPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinksPage.swift; sourceTree = "<group>"; };
+		75267F5C243BBB1100636D7B /* Sidebar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sidebar.swift; sourceTree = "<group>"; };
 		75CBB70724351E1800CD6593 /* Drinks SwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Drinks SwiftUI.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		75CBB70A24351E1800CD6593 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		75CBB70C24351E1800CD6593 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -71,8 +80,11 @@
 		751C9B092437BA0E001CDE2F /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				751C9B0B2437BA1F001CDE2F /* DrinkDetail */,
-				751C9B0A2437BA15001CDE2F /* DrinkList */,
+				75267F5B243BBAFB00636D7B /* Sidebar */,
+				7523189F243CF18200BE3484 /* Home */,
+				7523189D243CF16100BE3484 /* Drinks */,
+				752318A0243CF18D00BE3484 /* Ingredients */,
+				752318A1243CF19400BE3484 /* Favorites */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -150,6 +162,48 @@
 				751C9B222437CAC7001CDE2F /* JSONEncoder+Extensions.swift */,
 			);
 			path = JSONCoders;
+			sourceTree = "<group>";
+		};
+		7523189D243CF16100BE3484 /* Drinks */ = {
+			isa = PBXGroup;
+			children = (
+				752318A8243CF4A500BE3484 /* DrinksPage.swift */,
+				751C9B0B2437BA1F001CDE2F /* DrinkDetail */,
+				751C9B0A2437BA15001CDE2F /* DrinkList */,
+			);
+			path = Drinks;
+			sourceTree = "<group>";
+		};
+		7523189F243CF18200BE3484 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				752318A2243CF3F000BE3484 /* HomePage.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		752318A0243CF18D00BE3484 /* Ingredients */ = {
+			isa = PBXGroup;
+			children = (
+				752318A6243CF48100BE3484 /* IngredientsPage.swift */,
+			);
+			path = Ingredients;
+			sourceTree = "<group>";
+		};
+		752318A1243CF19400BE3484 /* Favorites */ = {
+			isa = PBXGroup;
+			children = (
+				752318A4243CF46700BE3484 /* FavoritesPage.swift */,
+			);
+			path = Favorites;
+			sourceTree = "<group>";
+		};
+		75267F5B243BBAFB00636D7B /* Sidebar */ = {
+			isa = PBXGroup;
+			children = (
+				75267F5C243BBB1100636D7B /* Sidebar.swift */,
+			);
+			path = Sidebar;
 			sourceTree = "<group>";
 		};
 		75CBB6FE24351E1800CD6593 = {
@@ -247,7 +301,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1130;
-				LastUpgradeCheck = 1130;
+				LastUpgradeCheck = 1140;
 				ORGANIZATIONNAME = "Rodrigo Giglio";
 				TargetAttributes = {
 					75CBB70624351E1800CD6593 = {
@@ -334,20 +388,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				75CBB70B24351E1800CD6593 /* AppDelegate.swift in Sources */,
+				752318A7243CF48100BE3484 /* IngredientsPage.swift in Sources */,
+				752318A3243CF3F000BE3484 /* HomePage.swift in Sources */,
 				751C9B2A2437CAC7001CDE2F /* JSONDecoder+Extensions.swift in Sources */,
 				751C9B292437CAC7001CDE2F /* ReadEndpoints.swift in Sources */,
 				751C9B082437B98C001CDE2F /* DrinkListViewModel.swift in Sources */,
-				751C9B102437BBF8001CDE2F /* ReadEndpoints.swift in Sources */,
 				75CBB70D24351E1800CD6593 /* SceneDelegate.swift in Sources */,
 				751C9B282437CAC7001CDE2F /* Result+decoded.swift in Sources */,
+				75267F5D243BBB1100636D7B /* Sidebar.swift in Sources */,
 				75CBB7222435279E00CD6593 /* DrinkDetail.swift in Sources */,
 				751C9B242437CAC7001CDE2F /* ApiError.swift in Sources */,
 				75CBB72024351FB500CD6593 /* Drink.swift in Sources */,
+				752318A5243CF46700BE3484 /* FavoritesPage.swift in Sources */,
 				751C9B262437CAC7001CDE2F /* TargeType+default.swift in Sources */,
 				751C9B2B2437CAC7001CDE2F /* JSONEncoder+Extensions.swift in Sources */,
 				751C9B252437CAC7001CDE2F /* Service.swift in Sources */,
 				751C9B232437CAC7001CDE2F /* Api.swift in Sources */,
 				75CBB70F24351E1800CD6593 /* DrinkList.swift in Sources */,
+				752318A9243CF4A500BE3484 /* DrinksPage.swift in Sources */,
 				751C9B302437CCEB001CDE2F /* DateFormatter+Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
