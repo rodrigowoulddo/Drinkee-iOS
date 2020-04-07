@@ -89,7 +89,7 @@ struct DrinkDetail: View {
 
 struct DrinkDetail_Previews: PreviewProvider {
     
-    private static let mockDrink = Drink(numberOfRatingVotes: 10, name: "Mock Drink", strength: 8.4, style: "Classic", rating: 8.1, author: "Didico", baseSpirit: "Aperol", ingredients: [Ingredient(name: "Aperol", strength: 6, measurement: 2, measurementUnit: "ml")], liquor: nil, wineVermouth: nil)
+    private static let mockDrink = Drink(numberOfRatingVotes: 10, name: "Mock Drink", strength: 8.1, style: "Party", rating: 6.1, author: "Didico", baseSpirit: nil, liquor: "Aperol", wineVermouth: nil, ingredients: [Ingredient(name: "Aperol", strength: 6.7, measurement: 4, measurementUnit: "ml", color: "blue")], steps: ["Step 1", "Step 2"])
     
     static var previews: some View {
         DrinkDetail(drink: mockDrink)

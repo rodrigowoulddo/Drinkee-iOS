@@ -16,9 +16,13 @@ struct Drink: Identifiable, Codable {
     let strength: Double
     let style: String
     let rating: Double
-    let author, baseSpirit: String
+    let author: String
+    let baseSpirit: String?
+    let liquor: String?
+    let wineVermouth: String?
     let ingredients: [Ingredient]
-    let liquor, wineVermouth: String?
+    let steps: [String]
+
 }
 
 // MARK: - Ingredient
@@ -28,4 +32,5 @@ struct Ingredient: Identifiable, Codable {
     let strength: Double
     let measurement: Int
     let measurementUnit: String
+    let color: String?
 }
