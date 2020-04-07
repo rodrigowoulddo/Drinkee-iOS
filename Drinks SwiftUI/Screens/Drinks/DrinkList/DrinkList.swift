@@ -23,7 +23,7 @@ struct DrinkList: View {
             ScrollView {
                 
                 if viewModel.drinks.count == 0 {
-                    Text("No drinks where found :(")
+                    Text("No drinks were found.")
                 }
                 
                 VStack (spacing: 10) {
@@ -31,42 +31,41 @@ struct DrinkList: View {
                     ForEach(0 ..< viewModel.drinks.count, id: \.self) {
                         i in
                         
-                        DrinkCell(drink: self.viewModel.drinks[i])
+                        DrinkCell(viewModel: self.viewModel,drink: self.viewModel.drinks[i])
                     }
                 }
             }
-        }
+            
+        }.background(Color(UIColor.systemGray6))
     }
 }
 
 struct DrinkCell: View {
+    
+    @ObservedObject var viewModel: DrinkListViewModel
+    
     let drink: Drink
     var body: some View {
         
-        HStack {
-            Circle().fill(Color(.gray)).frame(width: 50, height: 50)
-            Text(drink.name)
+        Button(action: {
+            self.viewModel.selectedDrink = self.drink
+        }) {
+            HStack {
+                Circle().fill(Color(.gray)).frame(width: 30, height: 30)
+                Text(drink.name).foregroundColor(.black)
+                Spacer()
+            }
+            .padding(10)
         }
-        .padding(8)
     }
 }
-
-//struct DrinkIcon: SwiftUI.View {
-//    let thumbnailUrl: String
-//    var body: some SwiftUI.View {
-//        KFImage(URL(string: thumbnailUrl))
-//            .resizable()
-//            .aspectRatio(contentMode: .fill)
-//            .frame(width: 60, height: 60)
-//            .clipShape(Circle())
-//            .overlay(Circle().stroke(Color.white, lineWidth: 2))
-//            .shadow(radius: 4)
-//    }
-//}
 
 // MARK: - Preview
 struct ContentView_Previews: PreviewProvider {
     static var previews: some SwiftUI.View {
-        DrinkList(viewModel: DrinkListViewModel())
+        HStack {
+            DrinkList(viewModel: DrinkListViewModel())
+            Spacer()
+        }
     }
 }
