@@ -15,13 +15,13 @@ struct Discover: SwiftUI.View {
     var testDrinks: [testDrink] = testData
     
     var body: some SwiftUI.View {
-            ScrollView(.horizontal, showsIndicators: false) {
-                HStack(spacing: 80) {
-                    ForEach(testDrinks) { testDrink in
-                            FeaturedDrink(drinkName: testDrink.name, imageURL: testDrink.thumbnailUrl)
-                    }
+        ScrollView(.horizontal, showsIndicators: false) {
+            HStack(spacing: 80) {
+                ForEach(testDrinks) { testDrink in
+                    FeaturedDrink(drinkName: testDrink.name, imageURL: testDrink.thumbnailUrl)
                 }
             }
+        }
     }
 }
 
@@ -42,6 +42,6 @@ struct FeaturedDrink: SwiftUI.View {
                 .frame(width: 200, height: 200)
             
             Text(drinkName)
-        }.projectionEffect(ProjectionTransform(.identity))
+        }
     }
 }
