@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		040EE5AC243CE4E5008CE390 /* Discover.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040EE5AB243CE4E5008CE390 /* Discover.swift */; };
+		040EE5AE243CE735008CE390 /* MockDrinks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040EE5AD243CE735008CE390 /* MockDrinks.swift */; };
 		54D4F3B41F3DDF0AEB11CF36 /* Pods_Drinks_SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90344AE1CA02C2BDA4A46B96 /* Pods_Drinks_SwiftUI.framework */; };
 		751C9B082437B98C001CDE2F /* DrinkListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751C9B072437B98C001CDE2F /* DrinkListViewModel.swift */; };
 		751C9B102437BBF8001CDE2F /* ReadEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751C9B0F2437BBF8001CDE2F /* ReadEndpoints.swift */; };
@@ -30,6 +32,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		040EE5AB243CE4E5008CE390 /* Discover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Discover.swift; sourceTree = "<group>"; };
+		040EE5AD243CE735008CE390 /* MockDrinks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDrinks.swift; sourceTree = "<group>"; };
 		4B647D4F44CEF8BDFA0C253F /* Pods-Drinks SwiftUI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Drinks SwiftUI.debug.xcconfig"; path = "Target Support Files/Pods-Drinks SwiftUI/Pods-Drinks SwiftUI.debug.xcconfig"; sourceTree = "<group>"; };
 		751C9B072437B98C001CDE2F /* DrinkListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkListViewModel.swift; sourceTree = "<group>"; };
 		751C9B0F2437BBF8001CDE2F /* ReadEndpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadEndpoints.swift; sourceTree = "<group>"; };
@@ -68,9 +72,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		040EE5AA243CE4D3008CE390 /* Discover */ = {
+			isa = PBXGroup;
+			children = (
+				040EE5AB243CE4E5008CE390 /* Discover.swift */,
+				040EE5AD243CE735008CE390 /* MockDrinks.swift */,
+			);
+			path = Discover;
+			sourceTree = "<group>";
+		};
 		751C9B092437BA0E001CDE2F /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				040EE5AA243CE4D3008CE390 /* Discover */,
 				751C9B0B2437BA1F001CDE2F /* DrinkDetail */,
 				751C9B0A2437BA15001CDE2F /* DrinkList */,
 			);
@@ -341,8 +355,10 @@
 				75CBB70D24351E1800CD6593 /* SceneDelegate.swift in Sources */,
 				751C9B282437CAC7001CDE2F /* Result+decoded.swift in Sources */,
 				75CBB7222435279E00CD6593 /* DrinkDetail.swift in Sources */,
+				040EE5AE243CE735008CE390 /* MockDrinks.swift in Sources */,
 				751C9B242437CAC7001CDE2F /* ApiError.swift in Sources */,
 				75CBB72024351FB500CD6593 /* Drink.swift in Sources */,
+				040EE5AC243CE4E5008CE390 /* Discover.swift in Sources */,
 				751C9B262437CAC7001CDE2F /* TargeType+default.swift in Sources */,
 				751C9B2B2437CAC7001CDE2F /* JSONEncoder+Extensions.swift in Sources */,
 				751C9B252437CAC7001CDE2F /* Service.swift in Sources */,

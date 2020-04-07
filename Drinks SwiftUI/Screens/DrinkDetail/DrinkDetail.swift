@@ -11,7 +11,8 @@ import Kingfisher
 
 struct DrinkDetail: SwiftUI.View {
     
-    let drink: Drink
+    //let drink: Drink
+    let drink: testDrink
     
     var body: some SwiftUI.View  {
         
