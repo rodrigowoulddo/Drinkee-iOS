@@ -16,15 +16,7 @@ struct Discover: SwiftUI.View {
     
     var body: some SwiftUI.View {
         NavigationView {
-            ScrollView(.horizontal, showsIndicators: false) {
-                HStack(spacing: 80) {
-                    ForEach(testDrinks) { testDrink in
-                        NavigationLink(destination: TransitionTest(testString: testDrink.name)) {
-                                FeaturedDrink(drink: testDrink)
-                        }.buttonStyle(PlainButtonStyle())
-                    }
-                }
-            }
+            FeaturedDrinksCollectionView(drinks: testDrinks)
         }.navigationViewStyle(StackNavigationViewStyle())
     }
 }
@@ -35,6 +27,24 @@ struct Discover_Previews: PreviewProvider {
     }
 }
 
+// MARK: - Carrossel com os drinks em destaque
+struct FeaturedDrinksCollectionView: SwiftUI.View {
+    var drinks: [testDrink]
+    
+    var body: some SwiftUI.View {
+        ScrollView(.horizontal, showsIndicators: false) {
+            HStack(spacing: 80) {
+                ForEach(drinks) { testDrink in
+                    NavigationLink(destination: TransitionTest(testString: testDrink.name)) {
+                        FeaturedDrink(drink: testDrink)
+                    }.buttonStyle(PlainButtonStyle())
+                }
+            }
+        }
+    }
+}
+
+// MARK: - "Celula de cada drink em destaque usada no carrossel
 struct FeaturedDrink: SwiftUI.View {
     var drink: testDrink
     
