@@ -26,7 +26,7 @@ struct DrinkList: View {
                     Text("No drinks were found.")
                 }
                 
-                VStack (spacing: 10) {
+                VStack {
                     
                     ForEach(0 ..< viewModel.drinks.count, id: \.self) {
                         i in
@@ -36,7 +36,7 @@ struct DrinkList: View {
                 }
             }
             
-        }.background(Color(UIColor.systemGray6))
+        }
     }
 }
 
@@ -47,22 +47,53 @@ struct DrinkCell: View {
     let drink: Drink
     var body: some View {
         
-        Button(action: {
-            self.viewModel.selectedDrink = self.drink
-        }) {
+        Button(action: { self.viewModel.selectedDrink = self.drink }) {
+            
             HStack {
-                Circle().fill(Color(.gray)).frame(width: 30, height: 30)
-                Text(drink.name).foregroundColor(.black)
+                
+                DrinkCellImage(imageUrl: drink.photoUrlSmall)
+                DrinkCellTitle(name: drink.name)
                 Spacer()
             }
-            .padding(10)
+            .padding(8)
+            
         }
+        .buttonStyle(PlainButtonStyle())
+        .background(Color(UIColor.quaternarySystemFill))
+    .padding(4)
+    }
+}
+
+struct DrinkCellImage: View {
+    
+    let imageUrl: String?
+    
+    var body: some View {
+        
+        URLImage(url: imageUrl, shadowRadius: 5)
+        .frame(width: 60, height: 60)
+        .clipShape(Circle())
+        .shadow(radius: 4)
+        
+    }
+}
+
+
+struct DrinkCellTitle: View {
+    
+    let name: String
+    
+    var body: some View {
+        Text(name)
+            .padding()
     }
 }
 
 // MARK: - Preview
 struct ContentView_Previews: PreviewProvider {
+        
     static var previews: some SwiftUI.View {
+        
         HStack {
             DrinkList(viewModel: DrinkListViewModel())
             Spacer()
