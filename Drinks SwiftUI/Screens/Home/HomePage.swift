@@ -21,7 +21,6 @@ struct HomePage: View {
                     Color(.systemPink).frame(height: 250)
                     Color(.systemPink).frame(height: 250)
                     Color(.systemPink).frame(height: 250)
-                    Color(.systemPink).frame(height: 250)
                 }
             }
         }.navigationViewStyle(StackNavigationViewStyle())
@@ -42,7 +41,7 @@ struct FeaturedDrinksCollectionView: SwiftUI.View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack(spacing: 50) {
                 ForEach(drinks) { drink in
-                    NavigationLink(destination: TransitionTest(testString: drink.name)) {
+                    NavigationLink(destination: DrinkDetail(drink: drink)) {
                         FeaturedDrink(drink: drink)
                     }.buttonStyle(PlainButtonStyle())
                 }
@@ -59,6 +58,7 @@ struct FeaturedDrink: SwiftUI.View {
         VStack {
             //FIXME: - Tirar o ! daqui e substituir por uma imagem placeholder de quando nao conseguir carregar a imagem
             URLImage(url: drink.photoUrlMedium!)
+                .cornerRadius(10)
             Text(drink.name)
         }.frame(width: 200, height: 250)
     }
