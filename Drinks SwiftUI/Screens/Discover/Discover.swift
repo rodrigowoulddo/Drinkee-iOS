@@ -10,18 +10,22 @@ import SwiftUI
 import Kingfisher
 
 struct Discover: SwiftUI.View {
-    
+
     //@ObservedObject var viewModel: DrinkListViewModel
     var testDrinks: [testDrink] = testData
     
     var body: some SwiftUI.View {
-        ScrollView(.horizontal, showsIndicators: false) {
-            HStack(spacing: 80) {
-                ForEach(testDrinks) { testDrink in
-                    FeaturedDrink(drinkName: testDrink.name, imageURL: testDrink.thumbnailUrl)
+        NavigationView {
+            ScrollView(.horizontal, showsIndicators: false) {
+                HStack(spacing: 80) {
+                    ForEach(testDrinks) { testDrink in
+                        NavigationLink(destination: TransitionTest(testString: testDrink.name)) {
+                                FeaturedDrink(drink: testDrink)
+                        }.buttonStyle(PlainButtonStyle())
+                    }
                 }
             }
-        }
+        }.navigationViewStyle(StackNavigationViewStyle())
     }
 }
 
@@ -32,16 +36,12 @@ struct Discover_Previews: PreviewProvider {
 }
 
 struct FeaturedDrink: SwiftUI.View {
-    var drinkName: String
-    var imageURL: String
+    var drink: testDrink
     
     var body: some SwiftUI.View {
         VStack {
-            KFImage(URL(string: imageURL))
-                .resizable()
-                .frame(width: 200, height: 200)
-            
-            Text(drinkName)
-        }
+            URLImage(url: drink.thumbnailUrl)
+            Text(drink.name)
+        }.frame(width: 200, height: 250)
     }
 }
