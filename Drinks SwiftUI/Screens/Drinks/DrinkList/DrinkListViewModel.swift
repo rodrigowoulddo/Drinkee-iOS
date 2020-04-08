@@ -12,7 +12,8 @@ class DrinkListViewModel: ObservableObject, Identifiable {
     
     // MARK: - Observables
     @Published var drinks: [Drink] = []
-    
+    @Published var selectedDrink: Drink?
+
     // MARK: - Atributtes
     let service = Service<DrinkEndpoint>()
 
@@ -25,7 +26,7 @@ class DrinkListViewModel: ObservableObject, Identifiable {
     // MARK: - Methods
     func fetchDrinks() {
                 
-        service.request(.getDrinkByAlchoolicIngredient(liquor: "Aperol", baseSpirit: "Gin")) {
+        service.request(.getAllDrinks) {
             (result: Result<[Drink], Error>) in
 
             switch result {
