@@ -12,9 +12,9 @@ import Moya
 
 enum DrinkEndpoint {
     
+    case getAllDrinks
     case getDrinkByName(String)
     case getDrinkByAlchoolicIngredient(liquor: String?, baseSpirit: String?)
-
 }
 
 extension DrinkEndpoint: TargetType {
@@ -22,6 +22,7 @@ extension DrinkEndpoint: TargetType {
     var path: String {
         
         switch self {
+            case .getAllDrinks: return "/drink/all"
             case .getDrinkByName(let name): return "/drink/\(name)"
             case .getDrinkByAlchoolicIngredient: return "/drink/ingredient/alcoholic"
         }
@@ -30,6 +31,7 @@ extension DrinkEndpoint: TargetType {
     var method: Moya.Method {
         
         switch self {
+            case .getAllDrinks: return .get
             case .getDrinkByName: return .get
             case .getDrinkByAlchoolicIngredient: return .get
         }
@@ -38,6 +40,9 @@ extension DrinkEndpoint: TargetType {
     var task: Task {
         
         switch self {
+        
+        case .getAllDrinks:
+            return .requestPlain
             
         case .getDrinkByName:
             return .requestPlain
@@ -48,8 +53,4 @@ extension DrinkEndpoint: TargetType {
             
         }
     }
-    
-    
-    
-    
 }

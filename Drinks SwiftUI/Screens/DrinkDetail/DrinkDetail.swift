@@ -12,7 +12,7 @@ import Kingfisher
 struct DrinkDetail: SwiftUI.View {
     
     //let drink: Drink
-    let drink: testDrink
+    let drink: Drink?
     
     var body: some SwiftUI.View  {
         
@@ -31,7 +31,7 @@ struct DrinkDetail: SwiftUI.View {
                         
                         VStack(alignment: .center) {
                             
-                            Text(self.drink.name)
+                            Text(self.drink?.name ?? "No drink selected")
                                 .font(.title)
                                 .foregroundColor(Color(UIColor.label))
                             
