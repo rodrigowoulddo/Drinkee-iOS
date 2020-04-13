@@ -83,7 +83,12 @@ struct TabButton: View {
     
     @Binding var currentTab: Tab
     
+    var tintColor: Color {
+        Color(tab == currentTab ? UIColor.tabBarSelectedTint : UIColor.tabBarUnselectedTint)
+    }
+    
     var body: some View {
+        
         Button(action: {
             
             print("Did select \(self.tab.name) tab")
@@ -93,16 +98,16 @@ struct TabButton: View {
             
             VStack(alignment: .center) {
                 
-                Image(tab.iconName)
-                .resizable()
-                .scaledToFit()
-                .frame(width: 50, height: 50)
-                .accentColor(.white)
-                .foregroundColor(Color(UIColor.tabBarSelectedTint))
-                    .colorMultiply(Color(tab == currentTab ? UIColor.tabBarSelectedTint : UIColor.tabBarUnselectedTint))
+                Image(tab.iconName) /// TODO: - Verify if asset exists
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 50, height: 50)
+                    .accentColor(.white)
+                    .foregroundColor(Color(UIColor.tabBarSelectedTint))
+                    .colorMultiply(tintColor)
                 
                 Text(tab.name).font(.system(size: 13))
-                .foregroundColor(Color(tab == currentTab ? UIColor.tabBarSelectedTint : UIColor.tabBarUnselectedTint))
+                    .foregroundColor(tintColor)
             }
             
         }
