@@ -38,13 +38,3 @@ struct Drink: Identifiable, Codable, Hashable {
     #endif
 
 }
-
-// MARK: - Ingredient
-struct Ingredient: Identifiable, Codable, Hashable {
-    var id : UUID? = UUID()
-    let name: String
-    let strength: Double
-    let measurement: Int
-    let measurementUnit: String
-    let color: String?
-}
