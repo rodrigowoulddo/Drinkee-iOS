@@ -39,7 +39,7 @@ struct FeaturedCategory: SwiftUI.View {
     var categoryName: String
     
     var body: some SwiftUI.View {
-        VStack{
+        Group {
             HStack {
                 Text(categoryName)
                     .font(.system(size: 38))
@@ -47,11 +47,7 @@ struct FeaturedCategory: SwiftUI.View {
                     .padding(.leading, 39)
                 Spacer()
             }
-            Text("ANTES")
-            ForEach(drinks) { drink in
-                categoryCell(drink: drink)
-            }
-            Text("DEPOIS")
+            CollectionView()
         }
     }
 }
@@ -62,14 +58,14 @@ struct FeaturedDrinksCollectionView: SwiftUI.View {
     
     var body: some SwiftUI.View {
         ScrollView(.horizontal, showsIndicators: false) {
-            HStack(spacing: 50) {
+            HStack(spacing: 30) {
                 ForEach(drinks) { drink in
                     NavigationLink(destination: DrinkDetail(drink: drink)) {
                         FeaturedDrink(drink: drink)
                     }.buttonStyle(PlainButtonStyle())
                 }
             }
-        }.padding()
+        }
     }
 }
 

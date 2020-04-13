@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:/Users/rafaelferreira/Documents/Challenges/Drinkee-iOS/Drinks SwiftUI/Screens/Home/CollectionView.swift">
+   </FileRef>
+   <FileRef
       location = "group:Drinks SwiftUI.xcodeproj">
    </FileRef>
    <FileRef

@@ -10,6 +10,7 @@
 		0482119D243E545D00D1B798 /* DrinkListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0482119C243E545D00D1B798 /* DrinkListViewModel.swift */; };
 		048211A0243E640900D1B798 /* URLImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0482119F243E640900D1B798 /* URLImage.swift */; };
 		04BD50CD243E36D600741911 /* URLImage_OLD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BD50CC243E36D600741911 /* URLImage_OLD.swift */; };
+		04F08D5E2444DFCF00E1A448 /* CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F08D5D2444DFCF00E1A448 /* CollectionView.swift */; };
 		54D4F3B41F3DDF0AEB11CF36 /* Pods_Drinks_SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90344AE1CA02C2BDA4A46B96 /* Pods_Drinks_SwiftUI.framework */; };
 		751C9B232437CAC7001CDE2F /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751C9B172437CAC7001CDE2F /* Api.swift */; };
 		751C9B242437CAC7001CDE2F /* ApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751C9B192437CAC7001CDE2F /* ApiError.swift */; };
@@ -39,6 +40,7 @@
 		0482119C243E545D00D1B798 /* DrinkListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkListViewModel.swift; sourceTree = "<group>"; };
 		0482119F243E640900D1B798 /* URLImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLImage.swift; sourceTree = "<group>"; };
 		04BD50CC243E36D600741911 /* URLImage_OLD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLImage_OLD.swift; sourceTree = "<group>"; };
+		04F08D5D2444DFCF00E1A448 /* CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CollectionView.swift; path = "/Users/rafaelferreira/Documents/Challenges/Drinkee-iOS/Drinks SwiftUI/Screens/Home/CollectionView.swift"; sourceTree = "<absolute>"; };
 		4B647D4F44CEF8BDFA0C253F /* Pods-Drinks SwiftUI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Drinks SwiftUI.debug.xcconfig"; path = "Target Support Files/Pods-Drinks SwiftUI/Pods-Drinks SwiftUI.debug.xcconfig"; sourceTree = "<group>"; };
 		751C9B0F2437BBF8001CDE2F /* ReadEndpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadEndpoints.swift; sourceTree = "<group>"; };
 		751C9B172437CAC7001CDE2F /* Api.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
@@ -190,6 +192,7 @@
 		7523189F243CF18200BE3484 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				04F08D5D2444DFCF00E1A448 /* CollectionView.swift */,
 				752318A2243CF3F000BE3484 /* HomePage.swift */,
 			);
 			path = Home;
@@ -405,6 +408,7 @@
 				752318A7243CF48100BE3484 /* IngredientsPage.swift in Sources */,
 				752318A3243CF3F000BE3484 /* HomePage.swift in Sources */,
 				751C9B2A2437CAC7001CDE2F /* JSONDecoder+Extensions.swift in Sources */,
+				04F08D5E2444DFCF00E1A448 /* CollectionView.swift in Sources */,
 				751C9B292437CAC7001CDE2F /* ReadEndpoints.swift in Sources */,
 				04BD50CD243E36D600741911 /* URLImage_OLD.swift in Sources */,
 				75CBB70D24351E1800CD6593 /* SceneDelegate.swift in Sources */,
