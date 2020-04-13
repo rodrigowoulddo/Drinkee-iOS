@@ -59,7 +59,7 @@ struct Sidebar: View {
             
             
             /// Selected tab
-            getView(for: currentTab).padding(16)
+            getView(for: currentTab)
         }
     }
     

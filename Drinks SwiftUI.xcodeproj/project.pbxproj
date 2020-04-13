@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		54D4F3B41F3DDF0AEB11CF36 /* Pods_Drinks_SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90344AE1CA02C2BDA4A46B96 /* Pods_Drinks_SwiftUI.framework */; };
+		750E1CA2243D0AC9009F3D97 /* URLImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 750E1CA1243D0AC9009F3D97 /* URLImage.swift */; };
 		751C9B082437B98C001CDE2F /* DrinkListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751C9B072437B98C001CDE2F /* DrinkListViewModel.swift */; };
 		751C9B232437CAC7001CDE2F /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751C9B172437CAC7001CDE2F /* Api.swift */; };
 		751C9B242437CAC7001CDE2F /* ApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751C9B192437CAC7001CDE2F /* ApiError.swift */; };
@@ -35,6 +36,7 @@
 
 /* Begin PBXFileReference section */
 		4B647D4F44CEF8BDFA0C253F /* Pods-Drinks SwiftUI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Drinks SwiftUI.debug.xcconfig"; path = "Target Support Files/Pods-Drinks SwiftUI/Pods-Drinks SwiftUI.debug.xcconfig"; sourceTree = "<group>"; };
+		750E1CA1243D0AC9009F3D97 /* URLImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLImage.swift; sourceTree = "<group>"; };
 		751C9B072437B98C001CDE2F /* DrinkListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkListViewModel.swift; sourceTree = "<group>"; };
 		751C9B0F2437BBF8001CDE2F /* ReadEndpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadEndpoints.swift; sourceTree = "<group>"; };
 		751C9B172437CAC7001CDE2F /* Api.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
@@ -77,6 +79,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		750E1C9E243D09F5009F3D97 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				750E1CA1243D0AC9009F3D97 /* URLImage.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		751C9B092437BA0E001CDE2F /* Screens */ = {
 			isa = PBXGroup;
 			children = (
@@ -231,6 +241,7 @@
 				751C9B0C2437BA2E001CDE2F /* App */,
 				751C9B092437BA0E001CDE2F /* Screens */,
 				75CBB71E24351FA600CD6593 /* Models */,
+				750E1C9E243D09F5009F3D97 /* Extensions */,
 				75CBB71024351E1C00CD6593 /* Assets.xcassets */,
 				75CBB71524351E1C00CD6593 /* LaunchScreen.storyboard */,
 				75CBB71824351E1C00CD6593 /* Info.plist */,
@@ -394,6 +405,7 @@
 				751C9B292437CAC7001CDE2F /* ReadEndpoints.swift in Sources */,
 				751C9B082437B98C001CDE2F /* DrinkListViewModel.swift in Sources */,
 				75CBB70D24351E1800CD6593 /* SceneDelegate.swift in Sources */,
+				750E1CA2243D0AC9009F3D97 /* URLImage.swift in Sources */,
 				751C9B282437CAC7001CDE2F /* Result+decoded.swift in Sources */,
 				75267F5D243BBB1100636D7B /* Sidebar.swift in Sources */,
 				75CBB7222435279E00CD6593 /* DrinkDetail.swift in Sources */,
