@@ -17,7 +17,7 @@ struct HomePage: View {
             ScrollView {
                 VStack(spacing: 10) {
                     FeaturedDrinksCollectionView(drinks: drinks)
-                    Color(.systemPink).frame(height: 250)
+                    FeaturedCategory(drinks: drinks, categoryName: "Clássicos")
                     Color(.systemPink).frame(height: 250)
                     Color(.systemPink).frame(height: 250)
                     Color(.systemPink).frame(height: 250)
@@ -30,6 +30,29 @@ struct HomePage: View {
 struct HomePage_Previews: PreviewProvider {
     static var previews: some View {
         HomePage()
+    }
+}
+
+// MARK: - Collections de drinks em destaque
+struct FeaturedCategory: SwiftUI.View {
+    var drinks: [Drink]
+    var categoryName: String
+    
+    var body: some SwiftUI.View {
+        VStack{
+            HStack {
+                Text(categoryName)
+                    .font(.system(size: 38))
+                    .bold()
+                    .padding(.leading, 39)
+                Spacer()
+            }
+            Text("ANTES")
+            ForEach(drinks) { drink in
+                categoryCell(drink: drink)
+            }
+            Text("DEPOIS")
+        }
     }
 }
 
@@ -47,6 +70,18 @@ struct FeaturedDrinksCollectionView: SwiftUI.View {
                 }
             }
         }.padding()
+    }
+}
+
+// MARK: - Drink Category Cell
+struct categoryCell: SwiftUI.View {
+    var drink: Drink
+    
+    var body: some SwiftUI.View {
+        VStack {
+            Text("Here we go")
+            Text(drink.name)
+        }
     }
 }
 
