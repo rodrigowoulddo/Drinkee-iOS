@@ -69,17 +69,6 @@ struct FeaturedDrinksCollectionView: SwiftUI.View {
     }
 }
 
-// MARK: - Drink Category Cell
-struct categoryCell: SwiftUI.View {
-    var drink: Drink
-    
-    var body: some SwiftUI.View {
-        VStack {
-            Text("Here we go")
-            Text(drink.name)
-        }
-    }
-}
 
 // MARK: - "Celula de cada drink em destaque usada no carrossel
 struct FeaturedDrink: SwiftUI.View {

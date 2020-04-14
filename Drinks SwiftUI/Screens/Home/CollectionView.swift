@@ -14,13 +14,6 @@ struct CollectionView: SwiftUI.View {
     let drinksPerRow: Int = 2
     
     
-    //MARK: - Para testar cores de background
-    let backgroundTestColor = Color(
-        red     : 130.0/255.0,
-        green   : 23.0/255.0,
-        blue    : 28.0/255.0
-    )
-    
     var body: some View {
         var cells: [[Int]] = []
         _ = (0...(drinks.count-1)).publisher //quantos elementos vao ser
@@ -32,17 +25,9 @@ struct CollectionView: SwiftUI.View {
             // Adding HStack to make 2 cells per line
             HStack {
                 ForEach(cells[collect], id: \.self) { collection in
-                    VStack {
-                        Text(self.drinks[collection].name)
-                            .padding(.top)
-                            .font(.system(.headline))
-                        Text(String(self.drinks[collection].strength))
-                            .font(.system(.caption))
-                            .foregroundColor(.gray)
-                        URLImage(url: self.drinks[collection].photoUrlMedium!)
-                        .padding(4)
-                    }.background(self.backgroundTestColor.opacity(0.2))
-                    .cornerRadius(20)
+                    NavigationLink(destination: DrinkDetail(drink: self.drinks[collection])) {
+                        CollectionViewCells(drink: self.drinks[collection])
+                    }.buttonStyle(PlainButtonStyle())
                 }
             }
         }
@@ -52,5 +37,30 @@ struct CollectionView: SwiftUI.View {
 struct CollectionView_Previews: PreviewProvider {
     static var previews: some SwiftUI.View {
         CollectionView()
+    }
+}
+
+struct CollectionViewCells: SwiftUI.View {
+    var drink: Drink
+    
+    //MARK: - Para testar cores de background
+    let backgroundTestColor = Color(
+        red     : 130.0/255.0,
+        green   : 23.0/255.0,
+        blue    : 28.0/255.0
+    )
+    
+    var body: some SwiftUI.View {
+        VStack {
+            Text(drink.name)
+                .padding(.top)
+                .font(.system(.headline))
+            Text(String(drink.strength))
+                .font(.system(.caption))
+                .foregroundColor(.gray)
+            URLImage(url: drink.photoUrlMedium!)
+                .padding(4)
+        }.background(self.backgroundTestColor.opacity(0.2))
+            .cornerRadius(20)
     }
 }
