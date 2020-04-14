@@ -27,19 +27,33 @@ enum ImageFade {
 
 struct URLImage: SwiftUI.View {
     
-    let url: String
+    private let defaultImage: SwiftUI.Image = SwiftUI.Image(systemName: "xmark.circle.fill")
+    
+    let url: String?
     var cornerRadius: Int = 0
     var shadowRadius: Int = 0
     var fade: ImageFade = .regular
 
     var body: some SwiftUI.View {
-        KFImage(URL(string: url), options: [.transition(.fade(self.fade.duration))])
-            .resizable()
-            .aspectRatio(contentMode: .fit)
-            .cornerRadius(CGFloat(cornerRadius))
-            .shadow(radius: CGFloat(shadowRadius))
+                    
+        VStack {
+            
+            url.map {
+                url in
+                
+                KFImage(URL(string: url), options: [.transition(.fade(self.fade.duration))])
+                .resizable()
+                .aspectRatio(contentMode: .fill)
+                .cornerRadius(CGFloat(cornerRadius))
+                .shadow(radius: CGFloat(shadowRadius))
+            }
+            
+            if url == nil {
+                defaultImage.resizable().foregroundColor(Color(UIColor.tertiarySystemFill))
+            }
+            
+        }
     }
-    
 }
 
 struct URLImage_Previews: PreviewProvider {

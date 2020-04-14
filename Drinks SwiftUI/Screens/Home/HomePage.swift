@@ -11,16 +11,39 @@ import SwiftUI
 struct HomePage: View {
     
     var drinks: [Drink] = Drink.sampleDrinks
+    @ObservedObject var viewModel: HomeViewModel = HomeViewModel()
     
     var body: some View {
         NavigationView{
             ScrollView {
+                
+                if viewModel.categories.isEmpty {
+                    Text("No drinks were found.")
+                }
+                
                 VStack(spacing: 10) {
                     FeaturedDrinksCollectionView(drinks: drinks)
                     FeaturedCategory(drinks: drinks, categoryName: "Clássicos")
-                    Color(.systemPink).frame(height: 250)
-                    Color(.systemPink).frame(height: 250)
-                    Color(.systemPink).frame(height: 250)
+                    ForEach(viewModel.categories, id: \.self) {
+                        category in
+                        
+                        HStack {
+                            
+                            Spacer()
+                            Text(category.name)
+                            Spacer()
+                        }
+                    }
+                    
+                    // Color(.systemPink).frame(height: 250)
+                    // Color(.systemPink).frame(height: 250)
+                    // Color(.systemPink).frame(height: 250)
+                    // Color(.systemPink).frame(height: 250)
+                    // Color(.systemPink).frame(height: 250)
+                    // Color(.systemPink).frame(height: 250)
+                    // Color(.systemPink).frame(height: 250)
+                    // Color(.systemPink).frame(height: 250)
+                    
                 }
             }
         }.navigationViewStyle(StackNavigationViewStyle())

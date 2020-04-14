@@ -22,51 +22,81 @@ struct DrinkList: View {
             
             ScrollView {
                 
-                if viewModel.drinks.count == 0 {
-                    Text("No drinks where found :(")
+                if viewModel.drinks.isEmpty {
+                    Text("No drinks were found.")
                 }
                 
-                VStack (spacing: 10) {
+                VStack {
                     
-                    ForEach(0 ..< viewModel.drinks.count, id: \.self) {
-                        i in
+                    ForEach(viewModel.drinks, id: \.self) {
+                        drink in
                         
-                        DrinkCell(drink: self.viewModel.drinks[i])
+                        DrinkCell(viewModel: self.viewModel, drink: drink)
                     }
                 }
             }
+            
         }
     }
 }
 
 struct DrinkCell: View {
+    
+    @ObservedObject var viewModel: DrinkListViewModel
+    
     let drink: Drink
     var body: some View {
         
-        HStack {
-            Circle().fill(Color(.gray)).frame(width: 50, height: 50)
-            Text(drink.name)
+        Button(action: { self.viewModel.selectedDrink = self.drink }) {
+            
+            HStack {
+                
+                DrinkCellImage(imageUrl: drink.photoUrlSmall)
+                DrinkCellTitle(name: drink.name)
+                Spacer()
+            }
+            .padding(8)
+            
         }
-        .padding(8)
+        .buttonStyle(PlainButtonStyle())
+        .background(Color(UIColor.quaternarySystemFill))
+    .padding(4)
     }
 }
 
-//struct DrinkIcon: SwiftUI.View {
-//    let thumbnailUrl: String
-//    var body: some SwiftUI.View {
-//        KFImage(URL(string: thumbnailUrl))
-//            .resizable()
-//            .aspectRatio(contentMode: .fill)
-//            .frame(width: 60, height: 60)
-//            .clipShape(Circle())
-//            .overlay(Circle().stroke(Color.white, lineWidth: 2))
-//            .shadow(radius: 4)
-//    }
-//}
+struct DrinkCellImage: View {
+    
+    let imageUrl: String?
+    
+    var body: some View {
+        
+        URLImage(url: imageUrl, shadowRadius: 5)
+        .frame(width: 60, height: 60)
+        .clipShape(Circle())
+        .shadow(radius: 4)
+        
+    }
+}
+
+
+struct DrinkCellTitle: View {
+    
+    let name: String
+    
+    var body: some View {
+        Text(name)
+            .padding()
+    }
+}
 
 // MARK: - Preview
 struct ContentView_Previews: PreviewProvider {
+        
     static var previews: some SwiftUI.View {
-        DrinkList(viewModel: DrinkListViewModel())
+        
+        HStack {
+            DrinkList(viewModel: DrinkListViewModel())
+            Spacer()
+        }
     }
 }

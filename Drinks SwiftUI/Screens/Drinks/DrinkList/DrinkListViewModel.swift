@@ -20,6 +20,10 @@ class DrinkListViewModel: ObservableObject, Identifiable {
     // MARK: - Init
     init() {
         
+        #if DEBUG
+        configurePreview()
+        #endif
+        
         fetchDrinks()
     }
     
@@ -39,5 +43,10 @@ class DrinkListViewModel: ObservableObject, Identifiable {
                 
             }
         }
+    }
+    
+    // MARK: - Previews
+    func configurePreview() {
+        self.drinks = Drink.sampleDrinks
     }
 }
