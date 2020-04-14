@@ -24,14 +24,14 @@ struct HomePage: View {
                 
                 VStack(spacing: 10) {
                     
-                    ForEach(0 ..< viewModel.categories.count, id: \.self) {
-                        i in
+                    ForEach(viewModel.categories, id: \.self) {
+                        category in
+                        
                         HStack {
                             
                             Spacer()
-                            Text(self.viewModel.categories[i].name)
+                            Text(category.name)
                             Spacer()
-                            
                         }
                     }
                     

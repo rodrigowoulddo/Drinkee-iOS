@@ -28,10 +28,10 @@ struct DrinkList: View {
                 
                 VStack {
                     
-                    ForEach(0 ..< viewModel.drinks.count, id: \.self) {
-                        i in
+                    ForEach(viewModel.drinks, id: \.self) {
+                        drink in
                         
-                        DrinkCell(viewModel: self.viewModel,drink: self.viewModel.drinks[i])
+                        DrinkCell(viewModel: self.viewModel, drink: drink)
                     }
                 }
             }
