@@ -43,7 +43,7 @@ struct URLImage: SwiftUI.View {
                 
                 KFImage(URL(string: url), options: [.transition(.fade(self.fade.duration))])
                 .resizable()
-                .aspectRatio(contentMode: .fill)
+                .aspectRatio(contentMode: .fit)
                 .cornerRadius(CGFloat(cornerRadius))
                 .shadow(radius: CGFloat(shadowRadius))
             }
