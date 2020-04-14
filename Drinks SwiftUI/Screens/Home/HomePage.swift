@@ -23,17 +23,14 @@ struct HomePage: View {
                 
                 VStack(spacing: 10) {
                     FeaturedDrinksCollectionView(drinks: drinks)
-                    FeaturedCategory(drinks: drinks, categoryName: "Clássicos")
                     ForEach(viewModel.categories, id: \.self) {
                         category in
                         
-                        HStack {
-                            
-                            Spacer()
-                            Text(category.name)
-                            Spacer()
-                        }
+                        FeaturedCategory(drinks: category.drinks, categoryName: category.name)
                     }
+                    
+                    // DrinkCell(viewModel: self.viewModel,drink: self.viewModel.drinks[i])
+                    
                     
                     // Color(.systemPink).frame(height: 250)
                     // Color(.systemPink).frame(height: 250)
