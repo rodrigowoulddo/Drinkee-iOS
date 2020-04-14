@@ -11,10 +11,17 @@ import SwiftUI
 struct CollectionView: SwiftUI.View {
     var drinks: [Drink] = Drink.sampleDrinks
     //TODO: - Mudar esse valor para detectar o dispositivo e se ajustar conforme o mesmo
-    let drinksPerRow: Int = 2
+    var drinksPerRow: Int {
+        if UIDevice.current.model == "iPad" {
+            return 3
+        } else {
+            return 2
+        }
+    }
     
     
     var body: some View {
+        
         var cells: [[Int]] = []
         _ = (0...(drinks.count-1)).publisher //quantos elementos vao ser
         .collect(drinksPerRow) //quantos elementos por linha

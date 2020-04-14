@@ -42,9 +42,10 @@ struct FeaturedCategory: SwiftUI.View {
         Group {
             HStack {
                 Text(categoryName)
-                    .font(.system(size: 38))
+                    //.font(.system(size: 38))
+                    .font(.system(.largeTitle))
                     .bold()
-                    .padding(.leading, 39)
+                    .padding(.leading)
                 Spacer()
             }
             CollectionView()
