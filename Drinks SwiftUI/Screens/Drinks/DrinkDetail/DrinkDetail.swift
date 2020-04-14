@@ -261,14 +261,16 @@ struct DrinkDetailIngredientSelectors: View {
                 Text("Medida")
                 
                 Picker("Medida", selection: $selectedUnitIndex) {
-                    ForEach(0 ..< units.count) {
-                        i in
+                    
+                    ForEach(self.units, id: \.self) {
+                        unit in
                         
-                        Text(self.units[i])
-                        
+                        Text(unit)
                     }
-                }.pickerStyle(SegmentedPickerStyle())
-            }.padding()
+                }
+                .pickerStyle(SegmentedPickerStyle())
+            }
+            .padding()
             
         }
     }
