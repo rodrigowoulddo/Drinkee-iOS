@@ -26,7 +26,7 @@ struct DrinkList: View {
                     Text("No drinks were found.")
                 }
                 
-                VStack {
+                VStack (spacing: 2){
                     
                     DrinkListTitle()
                     
@@ -36,7 +36,7 @@ struct DrinkList: View {
                     }
                 }
             }
-        }.background(Color(UIColor.drinkListBackground))
+        }.background(Color(UIColor.listBackground))
     }
     
     struct DrinkListTitle: View {
@@ -85,7 +85,7 @@ struct DrinkList: View {
                     
                     VStack {
                         Spacer()
-                        DrinkCellImage(imageUrl: drink.photoUrlSmall)
+                        DrinkCellImage(imageUrl: drink.photoUrlMedium)
                     }
                     
                     VStack(alignment: .leading) {
@@ -101,7 +101,7 @@ struct DrinkList: View {
             .frame(height: 144)
             .border(Color.white, width: 4)
             .cornerRadius(10)
-            .padding()
+            .padding(8)
             
         }
     }
@@ -113,10 +113,10 @@ struct DrinkList: View {
         var body: some View {
             
             URLImage(url: imageUrl, shadowRadius: 5)
-                .aspectRatio(contentMode: .fit)
-                .frame(width: 150)
-                .clipped()
+                .aspectRatio(contentMode: .fill)
+                .frame(width: 130, height: 144)
                 .shadow(radius: 4)
+                .offset(y: 50)
             
         }
     }
@@ -150,7 +150,7 @@ struct DrinkList: View {
         static var previews: some SwiftUI.View {
             
             HStack {
-                DrinkList(viewModel: DrinkListViewModel()).frame(width: 250)
+                DrinkList(viewModel: DrinkListViewModel()).frame(width: 215)
                 Spacer()
             }
         }

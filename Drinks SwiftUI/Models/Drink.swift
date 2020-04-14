@@ -49,7 +49,7 @@ struct Drink: Identifiable, Codable, Hashable {
                         strength: 6.7,
                         measurement: 4,
                         measurementUnit: "ml",
-                        color: "blue"
+                        color: "soft-red"
                     )
                 ],
             steps:

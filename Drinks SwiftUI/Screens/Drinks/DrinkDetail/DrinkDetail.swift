@@ -33,15 +33,9 @@ struct DrinkDetail: View {
                         ZStack {
                             
                             DrinkDetailBlurImage(imageUrl: drink.photoUrlMedium)
-                                .offset(y: -80)
+                                .offset(y: -250)
                             
                             VStack {
-                                
-                                // Favorite button
-                                // HStack {
-                                //    Spacer()
-                                //    FavoriteButton(drinkName: drink.name)
-                                // }
                                 
                                 Spacer().frame(height: 30)
                                 
@@ -56,13 +50,13 @@ struct DrinkDetail: View {
                         VStack {
                             
                             DrinkDetailAttributes(drink: drink)
-                                //.offset(y: -150)
+                            
+                            DrinkDetailIngredients(selectedDosageIndex: $selectedDosageIndex, selectedUnitIndex: $selectedUnitIndex, ingredients: drink.ingredients)
                             
                             DrinkDetailSteps(ingredients: drink.ingredients, steps: drink.steps).padding()
                             
-                            DrinkDetailIngredients(selectedDosageIndex: $selectedDosageIndex, selectedUnitIndex: $selectedUnitIndex, ingredients: drink.ingredients)
                         }
-                        .offset(y: -150)
+                        .offset(y: -200)
                         
                     }
                 }
@@ -74,8 +68,10 @@ struct DrinkDetail: View {
             }
             
             Spacer()
+            
         }
-        
+        .padding(EdgeInsets(top: 0, leading: 40, bottom: 0, trailing: 40))
+
     }
 }
 
@@ -99,12 +95,11 @@ struct DrinkDetailBlurImage: SwiftUI.View  {
     
     var body: some SwiftUI.View  {
         
-        URLImage(url: imageUrl)
-            .aspectRatio(contentMode: .fit)
-            .frame(height: 900)
-            .shadow(radius: 8)
-            .opacity(0.8)
-            .blur(radius: 20)
+        URLImage(url: imageUrl, contentMode: .fit)
+            .clipped()
+            .frame(height: 1000)
+            .opacity(0.9)
+            .blur(radius: 45)
     }
 }
 
@@ -142,7 +137,9 @@ struct DrinkDetailTitle: View {
             Text("\(Int(round(strength * 100)))%") // TODO: - Add Light / Medium / Strong
                 .font(.system(size:24, weight: .regular, design: .default))
                 .foregroundColor(Color(UIColor.white))
-        }.padding()
+            
+        }
+        .padding()
     }
 }
 
@@ -153,20 +150,36 @@ struct DrinkDetailAttributes: View {
     var body: some View {
         VStack {
             
-            Text("Características").font(.title)
+            Text("Detalhes")
+                .font(.system(size: 38, weight: .bold, design: .default))
+                .foregroundColor(Color(UIColor.darkTitle))
             
-            VStack {
+            VStack(spacing: 0) {
                 
-                AttributeRow(label: "Força", value: String(drink.strength))
+                AttributeRow(label: "Teor Alcoolico", value: String("\(Int(round(drink.strength * 100)))%"))
                 AttributeRow(label: "Estilo", value: drink.style)
                 AttributeRow(label: "Autor", value: drink.author)
-                AttributeRow(label: "Bebida base", value: drink.baseSpirit)
-                AttributeRow(label: "Liquor", value: drink.liquor)
-                AttributeRow(label: "Wine Vermouth", value: drink.wineVermouth)
                 
-            }.padding()
+                if drink.baseSpirit != nil  {
+                    AttributeRow(label: "Bebida base", value: drink.baseSpirit)
+                }
+                
+                if drink.liquor != nil {
+                    AttributeRow(label: "Bebida base", value: drink.liquor)
+                }
+                
+                if drink.wineVermouth != nil {
+                    AttributeRow(label: "Bebida Base", value: drink.wineVermouth)
+                }
+                
+            }
+            .cornerRadius(22)
+            .shadow(color: Color.shadow, radius: 17)
+            .padding(35)
             
-        }.padding()
+        }
+        .padding()
+        
     }
 }
 
@@ -176,23 +189,33 @@ struct AttributeRow: View {
     let value: String?
     
     var body: some View {
-        HStack {
+        
+        VStack (spacing: 0) {
             
             HStack {
-                Spacer()
-                Text(label).font(.headline)
-                Spacer()
+                
+                HStack {
+                    Text(label)
+                        .font(.system(size: 24, weight: .regular, design: .default))
+                    
+                    Spacer()
+                }
+                
+                HStack {
+                    Text(value ?? "")
+                        .font(.system(size: 24, weight: .regular, design: .default))
+                    
+                    Spacer()
+                }
+                
             }
             
-            HStack {
-                Spacer()
-                Text(value ?? "--")
-                Spacer()
-            }
+            Spacer().frame(height: 18)
+            Color(UIColor.separator).frame(height: 1)
             
-        }.frame(height: 30)
-            .padding(8)
-            .background(Color(UIColor.tertiarySystemFill))
+        }
+        .padding(EdgeInsets(top: 30, leading: 40, bottom: 20, trailing: 40))
+        .background(Color(UIColor.white))
     }
 }
 
@@ -227,7 +250,9 @@ struct DrinkDetailStepRow: View {
     var body: some View {
         VStack (alignment: .leading) {
             HStack{
-                Text("Passo \(stepOrder)").font(.headline)
+                Text("Passo \(stepOrder)")
+                    .font(.headline)
+                
                 Spacer()
             }
             Text(step).multilineTextAlignment(.leading)
@@ -249,9 +274,12 @@ struct DrinkDetailIngredients: View {
     var body: some View {
         VStack {
             
-            Text("Ingredientes").font(.title)
+            Text("Ingredientes")
+                .font(.system(size: 38, weight: .bold, design: .default))
+                .foregroundColor(Color(UIColor.darkTitle))
             
             DrinkDetailIngredientSelectors(selectedDosageIndex: $selectedDosageIndex, selectedUnitIndex: $selectedUnitIndex, units: units)
+                .padding(35)
             
             VStack {
                 
@@ -275,12 +303,42 @@ struct DrinkDetailIngredientSelectors: View {
     
     let units: [String]
     
+    init(selectedDosageIndex: Binding<Int>, selectedUnitIndex: Binding<Int>, units: [String]) {
+        
+        self._selectedDosageIndex = selectedDosageIndex
+        self._selectedUnitIndex = selectedUnitIndex
+        self.units = units
+
+        
+        
+        let font = UIFont.systemFont(ofSize: 24)
+
+        let selectedAttributes: [NSAttributedString.Key: Any] = [
+            .foregroundColor: UIColor.listBackground,
+            .font: font
+        ]
+        
+        let unselectedAttributes: [NSAttributedString.Key: Any] = [
+            .foregroundColor: UIColor.lightText,
+            .font: font
+        ]
+        
+        UISegmentedControl.appearance().setTitleTextAttributes(selectedAttributes, for: .selected)
+        UISegmentedControl.appearance().setTitleTextAttributes(unselectedAttributes, for: .normal)
+        
+        UISegmentedControl.appearance().selectedSegmentTintColor = .white
+        UISegmentedControl.appearance().backgroundColor = .listBackground
+    }
+    
     var body: some View {
         HStack {
             
             // 1
             VStack {
+                
                 Text("Doses")
+                    .font(.system(size: 24, weight: .regular, design: .default))
+                    .foregroundColor(Color(UIColor.darkTitle))
                 
                 Picker("Doses", selection: $selectedDosageIndex) {
                     ForEach(1 ..< 5) {
@@ -289,12 +347,18 @@ struct DrinkDetailIngredientSelectors: View {
                         Text("\(i)")
                         
                     }
-                }.pickerStyle(SegmentedPickerStyle())
-            }.padding()
+                }
+                .pickerStyle(SegmentedPickerStyle())
+                
+                
+            }
+            .padding()
             
             // 2
             VStack {
-                Text("Medida")
+                Text("Unidade de Medida")
+                    .font(.system(size: 24, weight: .regular, design: .default))
+                    .foregroundColor(Color(UIColor.darkTitle))
                 
                 Picker("Medida", selection: $selectedUnitIndex) {
                     
@@ -318,13 +382,31 @@ struct DrinkDetailIngredientRow: View {
     
     var body: some View {
         HStack {
-            Text("\(ingredient.measurement) \(ingredient.measurementUnit)").font(.headline)
-            Text(ingredient.name)
-            Spacer()
+            
+            HStack {
+                Text("\(ingredient.measurement) \(ingredient.measurementUnit)")
+                    .font(.system(size: 24, weight: .regular, design: .default))
+                    .foregroundColor(Color(UIColor.darkTitle))
+                
+                Spacer()
+            }
+            
+            HStack {
+                Text(ingredient.name)
+                    .font(.system(size: 24, weight: .regular, design: .default))
+                    .foregroundColor(Color(UIColor.darkTitle))
+                
+                Spacer()
+            }
+            
             
         }.padding()
-            .background(Color(UIColor.tertiarySystemFill))
-            .cornerRadius(10)
+        .background(Color(UIColor.from(colorNamed: ingredient.color)))
+        .overlay(
+            RoundedRectangle(cornerRadius: 10)
+                .stroke(Color(UIColor.darkTitle), lineWidth: 1)
+        )
+            .frame(height: 57)
     }
 }
 
@@ -333,6 +415,12 @@ struct DrinkDetail_Previews: PreviewProvider {
     private static let mockDrink = Drink.sampleDrink
     
     static var previews: some View {
-        DrinkDetail(drink: mockDrink)
+        HStack {
+            
+            Color(UIColor.darkGray).frame(width: 335)
+            
+            DrinkDetail(drink: mockDrink)
+            
+        }
     }
 }

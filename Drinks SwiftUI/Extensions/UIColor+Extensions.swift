@@ -8,8 +8,14 @@
 
 import Foundation
 import UIKit
+import SwiftUI
 
 extension UIColor {
+    
+    // MARK: - Basic Layout
+    static let shadow = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0.1)
+    static let separator = #colorLiteral(red: 0.7725490196, green: 0.7725490196, blue: 0.7725490196, alpha: 1)
+
     
     // MARK: - Tabbar
     static let tabBarBackground = #colorLiteral(red: 0.9764705882, green: 0.9764705882, blue: 0.968627451, alpha: 1)
@@ -19,7 +25,7 @@ extension UIColor {
     
     
     // MARK: - Drink List
-    static let drinkListBackground = #colorLiteral(red: 0.1960784314, green: 0.1960784314, blue: 0.1960784314, alpha: 1)
+    static let listBackground = #colorLiteral(red: 0.1960784314, green: 0.1960784314, blue: 0.1960784314, alpha: 1)
     
     
     // MARK: - Text
@@ -37,8 +43,16 @@ extension UIColor {
         case "strong-burgundy": return #colorLiteral(red: 0.9568627451, green: 0.8156862745, blue: 0.8156862745, alpha: 1)
         case "light-yellow": return #colorLiteral(red: 1, green: 0.9725490196, blue: 0.8784313725, alpha: 1)
         case "light-green": return #colorLiteral(red: 0.9254901961, green: 0.9647058824, blue: 0.9411764706, alpha: 1)
+        case "soft-red": return #colorLiteral(red: 0.9294117647, green: 0.7215686275, blue: 0.7215686275, alpha: 1)
         default: return .white
         }
         
     }
+}
+
+extension Color {
+    
+    static let shadow = Color((UIColor.shadow))
+
+    
 }
