@@ -261,14 +261,16 @@ struct DrinkDetailIngredientSelectors: View {
                 Text("Medida")
                 
                 Picker("Medida", selection: $selectedUnitIndex) {
-                    ForEach(0 ..< units.count) {
-                        i in
+                    
+                    ForEach(self.units, id: \.self) {
+                        unit in
                         
-                        Text(self.units[i])
-                        
+                        Text(unit)
                     }
-                }.pickerStyle(SegmentedPickerStyle())
-            }.padding()
+                }
+                .pickerStyle(SegmentedPickerStyle())
+            }
+            .padding()
             
         }
     }
@@ -292,7 +294,7 @@ struct DrinkDetailIngredientRow: View {
 
 struct DrinkDetail_Previews: PreviewProvider {
     
-    private static let mockDrink = Drink.sampleDrinks[2]
+    private static let mockDrink = Drink.sampleDrink
     
     static var previews: some View {
         DrinkDetail(drink: mockDrink)

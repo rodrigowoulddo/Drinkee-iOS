@@ -9,22 +9,40 @@
 import SwiftUI
 
 struct HomePage: View {
+    
+    @ObservedObject var viewModel: HomeViewModel = HomeViewModel()
+    
     var body: some View {
         
         HStack {
             
             ScrollView {
                 
+                if viewModel.categories.isEmpty {
+                    Text("No drinks were found.")
+                }
+                
                 VStack(spacing: 10) {
                     
-                    Color(.systemPink).frame(height: 250)
-                    Color(.systemPink).frame(height: 250)
-                    Color(.systemPink).frame(height: 250)
-                    Color(.systemPink).frame(height: 250)
-                    Color(.systemPink).frame(height: 250)
-                    Color(.systemPink).frame(height: 250)
-                    Color(.systemPink).frame(height: 250)
-                    Color(.systemPink).frame(height: 250)
+                    ForEach(viewModel.categories, id: \.self) {
+                        category in
+                        
+                        HStack {
+                            
+                            Spacer()
+                            Text(category.name)
+                            Spacer()
+                        }
+                    }
+                    
+                    // Color(.systemPink).frame(height: 250)
+                    // Color(.systemPink).frame(height: 250)
+                    // Color(.systemPink).frame(height: 250)
+                    // Color(.systemPink).frame(height: 250)
+                    // Color(.systemPink).frame(height: 250)
+                    // Color(.systemPink).frame(height: 250)
+                    // Color(.systemPink).frame(height: 250)
+                    // Color(.systemPink).frame(height: 250)
                     
                 }
             }
