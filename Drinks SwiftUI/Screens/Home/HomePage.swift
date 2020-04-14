@@ -28,19 +28,6 @@ struct HomePage: View {
                         
                         FeaturedCategory(drinks: category.drinks, categoryName: category.name)
                     }
-                    
-                    // DrinkCell(viewModel: self.viewModel,drink: self.viewModel.drinks[i])
-                    
-                    
-                    // Color(.systemPink).frame(height: 250)
-                    // Color(.systemPink).frame(height: 250)
-                    // Color(.systemPink).frame(height: 250)
-                    // Color(.systemPink).frame(height: 250)
-                    // Color(.systemPink).frame(height: 250)
-                    // Color(.systemPink).frame(height: 250)
-                    // Color(.systemPink).frame(height: 250)
-                    // Color(.systemPink).frame(height: 250)
-                    
                 }
             }
         }.navigationViewStyle(StackNavigationViewStyle())
