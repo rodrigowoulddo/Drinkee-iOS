@@ -52,7 +52,7 @@ class HomeViewModel: ObservableObject, Identifiable {
     
     // MARK: - Previews
     func configurePreview() {
-        self.categories = [Category.sampleCategory, Category.sampleCategory, Category.sampleCategory]
+        self.categories = Array(repeating: .sampleCategory, count: 3)
     }
     
 }

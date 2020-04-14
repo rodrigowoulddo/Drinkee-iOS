@@ -30,11 +30,9 @@ struct Drink: Identifiable, Codable, Hashable {
 
     
     #if DEBUG
-    static let sampleDrinks: [Drink] = [
-        Drink(numberOfRatingVotes: 10, name: "Mock Drink", strength: 8.1, style: "Party", rating: 6.1, author: "Didico", baseSpirit: nil, liquor: "Aperol", wineVermouth: nil, ingredients: [Ingredient(name: "Aperol", strength: 6.7, measurement: 4, measurementUnit: "ml", color: "blue")], steps: ["Step 1", "Step 2"], photoUrlSmall: "https://vilavinifera.files.wordpress.com/2016/10/orange-juice-410333_960_720.jpg?w=940", photoUrlMedium: "https://vilavinifera.files.wordpress.com/2016/10/orange-juice-410333_960_720.jpg?w=940", photoUrlLarge: nil),
-        Drink(numberOfRatingVotes: 10, name: "Mock Drink", strength: 8.1, style: "Party", rating: 6.1, author: "Didico", baseSpirit: nil, liquor: "Aperol", wineVermouth: nil, ingredients: [Ingredient(name: "Aperol", strength: 6.7, measurement: 4, measurementUnit: "ml", color: "blue")], steps: ["Step 1", "Step 2"], photoUrlSmall: "https://vilavinifera.files.wordpress.com/2016/10/orange-juice-410333_960_720.jpg?w=940", photoUrlMedium: "https://vilavinifera.files.wordpress.com/2016/10/orange-juice-410333_960_720.jpg?w=940", photoUrlLarge: nil),
-        Drink(numberOfRatingVotes: 10, name: "Mock Drink", strength: 8.1, style: "Party", rating: 6.1, author: "Didico", baseSpirit: nil, liquor: "Aperol", wineVermouth: nil, ingredients: [Ingredient(name: "Aperol", strength: 6.7, measurement: 4, measurementUnit: "ml", color: "blue")], steps: ["Step 1", "Step 2"], photoUrlSmall: "https://vilavinifera.files.wordpress.com/2016/10/orange-juice-410333_960_720.jpg?w=940", photoUrlMedium: "https://vilavinifera.files.wordpress.com/2016/10/orange-juice-410333_960_720.jpg?w=940", photoUrlLarge: nil)
-    ]
+    static let sampleDrink: Drink = Drink(numberOfRatingVotes: 10, name: "Mock Drink", strength: 8.1, style: "Party", rating: 6.1, author: "Didico", baseSpirit: nil, liquor: "Aperol", wineVermouth: nil, ingredients: [Ingredient(name: "Aperol", strength: 6.7, measurement: 4, measurementUnit: "ml", color: "blue")], steps: ["Step 1", "Step 2"], photoUrlSmall: "https://vilavinifera.files.wordpress.com/2016/10/orange-juice-410333_960_720.jpg?w=940", photoUrlMedium: "https://vilavinifera.files.wordpress.com/2016/10/orange-juice-410333_960_720.jpg?w=940", photoUrlLarge: nil)
+    
+    static let sampleDrinks: [Drink] = Array(repeating: sampleDrink, count: 5)
     #endif
 
 }
