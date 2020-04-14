@@ -10,7 +10,7 @@ import Foundation
 
 // MARK: - Ingredient
 struct Ingredient: Identifiable, Codable, Hashable {
-    var id : UUID? = UUID()
+    var id: UUID? = UUID()
     let name: String
     let strength: Double
     let measurement: Int

@@ -10,7 +10,7 @@ import Foundation
 
 // MARK: - Drink
 struct Drink: Identifiable, Codable, Hashable {
-    var id : UUID? = UUID()
+    var id: UUID? = UUID()
     let numberOfRatingVotes: Int
     let name: String
     let strength: Double
