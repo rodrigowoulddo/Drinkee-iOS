@@ -37,18 +37,28 @@ struct DrinkList: View {
                     }
                 }
             }
-            
         }.background(Color(UIColor.drinkListBackground))
     }
 }
 
 struct DrinkListTitle: View {
     var body: some View {
-        Text("Drinks")
-            .font(.system(size: 33))
-            .fontWeight(.semibold)
-            .foregroundColor(Color(UIColor.white))
-            .frame(height: 80)
+        VStack(spacing: 0) {
+            
+            Spacer().frame(height: 40)
+            
+            Text("Drinks")
+                .font(.system(size: 33))
+                .fontWeight(.semibold)
+                .foregroundColor(Color(UIColor.white))
+                .frame(height: 50)
+            
+            Image(systemName: "arrowtriangle.down.fill")
+                .resizable()
+                .foregroundColor(Color(UIColor.white))
+                .aspectRatio(contentMode: .fit)
+                .frame(width: 50, height: 18)
+        }
     }
 }
 
@@ -77,6 +87,7 @@ struct DrinkCell: View {
                 
                 VStack {
                     
+                    Spacer().frame(height: 15)
                     DrinkCellTitle(name: drink.name, style: drink.style)
                     DrinkCellImage(imageUrl: drink.photoUrlSmall)
                 }
@@ -115,9 +126,9 @@ struct DrinkCellTitle: View {
     
     var body: some View {
 
-        VStack {
+        VStack(spacing: 0) {
             
-            Spacer().frame(height:20)
+            //Spacer().frame(height:12)
             
             Text(name)
                 .font(.system(size: 20))
@@ -127,8 +138,6 @@ struct DrinkCellTitle: View {
                 .foregroundColor(Color(UIColor.subTitleText))
             
         }
-        .padding(2)
-        
     }
 }
 
