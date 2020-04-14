@@ -22,7 +22,7 @@ struct DrinkList: View {
             
             ScrollView {
                 
-                if viewModel.drinks.count == 0 {
+                if viewModel.drinks.isEmpty {
                     Text("No drinks were found.")
                 }
                 

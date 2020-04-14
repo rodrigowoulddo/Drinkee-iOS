@@ -18,7 +18,7 @@ struct HomePage: View {
             
             ScrollView {
                 
-                if viewModel.categories.count == 0 {
+                if viewModel.categories.isEmpty {
                     Text("No drinks were found.")
                 }
                 
