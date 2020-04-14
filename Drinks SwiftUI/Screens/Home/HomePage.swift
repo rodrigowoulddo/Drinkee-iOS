@@ -71,6 +71,16 @@ struct FeaturedCategory: SwiftUI.View {
                     .padding(.leading)
                 Spacer()
             }
+            HStack {
+                Spacer()
+                //TODO: - Fazer o request de categorias e ver quantas sao para especificar ao usuario
+                Text("Ver Todos")
+                    //.font(.system(size: 38))
+                    .font(.system(.headline))
+                    .bold()
+                    .padding(.trailing)
+                    .foregroundColor(.gray)
+            }
             CollectionView()
         }
     }
