@@ -44,6 +44,7 @@ extension UIColor {
         case "light-yellow": return #colorLiteral(red: 1, green: 0.9725490196, blue: 0.8784313725, alpha: 1)
         case "light-green": return #colorLiteral(red: 0.9254901961, green: 0.9647058824, blue: 0.9411764706, alpha: 1)
         case "soft-red": return #colorLiteral(red: 0.9294117647, green: 0.7215686275, blue: 0.7215686275, alpha: 1)
+        case "soft-orange": return #colorLiteral(red: 0.9490196078, green: 0.8470588235, blue: 0.6509803922, alpha: 1)
         default: return .white
         }
         
