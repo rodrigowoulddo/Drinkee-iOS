@@ -17,6 +17,8 @@ struct DrinkDetail: View {
     
     var body: some View  {
         
+        
+        
         HStack {
             
             Spacer()
@@ -26,22 +28,41 @@ struct DrinkDetail: View {
                 
                 ScrollView {
                     
-                    VStack(alignment: .center) {
+                    VStack(alignment: .center, spacing: 0) {
                         
-                        HStack {
-                            Spacer()
-                            FavoriteButton(drinkName: drink.name)
+                        ZStack {
+                            
+                            DrinkDetailBlurImage(imageUrl: drink.photoUrlMedium)
+                                .offset(y: -80)
+                            
+                            VStack {
+                                
+                                // Favorite button
+                                // HStack {
+                                //    Spacer()
+                                //    FavoriteButton(drinkName: drink.name)
+                                // }
+                                
+                                Spacer().frame(height: 30)
+                                
+                                DrinkDetailTitle(name: drink.name, strength: drink.strength)
+                                
+                                DrinkDetailImage(imageUrl: drink.photoUrlMedium)
+                                    .offset(y: -50)
+                                
+                            }
                         }
                         
-                        DrinkDetailTitle(name: drink.name, style: drink.style)
-                        
-                        DrinkDetailImage(imageUrl: drink.photoUrlMedium).padding()
-                        
-                        DrinkDetailAttributes(drink: drink).padding()
-                        
-                        DrinkDetailSteps(ingredients: drink.ingredients, steps: drink.steps).padding()
-                        
-                        DrinkDetailIngredients(selectedDosageIndex: $selectedDosageIndex, selectedUnitIndex: $selectedUnitIndex, ingredients: drink.ingredients)
+                        VStack {
+                            
+                            DrinkDetailAttributes(drink: drink)
+                                //.offset(y: -150)
+                            
+                            DrinkDetailSteps(ingredients: drink.ingredients, steps: drink.steps).padding()
+                            
+                            DrinkDetailIngredients(selectedDosageIndex: $selectedDosageIndex, selectedUnitIndex: $selectedUnitIndex, ingredients: drink.ingredients)
+                        }
+                        .offset(y: -150)
                         
                     }
                 }
@@ -66,9 +87,24 @@ struct DrinkDetailImage: SwiftUI.View  {
     var body: some SwiftUI.View  {
         
         URLImage(url: imageUrl)
-            .frame(width:300, height: 300)
-            .clipShape(Circle())
+            .aspectRatio(contentMode: .fit)
+            .frame(height: 600)
             .shadow(radius: 8)
+    }
+}
+
+struct DrinkDetailBlurImage: SwiftUI.View  {
+    
+    let imageUrl: String?
+    
+    var body: some SwiftUI.View  {
+        
+        URLImage(url: imageUrl)
+            .aspectRatio(contentMode: .fit)
+            .frame(height: 900)
+            .shadow(radius: 8)
+            .opacity(0.8)
+            .blur(radius: 20)
     }
 }
 
@@ -94,18 +130,18 @@ struct FavoriteButton: View {
 struct DrinkDetailTitle: View {
     
     let name: String
-    let style: String
+    let strength: Double
     
     var body: some View {
         VStack {
             
             Text(name)
-                .font(.largeTitle)
-                .foregroundColor(Color(UIColor.label))
+                .font(.system(size: 48, weight: .bold, design: .default))
+                .foregroundColor(Color(UIColor.darkTitle))
             
-            Text(style)
-                .font(.subheadline)
-                .foregroundColor(Color(UIColor.secondaryLabel))
+            Text("\(Int(round(strength * 100)))%") // TODO: - Add Light / Medium / Strong
+                .font(.system(size:24, weight: .regular, design: .default))
+                .foregroundColor(Color(UIColor.white))
         }.padding()
     }
 }
@@ -155,8 +191,8 @@ struct AttributeRow: View {
             }
             
         }.frame(height: 30)
-        .padding(8)
-        .background(Color(UIColor.tertiarySystemFill))
+            .padding(8)
+            .background(Color(UIColor.tertiarySystemFill))
     }
 }
 
@@ -174,7 +210,7 @@ struct DrinkDetailSteps: View {
                 
                 ForEach(steps, id: \.self) {
                     step in
-
+                    
                     DrinkDetailStepRow(stepOrder: self.steps.firstIndex(of: step) ?? 0, step: step)
                 }
             }.padding()
@@ -209,7 +245,7 @@ struct DrinkDetailIngredients: View {
     let ingredients: [Ingredient]
     
     let units: [String] = ["ml", "cl", "oz"]
-
+    
     var body: some View {
         VStack {
             

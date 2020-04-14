@@ -35,7 +35,7 @@ struct Drink: Identifiable, Codable, Hashable {
         Drink(
             numberOfRatingVotes: 10,
             name: "Mock Drink",
-            strength: 8.1,
+            strength: 0.11,
             style: "Party",
             rating: 6.1,
             author: "Didico",
