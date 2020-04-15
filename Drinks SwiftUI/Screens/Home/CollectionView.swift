@@ -9,8 +9,7 @@ import SwiftUI
 
 
 struct CollectionView: SwiftUI.View {
-    var drinks: [Drink] = Drink.sampleDrinks
-    //TODO: - Mudar esse valor para detectar o dispositivo e se ajustar conforme o mesmo
+    var drinks: [Drink]
     var drinksPerRow: Int {
         if UIDevice.current.model == "iPad" {
             return 3
@@ -28,12 +27,12 @@ struct CollectionView: SwiftUI.View {
         .collect()
         .sink(receiveValue: { cells = $0 })
         
-        return ForEach(0..<cells.count, id: \.self) { collect in
+        return ForEach(0..<cells.count, id: \.self) { rowIndex in
             // Adding HStack to make 2 cells per line
             HStack {
-                ForEach(cells[collect], id: \.self) { collection in
-                    NavigationLink(destination: DrinkDetail(drink: self.drinks[collection])) {
-                        CollectionViewCells(drink: self.drinks[collection])
+                ForEach(cells[rowIndex], id: \.self) { cellIndex in
+                    NavigationLink(destination: DrinkDetail(drink: self.drinks[cellIndex])) {
+                        CollectionViewCells(drink: self.drinks[cellIndex])
                     }.buttonStyle(PlainButtonStyle())
                 }
             }
@@ -43,31 +42,44 @@ struct CollectionView: SwiftUI.View {
 
 struct CollectionView_Previews: PreviewProvider {
     static var previews: some SwiftUI.View {
-        CollectionView()
+        CollectionView(drinks: Drink.sampleDrinks)
     }
 }
 
 struct CollectionViewCells: SwiftUI.View {
     var drink: Drink
     
-    //MARK: - Para testar cores de background
+    //TODO: - Mudar essa cor para uma cor salva no banco
     let backgroundTestColor = Color(
         red     : 130.0/255.0,
         green   : 23.0/255.0,
         blue    : 28.0/255.0
     )
     
+    var strengthString: String {
+        if(drink.strength < 11) {
+            return "Light (\(drink.strength)%)"
+        } else if (drink.strength < 20) {
+            return "Medium (\(drink.strength)%)"
+        } else if (drink.strength < 30) {
+            return "Strong (\(drink.strength)%)"
+        } else {
+            return "Very Strong (\(drink.strength)%)"
+        }
+    }
+    
     var body: some SwiftUI.View {
         VStack {
             Text(drink.name)
                 .padding(.top)
                 .font(.system(.headline))
-            Text(String(drink.strength))
+            Text(strengthString)
                 .font(.system(.caption))
                 .foregroundColor(.gray)
-            URLImage(url: drink.photoUrlMedium!)
+            URLImage(url: drink.photoUrlMedium)
                 .padding(4)
         }.background(self.backgroundTestColor.opacity(0.2))
             .cornerRadius(20)
+            //.aspectRatio(1, contentMode: .fit)
     }
 }

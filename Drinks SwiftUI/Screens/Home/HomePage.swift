@@ -26,7 +26,7 @@ struct HomePage: View {
                     ForEach(viewModel.categories, id: \.self) {
                         category in
                         
-                        FeaturedCategory(drinks: category.drinks, categoryName: category.name)
+                        FeaturedCategory(category: category)
                     }
                 }
             }
@@ -42,13 +42,12 @@ struct HomePage_Previews: PreviewProvider {
 
 // MARK: - Collections de drinks em destaque
 struct FeaturedCategory: SwiftUI.View {
-    var drinks: [Drink]
-    var categoryName: String
+    var category: Category
     
     var body: some SwiftUI.View {
         Group {
             HStack {
-                Text(categoryName)
+                Text(category.name)
                     //.font(.system(size: 38))
                     .font(.system(.largeTitle))
                     .bold()
@@ -65,7 +64,7 @@ struct FeaturedCategory: SwiftUI.View {
                     .padding(.trailing)
                     .foregroundColor(.gray)
             }
-            CollectionView()
+            CollectionView(drinks: category.drinks)
         }
     }
 }
