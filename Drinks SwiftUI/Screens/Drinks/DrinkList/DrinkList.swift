@@ -18,24 +18,45 @@ struct DrinkList: View {
     
     var body: some View {
         
-        HStack {
+        HStack(spacing: 0) {
             
-            ScrollView {
-                
-                if viewModel.drinks.isEmpty {
-                    Text("No drinks were found.")
+            
+            if viewModel.drinks.isEmpty {
+                VStack (alignment: .center) {
+                    
+                    Spacer()
+                    
+                    HStack {
+                        Spacer()
+                        
+                        Image(systemName: "wifi.slash")
+                            .resizable()
+                            .aspectRatio(contentMode: .fill)
+                            .frame(width: 50, height: 50)
+                            .foregroundColor(Color.white)
+                        
+                        Spacer()
+                    }
+                    
+                    Spacer()
+                    
                 }
+            } else {
                 
-                VStack (spacing: 2){
+                ScrollView {
                     
-                    DrinkListTitle()
-                    
-                    ForEach(viewModel.drinks, id: \.self) {
-                        drink in
-                        DrinkCell(viewModel: self.viewModel, drink: drink)
+                    VStack (spacing: 2){
+                        
+                        DrinkListTitle()
+                        
+                        ForEach(viewModel.drinks, id: \.self) {
+                            drink in
+                            DrinkCell(viewModel: self.viewModel, drink: drink)
+                        }
                     }
                 }
             }
+            
         }.background(Color(UIColor.listBackground))
     }
     
@@ -99,7 +120,7 @@ struct DrinkList: View {
             .buttonStyle(PlainButtonStyle())
             .background(Color(UIColor.quaternarySystemFill))
             .frame(height: 144)
-            .border(Color.white, width: 4)
+            .border(Color.white, width: 2)
             .cornerRadius(10)
             .padding(8)
             
@@ -112,10 +133,9 @@ struct DrinkList: View {
         
         var body: some View {
             
-            URLImage(url: imageUrl, shadowRadius: 5)
+            URLImage(url: imageUrl)
                 .aspectRatio(contentMode: .fill)
                 .frame(width: 130, height: 144)
-                .shadow(radius: 4)
                 .offset(y: 50)
             
         }
@@ -130,14 +150,12 @@ struct DrinkList: View {
         var body: some View {
             
             VStack(spacing: 0) {
-                
-                //Spacer().frame(height:12)
-                
+                                
                 Text(name)
-                    .font(.system(size: 20))
+                    .font(.system(size: 20, weight: .medium, design: .default))
                 
-                Text(style)
-                    .font(.system(size: 10))
+                Text(style.capitalized)
+                    .font(.system(size: 10, weight: .medium, design: .default))
                     .foregroundColor(Color(UIColor.subTitleText))
                 
             }
