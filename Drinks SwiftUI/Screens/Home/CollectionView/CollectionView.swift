@@ -82,7 +82,7 @@ struct CollectionViewCells: SwiftUI.View {
             Text(strengthString)
                 .font(.system(.caption))
                 .foregroundColor(.gray)
-            URLImage(url: drink.photoUrlMedium)
+            URLImage(url: drink.photoUrlMedium, contentMode: .fit)
                 .padding(4)
         }.background(self.backgroundTestColor.opacity(0.2))
             .cornerRadius(20)
