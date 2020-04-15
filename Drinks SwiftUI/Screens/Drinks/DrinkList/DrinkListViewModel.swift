@@ -21,7 +21,7 @@ class DrinkListViewModel: ObservableObject, Identifiable {
     init() {
         
         #if DEBUG
-        configurePreview()
+        //configurePreview()
         #endif
         
         fetchDrinks()

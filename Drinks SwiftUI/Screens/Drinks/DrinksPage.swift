@@ -15,7 +15,7 @@ struct DrinksPage: View {
     var body: some View {
         
         HStack {
-            DrinkList(viewModel: drinkListViewModel).frame(width: 250)
+            DrinkList(viewModel: drinkListViewModel).frame(width: 215)
             DrinkDetail(drink: drinkListViewModel.selectedDrink)
         }
         
