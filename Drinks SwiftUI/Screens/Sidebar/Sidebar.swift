@@ -16,21 +16,22 @@ enum Tab {
     
     var name: String {
         
+        // TODO: - Localize
         switch self {
-            case .home: return "Home"
+            case .home: return "Descubra"
             case .drinks: return "Drinks"
-            case .ingredients: return "Ingredients"
-            case .favorites: return "Favorites"
+            case .ingredients: return "Ingredientes"
+            case .favorites: return "Favoritos"
         }
     }
     
     var iconName: String {
         
         switch self {
-            case .home: return "house.fill"
-            case .drinks: return "sun.min.fill"
-            case .ingredients: return "cart.fill"
-            case .favorites: return "star.fill"
+            case .home: return "Discover"
+            case .drinks: return "Drinks"
+            case .ingredients: return "Favorites"
+            case .favorites: return "Ingredients"
         }
     }
 }
@@ -41,9 +42,9 @@ struct Sidebar: View {
     
     var body: some View {
         
-        HStack {
+        HStack() {
             
-            VStack(alignment: .leading, spacing: 10) {
+            VStack(alignment: .center, spacing: 40) {
                 
                 TabButton(tab: .home, currentTab: $currentTab)
                 TabButton(tab: .drinks, currentTab: $currentTab)
@@ -53,9 +54,9 @@ struct Sidebar: View {
                 Spacer()
                 
             }
-            .frame(width: 45)
+            .frame(width: 80)
             .padding(16)
-            .background(Color(UIColor.secondarySystemFill))
+            .background(Color(UIColor.tabBarBackground))
             
             
             /// Selected tab
@@ -82,18 +83,35 @@ struct TabButton: View {
     
     @Binding var currentTab: Tab
     
+    var tintColor: Color {
+        Color(tab == currentTab ? UIColor.tabBarSelectedTint : UIColor.tabBarUnselectedTint)
+    }
+    
     var body: some View {
+        
         Button(action: {
             
             print("Did select \(self.tab.name) tab")
             self.currentTab = self.tab
             
         }) {
-            Image(systemName: self.tab.iconName)
-                .frame(width: 50, height: 50)
-                .accentColor(.white)
-                .background(Circle().fill(Color(UIColor.systemPink)))
-        }.padding(16)
+            
+            VStack(alignment: .center) {
+                
+                Image(tab.iconName) /// TODO: - Verify if asset exists
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 50, height: 50)
+                    .accentColor(.white)
+                    .foregroundColor(Color(UIColor.tabBarSelectedTint))
+                    .colorMultiply(tintColor)
+                
+                Text(tab.name).font(.system(size: 13))
+                    .foregroundColor(tintColor)
+            }
+            
+        }
+        .buttonStyle(PlainButtonStyle())
     }
 }
 

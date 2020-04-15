@@ -22,6 +22,7 @@ struct Drink: Identifiable, Codable, Hashable {
     let wineVermouth: String?
     let ingredients: [Ingredient]
     let steps: [String]
+    let color: String?
     
     /// Photos
     let photoUrlSmall: String?
@@ -31,7 +32,37 @@ struct Drink: Identifiable, Codable, Hashable {
     
     #if DEBUG
 
-    static let sampleDrink: Drink = Drink(numberOfRatingVotes: 10, name: "Mock Drink", strength: 8.1, style: "Party", rating: 6.1, author: "Didico", baseSpirit: nil, liquor: "Aperol", wineVermouth: nil, ingredients: [Ingredient(name: "Aperol", strength: 6.7, measurement: 4, measurementUnit: "ml", color: "blue")], steps: ["Step 1", "Step 2"], photoUrlSmall: "https://vilavinifera.files.wordpress.com/2016/10/orange-juice-410333_960_720.jpg?w=940", photoUrlMedium: "https://vilavinifera.files.wordpress.com/2016/10/orange-juice-410333_960_720.jpg?w=940", photoUrlLarge: nil)
+    static let sampleDrink: Drink =
+        Drink(
+            numberOfRatingVotes: 10,
+            name: "Mock Drink",
+            strength: 0.11,
+            style: "Party",
+            rating: 6.1,
+            author: "Didico",
+            baseSpirit: nil,
+            liquor: "Aperol",
+            wineVermouth: nil,
+            ingredients:
+                [
+                    Ingredient(
+                        name: "Aperol",
+                        strength: 6.7,
+                        measurement: 4,
+                        measurementUnit: "ml",
+                        color: "soft-red"
+                    )
+                ],
+            steps:
+                [
+                    "Step 1",
+                    "Step 2"
+                ],
+            color: "light-green",
+            photoUrlSmall: "https://rodrigowoulddo.github.io/DrinKeeImages/blood-mary/small.png",
+            photoUrlMedium: "https://rodrigowoulddo.github.io/DrinKeeImages/blood-mary/medium.png",
+            photoUrlLarge: "https://rodrigowoulddo.github.io/DrinKeeImages/blood-mary/large.png"
+        )
     
     static let sampleDrinks: [Drink] = Array(repeating: sampleDrink, count: 5)
 
