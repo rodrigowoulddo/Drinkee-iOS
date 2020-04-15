@@ -150,6 +150,8 @@ struct DrinkList: View {
         var body: some View {
             
             VStack(spacing: 0) {
+                             
+                Spacer().frame(height: 2)
                                 
                 Text(name)
                     .font(.system(size: 20, weight: .medium, design: .default))
