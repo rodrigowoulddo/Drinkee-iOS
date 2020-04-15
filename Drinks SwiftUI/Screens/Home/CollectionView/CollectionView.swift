@@ -9,7 +9,9 @@ import SwiftUI
 
 
 struct CollectionView: SwiftUI.View {
-    var drinks: [Drink]
+    
+    @ObservedObject var viewModel: CollecTionViewViewModel
+        
     var drinksPerRow: Int {
         if UIDevice.current.model == "iPad" {
             return 3
@@ -18,11 +20,15 @@ struct CollectionView: SwiftUI.View {
         }
     }
     
+    init(viewModel: CollecTionViewViewModel) {
+        self.viewModel = viewModel
+    }
+    
     
     var body: some View {
         
         var cells: [[Int]] = []
-        _ = (0...(drinks.count-1)).publisher //quantos elementos vao ser
+        _ = (0...(viewModel.drinks.count-1)).publisher //quantos elementos vao ser
         .collect(drinksPerRow) //quantos elementos por linha
         .collect()
         .sink(receiveValue: { cells = $0 })
@@ -31,8 +37,8 @@ struct CollectionView: SwiftUI.View {
             // Adding HStack to make 2 cells per line
             HStack {
                 ForEach(cells[rowIndex], id: \.self) { cellIndex in
-                    NavigationLink(destination: DrinkDetail(drink: self.drinks[cellIndex])) {
-                        CollectionViewCells(drink: self.drinks[cellIndex])
+                    NavigationLink(destination: DrinkDetail(drink: self.viewModel.drinks[cellIndex])) {
+                        CollectionViewCells(drink: self.viewModel.drinks[cellIndex])
                     }.buttonStyle(PlainButtonStyle())
                 }
             }
@@ -42,7 +48,7 @@ struct CollectionView: SwiftUI.View {
 
 struct CollectionView_Previews: PreviewProvider {
     static var previews: some SwiftUI.View {
-        CollectionView(drinks: Drink.sampleDrinks)
+        CollectionView(viewModel: CollecTionViewViewModel(categoryId: "babc2777-7a80-4174-8bda-115e6a1f8ec0"))
     }
 }
 

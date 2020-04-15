@@ -38,6 +38,7 @@
 		75CBB71424351E1C00CD6593 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 75CBB71324351E1C00CD6593 /* Preview Assets.xcassets */; };
 		75CBB71724351E1C00CD6593 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75CBB71524351E1C00CD6593 /* LaunchScreen.storyboard */; };
 		75CBB72024351FB500CD6593 /* Drink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CBB71F24351FB500CD6593 /* Drink.swift */; };
+		75F4F9DF2447A10E009E8766 /* CollecTionViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F4F9DE2447A10E009E8766 /* CollecTionViewViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -77,6 +78,7 @@
 		75CBB71624351E1C00CD6593 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		75CBB71824351E1C00CD6593 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		75CBB71F24351FB500CD6593 /* Drink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Drink.swift; sourceTree = "<group>"; };
+		75F4F9DE2447A10E009E8766 /* CollecTionViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollecTionViewViewModel.swift; sourceTree = "<group>"; };
 		8D848981986FAE9382657C66 /* Pods-Drinks SwiftUI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Drinks SwiftUI.release.xcconfig"; path = "Target Support Files/Pods-Drinks SwiftUI/Pods-Drinks SwiftUI.release.xcconfig"; sourceTree = "<group>"; };
 		90344AE1CA02C2BDA4A46B96 /* Pods_Drinks_SwiftUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Drinks_SwiftUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -195,7 +197,7 @@
 		7523189F243CF18200BE3484 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				75C203112447912900DF905A /* CollectionView.swift */,
+				75F4F9E02447A125009E8766 /* CollectionView */,
 				752318A2243CF3F000BE3484 /* HomePage.swift */,
 				75A398232444D9A70073C40E /* HomeViewModel.swift */,
 			);
@@ -294,6 +296,15 @@
 				75A398202444D82F0073C40E /* Ingredient.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		75F4F9E02447A125009E8766 /* CollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				75F4F9DE2447A10E009E8766 /* CollecTionViewViewModel.swift */,
+				75C203112447912900DF905A /* CollectionView.swift */,
+			);
+			path = CollectionView;
 			sourceTree = "<group>";
 		};
 		8E94891A13A641C18692A54D /* Frameworks */ = {
@@ -455,6 +466,7 @@
 				75C20316244791E700DF905A /* UIImage+Extensions.swift in Sources */,
 				751C9B302437CCEB001CDE2F /* DateFormatter+Extensions.swift in Sources */,
 				75A3981F2444D7E00073C40E /* Category.swift in Sources */,
+				75F4F9DF2447A10E009E8766 /* CollecTionViewViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
