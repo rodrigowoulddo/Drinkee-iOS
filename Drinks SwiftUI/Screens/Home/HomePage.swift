@@ -64,7 +64,9 @@ struct FeaturedCategory: SwiftUI.View {
                     .padding(.trailing)
                     .foregroundColor(.gray)
             }
-            CollectionView(drinks: category.drinks)
+//            CollectionView(drinks: category.drinks)
+            CollectionView(viewModel: CollecTionViewViewModel(categoryId: category.uid))
+
         }
     }
 }
