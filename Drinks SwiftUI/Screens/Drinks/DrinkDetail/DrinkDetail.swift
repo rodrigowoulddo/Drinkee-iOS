@@ -284,12 +284,12 @@ struct DrinkDetailIngredientSelectors: View {
                 Text("Unidade de Medida")
                     .font(.system(size: 24, weight: .regular, design: .default))
                     .foregroundColor(Color(UIColor.darkTitle))
-                
+
                 Picker("Medida", selection: $selectedUnitIndex) {
-                    
+
                     ForEach(self.units, id: \.self) {
                         unit in
-                        
+
                         Text(unit)
                     }
                 }
