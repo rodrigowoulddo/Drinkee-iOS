@@ -437,7 +437,7 @@ struct DrinkDetailStepRow: View {
                     attributedStepDictionary.append(
                     Text(String(ingredients[i].name))
                         .font(.system(size: 24, weight: .bold, design: .default))
-                        .foregroundColor(Color(UIColor.from(colorNamed: ingredients[i].color)))
+                        .foregroundColor(Color(UIColor.yellowText))
                     )
                 }
             }
