@@ -65,8 +65,7 @@ struct FeaturedCategory: SwiftUI.View {
                     .foregroundColor(.gray)
             }
 //            CollectionView(drinks: category.drinks)
-            CollectionView(viewModel: CollecTionViewViewModel(categoryId: category.uid))
-
+            CollectionView(viewModel: CollecTionViewViewModel(categoryId: category.uid)).padding(.bottom, 60)
         }
     }
 }

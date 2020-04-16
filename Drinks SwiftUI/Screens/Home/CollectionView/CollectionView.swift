@@ -62,24 +62,12 @@ struct CollectionViewCells: SwiftUI.View {
         blue    : 28.0/255.0
     )
     
-    var strengthString: String {
-        if(drink.strength < 11) {
-            return "Light (\(drink.strength * 100)%)"
-        } else if (drink.strength < 20) {
-            return "Medium (\(drink.strength * 100)%)"
-        } else if (drink.strength < 30) {
-            return "Strong (\(drink.strength * 100)%)"
-        } else {
-            return "Very Strong (\(drink.strength * 100)%)"
-        }
-    }
-    
     var body: some SwiftUI.View {
         VStack {
             Text(drink.name)
                 .padding(.top)
                 .font(.system(.headline))
-            Text(strengthString)
+            Text(drink.strengthString)
                 .font(.system(.caption))
                 .foregroundColor(.gray)
             URLImage(url: drink.photoUrlMedium, contentMode: .fit)
