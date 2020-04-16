@@ -344,7 +344,7 @@ struct DrinkDetailIngredientRow: View {
         HStack {
             
             HStack {
-                Text("\(ingredient.measurement) \(ingredient.measurementUnit)")
+                Text("\(ingredient.measurement!) \(ingredient.measurementUnit!)")
                     .font(.system(size: 24, weight: .regular, design: .default))
                     .foregroundColor(Color(UIColor.darkTitle))
                 

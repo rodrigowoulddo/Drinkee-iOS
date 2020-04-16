@@ -50,7 +50,11 @@ struct Drink: Identifiable, Codable, Hashable {
                         strength: 6.7,
                         measurement: 4,
                         measurementUnit: "ml",
-                        color: "soft-red"
+                        color: "soft-red",
+                        alcoholicType: nil,
+                        photoUrlSmall: nil,
+                        photoUrlMedium: nil,
+                        photoUrlLarge: nil
                     )
                 ],
             steps:

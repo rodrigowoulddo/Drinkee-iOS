@@ -11,8 +11,8 @@ import Foundation
 class IngredientListViewModel: ObservableObject, Identifiable  {
     
     // MARK: - Observables
-    @Published var ingredients: [AlcohoolicIngredient] = []
-    @Published var selectedIngredient: AlcohoolicIngredient?
+    @Published var ingredients: [Ingredient] = []
+    @Published var selectedIngredient: Ingredient?
     
     // MARK: - Atributtes
     let service = Service<DrinkEndpoint>()
@@ -32,7 +32,7 @@ class IngredientListViewModel: ObservableObject, Identifiable  {
     func fetchIngredients() {
                 
         service.request(.getAllAlchoolicIngredients) {
-            (result: Result<[AlcohoolicIngredient], Error>) in
+            (result: Result<[Ingredient], Error>) in
 
             switch result {
                 

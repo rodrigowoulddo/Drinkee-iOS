@@ -13,7 +13,13 @@ struct Ingredient: Identifiable, Codable, Hashable {
     var id: UUID? = UUID()
     let name: String
     let strength: Double
-    let measurement: Int
-    let measurementUnit: String
+    let measurement: Int?
+    let measurementUnit: String?
     let color: String?
+    let alcoholicType: String?
+
+    /// Photos
+    let photoUrlSmall: String?
+    let photoUrlMedium: String?
+    let photoUrlLarge: String?
 }

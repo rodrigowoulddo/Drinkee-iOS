@@ -15,18 +15,8 @@ struct IngredientsPage: View {
     var body: some View {
         
         HStack {
-                
-                VStack (spacing: 10) {
-                    
-                    ForEach(viewModel.ingredients, id: \.self) {
-                        ingredient in
-                        
-                        Text(ingredient.name)
-                    }
-                    
-                }
-            
-            Spacer()
+                IngredientList(viewModel: viewModel).frame(width: 215)
+                IngredientDetail(ingredient: viewModel.selectedIngredient)
         }
         
     }
