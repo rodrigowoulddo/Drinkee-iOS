@@ -14,9 +14,10 @@ enum DrinkEndpoint {
     
     case getAllDrinks
     case getDrinkByName(String)
-    case getDrinkByAlchoolicIngredient(liquor: String?, baseSpirit: String?)
+    case getDrinkByAlchoolicIngredient(liquor: String?, baseSpirit: String?, wineVermouth: String?)
     case getAllCategories
     case getDrinksByCategoryId(String)
+    case getAllAlchoolicIngredients
 }
 
 extension DrinkEndpoint: TargetType {
@@ -29,6 +30,7 @@ extension DrinkEndpoint: TargetType {
             case .getDrinkByAlchoolicIngredient: return "/drink/ingredient/alcoholic"
             case .getAllCategories: return "/category/all"
             case .getDrinksByCategoryId(let id): return "/category/\(id)/drinks"
+            case .getAllAlchoolicIngredients: return "/ingredient/alcoholic/all"
         }
     }
     
@@ -40,6 +42,7 @@ extension DrinkEndpoint: TargetType {
             case .getDrinkByAlchoolicIngredient: return .get
             case .getAllCategories: return .get
             case .getDrinksByCategoryId: return .get
+            case .getAllAlchoolicIngredients: return .get
         }
     }
     
@@ -53,14 +56,17 @@ extension DrinkEndpoint: TargetType {
         case .getDrinkByName:
             return .requestPlain
             
-        case .getDrinkByAlchoolicIngredient(let liquor, let baseSpirit):
-            let params = makeParamsDictionary(["liquor": liquor, "baseSpirit": baseSpirit])
+        case .getDrinkByAlchoolicIngredient(let liquor, let baseSpirit, let wineVermouth ):
+            let params = makeParamsDictionary(["liquor": liquor, "baseSpirit": baseSpirit, "wineVermouth": wineVermouth])
             return .requestParameters(parameters: params, encoding: URLEncoding.queryString)
             
         case .getAllCategories:
             return .requestPlain
             
         case .getDrinksByCategoryId:
+            return .requestPlain
+            
+        case .getAllAlchoolicIngredients:
             return .requestPlain
             
         }
