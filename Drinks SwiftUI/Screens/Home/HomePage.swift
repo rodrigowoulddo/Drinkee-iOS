@@ -10,12 +10,11 @@ import SwiftUI
 
 struct HomePage: View {
     
+    var drinks: [Drink] = Drink.sampleDrinks
     @ObservedObject var viewModel: HomeViewModel = HomeViewModel()
     
     var body: some View {
-        
-        HStack {
-            
+        NavigationView{
             ScrollView {
                 
                 if viewModel.categories.isEmpty {
@@ -23,35 +22,83 @@ struct HomePage: View {
                 }
                 
                 VStack(spacing: 10) {
-                    
+                    FeaturedDrinksCollectionView(drinks: drinks)
                     ForEach(viewModel.categories, id: \.self) {
                         category in
                         
-                        HStack {
-                            
-                            Spacer()
-                            Text(category.name)
-                            Spacer()
-                        }
+                        FeaturedCategory(category: category)
                     }
-                    
-                    // Color(.systemPink).frame(height: 250)
-                    // Color(.systemPink).frame(height: 250)
-                    // Color(.systemPink).frame(height: 250)
-                    // Color(.systemPink).frame(height: 250)
-                    // Color(.systemPink).frame(height: 250)
-                    // Color(.systemPink).frame(height: 250)
-                    // Color(.systemPink).frame(height: 250)
-                    // Color(.systemPink).frame(height: 250)
-                    
                 }
             }
-        }
+        }.navigationViewStyle(StackNavigationViewStyle())
     }
 }
 
 struct HomePage_Previews: PreviewProvider {
     static var previews: some View {
         HomePage()
+    }
+}
+
+// MARK: - Collections de drinks em destaque
+struct FeaturedCategory: SwiftUI.View {
+    var category: Category
+    
+    var body: some SwiftUI.View {
+        Group {
+            HStack {
+                Text(category.name)
+                    //.font(.system(size: 38))
+                    .font(.system(.largeTitle))
+                    .bold()
+                    .padding(.leading)
+                Spacer()
+            }
+            HStack {
+                Spacer()
+                //TODO: - Fazer o request de categorias e ver quantas sao para especificar ao usuario
+                Text("Ver Todos")
+                    //.font(.system(size: 38))
+                    .font(.system(.headline))
+                    .bold()
+                    .padding(.trailing)
+                    .foregroundColor(.gray)
+            }
+//            CollectionView(drinks: category.drinks)
+            CollectionView(viewModel: CollecTionViewViewModel(categoryId: category.uid))
+
+        }
+    }
+}
+
+// MARK: - Carrossel com os drinks em destaque
+struct FeaturedDrinksCollectionView: SwiftUI.View {
+    var drinks: [Drink]
+    
+    var body: some SwiftUI.View {
+        ScrollView(.horizontal, showsIndicators: false) {
+            HStack(spacing: 30) {
+                ForEach(drinks) { drink in
+                    NavigationLink(destination: DrinkDetail(drink: drink)) {
+                        FeaturedDrink(drink: drink)
+                    }.buttonStyle(PlainButtonStyle())
+                }
+            }
+        }
+    }
+}
+
+
+// MARK: - "Celula de cada drink em destaque usada no carrossel
+struct FeaturedDrink: SwiftUI.View {
+    var drink: Drink
+    
+    var body: some SwiftUI.View {
+        VStack {
+            //FIXME: - Tirar o ! daqui e substituir por uma imagem placeholder de quando nao conseguir carregar a imagem
+            URLImage(url: drink.photoUrlMedium!)
+                .cornerRadius(10)
+            Text(drink.name)
+        }.frame(width: 200, height: 250)
     }
 }

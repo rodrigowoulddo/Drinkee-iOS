@@ -31,6 +31,7 @@ struct Drink: Identifiable, Codable, Hashable {
 
     
     #if DEBUG
+
     static let sampleDrink: Drink =
         Drink(
             numberOfRatingVotes: 10,
@@ -64,6 +65,7 @@ struct Drink: Identifiable, Codable, Hashable {
         )
     
     static let sampleDrinks: [Drink] = Array(repeating: sampleDrink, count: 5)
+
     #endif
 
 }
