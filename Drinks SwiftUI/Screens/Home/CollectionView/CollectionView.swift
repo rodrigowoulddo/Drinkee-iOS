@@ -64,13 +64,13 @@ struct CollectionViewCells: SwiftUI.View {
     
     var strengthString: String {
         if(drink.strength < 11) {
-            return "Light (\(drink.strength)%)"
+            return "Light (\(drink.strength * 100)%)"
         } else if (drink.strength < 20) {
-            return "Medium (\(drink.strength)%)"
+            return "Medium (\(drink.strength * 100)%)"
         } else if (drink.strength < 30) {
-            return "Strong (\(drink.strength)%)"
+            return "Strong (\(drink.strength * 100)%)"
         } else {
-            return "Very Strong (\(drink.strength)%)"
+            return "Very Strong (\(drink.strength * 100)%)"
         }
     }
     
