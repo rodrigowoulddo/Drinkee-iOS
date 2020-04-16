@@ -33,6 +33,7 @@ extension UIColor {
     static let darkText = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
     static let subtitleText = #colorLiteral(red: 0.4588235294, green: 0.4588235294, blue: 0.4588235294, alpha: 1)
     static let darkTitle = #colorLiteral(red: 0.1960784314, green: 0.1960784314, blue: 0.1960784314, alpha: 1)
+    static let yellowText = #colorLiteral(red: 1, green: 0.8078431373, blue: 0, alpha: 1)
 
     
     // MARK: - Methods
@@ -47,7 +48,9 @@ extension UIColor {
         case "soft-orange": return #colorLiteral(red: 1, green: 0.9058823529, blue: 0.7647058824, alpha: 1)
         case "gray": return #colorLiteral(red: 0.937254902, green: 0.937254902, blue: 0.937254902, alpha: 1)
         case "orange": return #colorLiteral(red: 1, green: 0.8117647059, blue: 0.6392156863, alpha: 1)
+        case "light-gray": return #colorLiteral(red: 0.9882352941, green: 0.9882352941, blue: 0.9882352941, alpha: 1)
         case "red": return #colorLiteral(red: 0.9254901961, green: 0.5882352941, blue: 0.5882352941, alpha: 1)
+        case "gold": return #colorLiteral(red: 0.9490196078, green: 0.831372549, blue: 0.6509803922, alpha: 1)
         default: return .white
         }
         
