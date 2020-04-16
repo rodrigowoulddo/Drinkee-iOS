@@ -23,10 +23,12 @@
 		752318A7243CF48100BE3484 /* IngredientsPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752318A6243CF48100BE3484 /* IngredientsPage.swift */; };
 		752318A9243CF4A500BE3484 /* DrinksPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752318A8243CF4A500BE3484 /* DrinksPage.swift */; };
 		75267F5D243BBB1100636D7B /* Sidebar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75267F5C243BBB1100636D7B /* Sidebar.swift */; };
+		75673D112448DC03009F3B96 /* AlcohoolicIngredient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75673D102448DC03009F3B96 /* AlcohoolicIngredient.swift */; };
 		758784402448CBF500E4D8AB /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7587843F2448CBF500E4D8AB /* UIColor+Extensions.swift */; };
 		75A3981F2444D7E00073C40E /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A3981E2444D7E00073C40E /* Category.swift */; };
 		75A398212444D82F0073C40E /* Ingredient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A398202444D82F0073C40E /* Ingredient.swift */; };
 		75A398242444D9A70073C40E /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A398232444D9A70073C40E /* HomeViewModel.swift */; };
+		75BAA0892448DA59006E7908 /* IngredientListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75BAA0882448DA59006E7908 /* IngredientListViewModel.swift */; };
 		75C2030E244790F100DF905A /* DrinkListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C2030A244790F100DF905A /* DrinkListViewModel.swift */; };
 		75C2030F244790F100DF905A /* DrinkList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C2030B244790F100DF905A /* DrinkList.swift */; };
 		75C20310244790F100DF905A /* DrinkDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C2030D244790F100DF905A /* DrinkDetail.swift */; };
@@ -61,10 +63,12 @@
 		752318A6243CF48100BE3484 /* IngredientsPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientsPage.swift; sourceTree = "<group>"; };
 		752318A8243CF4A500BE3484 /* DrinksPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinksPage.swift; sourceTree = "<group>"; };
 		75267F5C243BBB1100636D7B /* Sidebar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sidebar.swift; sourceTree = "<group>"; };
+		75673D102448DC03009F3B96 /* AlcohoolicIngredient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlcohoolicIngredient.swift; sourceTree = "<group>"; };
 		7587843F2448CBF500E4D8AB /* UIColor+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 		75A3981E2444D7E00073C40E /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		75A398202444D82F0073C40E /* Ingredient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ingredient.swift; sourceTree = "<group>"; };
 		75A398232444D9A70073C40E /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		75BAA0882448DA59006E7908 /* IngredientListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientListViewModel.swift; sourceTree = "<group>"; };
 		75C2030A244790F100DF905A /* DrinkListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrinkListViewModel.swift; sourceTree = "<group>"; };
 		75C2030B244790F100DF905A /* DrinkList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrinkList.swift; sourceTree = "<group>"; };
 		75C2030D244790F100DF905A /* DrinkDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrinkDetail.swift; sourceTree = "<group>"; };
@@ -208,6 +212,7 @@
 			isa = PBXGroup;
 			children = (
 				752318A6243CF48100BE3484 /* IngredientsPage.swift */,
+				75BAA0882448DA59006E7908 /* IngredientListViewModel.swift */,
 			);
 			path = Ingredients;
 			sourceTree = "<group>";
@@ -294,6 +299,7 @@
 				75CBB71F24351FB500CD6593 /* Drink.swift */,
 				75A3981E2444D7E00073C40E /* Category.swift */,
 				75A398202444D82F0073C40E /* Ingredient.swift */,
+				75673D102448DC03009F3B96 /* AlcohoolicIngredient.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -452,10 +458,12 @@
 				751C9B282437CAC7001CDE2F /* Result+decoded.swift in Sources */,
 				758784402448CBF500E4D8AB /* UIColor+Extensions.swift in Sources */,
 				75C20310244790F100DF905A /* DrinkDetail.swift in Sources */,
+				75673D112448DC03009F3B96 /* AlcohoolicIngredient.swift in Sources */,
 				75267F5D243BBB1100636D7B /* Sidebar.swift in Sources */,
 				751C9B242437CAC7001CDE2F /* ApiError.swift in Sources */,
 				75CBB72024351FB500CD6593 /* Drink.swift in Sources */,
 				752318A5243CF46700BE3484 /* FavoritesPage.swift in Sources */,
+				75BAA0892448DA59006E7908 /* IngredientListViewModel.swift in Sources */,
 				751C9B262437CAC7001CDE2F /* TargeType+default.swift in Sources */,
 				751C9B2B2437CAC7001CDE2F /* JSONEncoder+Extensions.swift in Sources */,
 				751C9B252437CAC7001CDE2F /* Service.swift in Sources */,

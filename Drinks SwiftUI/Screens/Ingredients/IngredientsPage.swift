@@ -9,16 +9,31 @@
 import SwiftUI
 
 struct IngredientsPage: View {
+    
+    @ObservedObject var viewModel: IngredientListViewModel = IngredientListViewModel()
+    
     var body: some View {
         
         HStack {
-            Color(.systemBlue)
+                
+                VStack (spacing: 10) {
+                    
+                    ForEach(viewModel.ingredients, id: \.self) {
+                        ingredient in
+                        
+                        Text(ingredient.name)
+                    }
+                    
+                }
+            
+            Spacer()
         }
+        
     }
 }
 
 struct IngredientsPage_Previews: PreviewProvider {
     static var previews: some View {
-        IngredientsPage()
+        IngredientsPage(viewModel: IngredientListViewModel())
     }
 }
