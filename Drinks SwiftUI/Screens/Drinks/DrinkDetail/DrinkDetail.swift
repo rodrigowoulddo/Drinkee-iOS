@@ -85,7 +85,7 @@ struct DrinkDetailImage: SwiftUI.View  {
         URLImage(url: imageUrl)
             .aspectRatio(contentMode: .fit)
             .frame(height: 600)
-            .shadow(radius: 8)
+            //.shadow(radius: 8)
     }
 }
 
@@ -205,7 +205,7 @@ struct AttributeRow: View {
                 }
                 
                 HStack {
-                    Text(value ?? "")
+                    Text(value?.capitalized ?? "")
                         .font(.system(size: 24, weight: .regular, design: .default))
                     
                     Spacer()
@@ -224,7 +224,6 @@ struct AttributeRow: View {
         .background(Color(UIColor.white))
     }
 }
-
 
 struct DrinkDetailIngredientSelectors: View {
     
@@ -326,7 +325,7 @@ struct DrinkDetailIngredients: View {
                 ForEach(ingredients, id: \.self) {
                     ingredient in
                     
-                    DrinkDetailIngredientRow(ingredient: ingredient)
+                    DrinkDetailIngredientRow(selectedDosageIndex: self.$selectedDosageIndex, ingredient: ingredient)
                     
                 }.padding()
                 
@@ -338,13 +337,19 @@ struct DrinkDetailIngredients: View {
 
 struct DrinkDetailIngredientRow: View {
     
+    @Binding var selectedDosageIndex: Int
+
     let ingredient: Ingredient
+    
+    var adjustedMeasurement: Int {
+        return ingredient.measurement * (selectedDosageIndex + 1)
+    }
     
     var body: some View {
         HStack {
             
             HStack {
-                Text("\(ingredient.measurement) \(ingredient.measurementUnit)")
+                Text("\(adjustedMeasurement) \(ingredient.measurementUnit)")
                     .font(.system(size: 24, weight: .regular, design: .default))
                     .foregroundColor(Color(UIColor.darkTitle))
                 
