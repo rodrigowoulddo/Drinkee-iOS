@@ -71,7 +71,7 @@ struct DrinkDetail: View {
             
         }
         .padding(EdgeInsets(top: 0, leading: 40, bottom: 0, trailing: 40))
-
+        
     }
 }
 
@@ -172,9 +172,11 @@ struct DrinkDetailAttributes: View {
                     AttributeRow(label: "Bebida Base", value: drink.wineVermouth)
                 }
                 
+                AttributeRow(label: "Ingredientes", value: "", showSeparator: false) // TODO
+                
             }
             .cornerRadius(22)
-            .shadow(color: Color.shadow, radius: 17)
+            .shadow(color: Color(UIColor.shadow), radius: 17)
             .padding(35)
             
         }
@@ -187,6 +189,7 @@ struct AttributeRow: View {
     
     let label: String
     let value: String?
+    var showSeparator: Bool = true
     
     var body: some View {
         
@@ -211,7 +214,10 @@ struct AttributeRow: View {
             }
             
             Spacer().frame(height: 18)
-            Color(UIColor.separator).frame(height: 1)
+            
+            if showSeparator {
+                Color(UIColor.separator).frame(height: 1)
+            }
             
         }
         .padding(EdgeInsets(top: 30, leading: 40, bottom: 20, trailing: 40))
@@ -219,46 +225,80 @@ struct AttributeRow: View {
     }
 }
 
-struct DrinkDetailSteps: View {
+
+struct DrinkDetailIngredientSelectors: View {
     
-    let ingredients: [Ingredient]
-    let steps: [String]
+    @Binding var selectedDosageIndex: Int
+    @Binding var selectedUnitIndex: Int
+    
+    let units: [String]
+    
+    init(selectedDosageIndex: Binding<Int>, selectedUnitIndex: Binding<Int>, units: [String]) {
+        
+        self._selectedDosageIndex = selectedDosageIndex
+        self._selectedUnitIndex = selectedUnitIndex
+        self.units = units
+        
+        
+        
+        let font = UIFont.systemFont(ofSize: 24)
+        
+        let selectedAttributes: [NSAttributedString.Key: Any] = [
+            .foregroundColor: UIColor.listBackground,
+            .font: font
+        ]
+        
+        let unselectedAttributes: [NSAttributedString.Key: Any] = [
+            .foregroundColor: UIColor.lightText,
+            .font: font
+        ]
+        
+        UISegmentedControl.appearance().setTitleTextAttributes(selectedAttributes, for: .selected)
+        UISegmentedControl.appearance().setTitleTextAttributes(unselectedAttributes, for: .normal)
+        
+        UISegmentedControl.appearance().selectedSegmentTintColor = .white
+        UISegmentedControl.appearance().backgroundColor = .listBackground
+    }
     
     var body: some View {
-        VStack {
-            
-            Text("Preparo").font(.title)
+        HStack {
             
             VStack {
                 
-                ForEach(steps, id: \.self) {
-                    step in
-                    
-                    DrinkDetailStepRow(stepOrder: self.steps.firstIndex(of: step) ?? 0, step: step)
-                }
-            }.padding()
-            
-        }.padding()
-    }
-}
-
-struct DrinkDetailStepRow: View {
-    
-    let stepOrder: Int
-    let step: String
-    
-    var body: some View {
-        VStack (alignment: .leading) {
-            HStack{
-                Text("Passo \(stepOrder)")
-                    .font(.headline)
+                Text("Doses")
+                    .font(.system(size: 24, weight: .regular, design: .default))
+                    .foregroundColor(Color(UIColor.darkTitle))
                 
-                Spacer()
+                Picker("Doses", selection: $selectedDosageIndex) {
+                    ForEach(1 ..< 5) {
+                        i in
+                        
+                        Text("\(i)")
+                    }
+                }
+                .pickerStyle(SegmentedPickerStyle())
             }
-            Text(step).multilineTextAlignment(.leading)
+            .padding()
             
-        }.padding()
-            .background(Color(UIColor.tertiarySystemFill))
+            VStack {
+                Text("Unidade de Medida")
+                    .font(.system(size: 24, weight: .regular, design: .default))
+                    .foregroundColor(Color(UIColor.darkTitle))
+                
+                Picker("Medida", selection: $selectedUnitIndex) {
+                    
+                    ForEach(self.units, id: \.self) {
+                        unit in
+                        
+                        Text(unit)
+                    }
+                }
+                .pickerStyle(SegmentedPickerStyle())
+            }
+            .padding()
+            .disabled(true)
+            
+        }
     }
 }
 
@@ -296,86 +336,6 @@ struct DrinkDetailIngredients: View {
     }
 }
 
-struct DrinkDetailIngredientSelectors: View {
-    
-    @Binding var selectedDosageIndex: Int
-    @Binding var selectedUnitIndex: Int
-    
-    let units: [String]
-    
-    init(selectedDosageIndex: Binding<Int>, selectedUnitIndex: Binding<Int>, units: [String]) {
-        
-        self._selectedDosageIndex = selectedDosageIndex
-        self._selectedUnitIndex = selectedUnitIndex
-        self.units = units
-
-        
-        
-        let font = UIFont.systemFont(ofSize: 24)
-
-        let selectedAttributes: [NSAttributedString.Key: Any] = [
-            .foregroundColor: UIColor.listBackground,
-            .font: font
-        ]
-        
-        let unselectedAttributes: [NSAttributedString.Key: Any] = [
-            .foregroundColor: UIColor.lightText,
-            .font: font
-        ]
-        
-        UISegmentedControl.appearance().setTitleTextAttributes(selectedAttributes, for: .selected)
-        UISegmentedControl.appearance().setTitleTextAttributes(unselectedAttributes, for: .normal)
-        
-        UISegmentedControl.appearance().selectedSegmentTintColor = .white
-        UISegmentedControl.appearance().backgroundColor = .listBackground
-    }
-    
-    var body: some View {
-        HStack {
-            
-            // 1
-            VStack {
-                
-                Text("Doses")
-                    .font(.system(size: 24, weight: .regular, design: .default))
-                    .foregroundColor(Color(UIColor.darkTitle))
-                
-                Picker("Doses", selection: $selectedDosageIndex) {
-                    ForEach(1 ..< 5) {
-                        i in
-                        
-                        Text("\(i)")
-                        
-                    }
-                }
-                .pickerStyle(SegmentedPickerStyle())
-                
-                
-            }
-            .padding()
-            
-            // 2
-            VStack {
-                Text("Unidade de Medida")
-                    .font(.system(size: 24, weight: .regular, design: .default))
-                    .foregroundColor(Color(UIColor.darkTitle))
-                
-                Picker("Medida", selection: $selectedUnitIndex) {
-                    
-                    ForEach(self.units, id: \.self) {
-                        unit in
-                        
-                        Text(unit)
-                    }
-                }
-                .pickerStyle(SegmentedPickerStyle())
-            }
-            .padding()
-            
-        }
-    }
-}
-
 struct DrinkDetailIngredientRow: View {
     
     let ingredient: Ingredient
@@ -401,14 +361,160 @@ struct DrinkDetailIngredientRow: View {
             
             
         }.padding()
-        .background(Color(UIColor.from(colorNamed: ingredient.color)))
-        .overlay(
-            RoundedRectangle(cornerRadius: 10)
-                .stroke(Color(UIColor.darkTitle), lineWidth: 1)
+            .overlay(
+                RoundedRectangle(cornerRadius: 10)
+                    .stroke(Color(UIColor.darkTitle), lineWidth: 1)
         )
+            .background(Color(UIColor.from(colorNamed: ingredient.color)))
             .frame(height: 57)
     }
 }
+
+struct DrinkDetailSteps: View {
+    
+    let ingredients: [Ingredient]
+    let steps: [String]
+    
+    var body: some View {
+        VStack {
+            
+            Text("Preparação")
+                .font(.system(size: 38, weight: .bold, design: .default))
+                .foregroundColor(Color(UIColor.darkTitle))
+            
+            VStack {
+                
+                ForEach(steps, id: \.self) {
+                    step in
+                    
+                    DrinkDetailStepRow(stepOrder: self.steps.firstIndex(of: step) ?? 0, step: step, stepCount: self.steps.count, ingredients: self.ingredients)
+                }
+            }.padding()
+            
+        }.padding()
+    }
+}
+
+struct DrinkDetailStepRow: View {
+    
+    let stepOrder: Int
+    let step: String
+    let stepCount: Int
+    let ingredients: [Ingredient]
+    
+    var stepSplit: [String] {
+        
+        var splits: [String] = []
+        
+        let splitedStepSubstrings = step.split(separator: " ")
+        
+        for splitSubstring in splitedStepSubstrings {
+            splits.append(String(splitSubstring))
+        }
+        
+        return splits
+        
+    }
+    
+    var attributedStep: [Text] {
+        
+        var attributedStepDictionary: [Text] = []
+        
+        for split in stepSplit {
+            
+            var didFound = false
+            
+            for i in 0 ..< ingredients.count {
+                if split == "$\(i)" {
+                    
+                    didFound = true
+                    
+                    attributedStepDictionary.append(
+                    Text(String(ingredients[i].name))
+                        .font(.system(size: 24, weight: .regular, design: .default))
+                        .foregroundColor(Color(UIColor.from(colorNamed: ingredients[i].color)))
+                    )
+                }
+            }
+            
+            if !didFound {
+                attributedStepDictionary.append(
+                    Text(String(split))
+                    .font(.system(size: 24, weight: .regular, design: .default))
+                    .foregroundColor(Color(UIColor.darkText))
+
+                        
+                )
+            }
+            
+        }
+        
+        return attributedStepDictionary
+        
+    }
+    
+    var attributedText: Text {
+
+        var text = Text("")
+
+        for attributdedText in attributedStep {
+            text = text + attributdedText + Text(" ")
+        }
+
+        return text
+    }
+    
+    var body: some View {
+        VStack (alignment: .leading) {
+            
+            HStack{
+                Spacer()
+                
+                Text("Passo \(stepOrder)/\(stepCount)")
+                    .font(.system(size: 20, weight: .regular, design: .default))
+                    .foregroundColor(Color(UIColor.subtitleText))
+                
+                Spacer()
+            }
+            
+            Spacer().frame(height: 10)
+            
+            HStack {
+                
+                Spacer()
+                attributedText
+                Spacer()
+
+            }
+            .padding(EdgeInsets(top: 30, leading: 40, bottom: 20, trailing: 40))
+            .background(Color(UIColor.white))
+            .cornerRadius(22)
+            .shadow(color: Color(UIColor.shadow), radius: 17)
+            
+        }.padding()
+    }
+}
+
+struct IngredientText: View {
+    
+    let text: String
+    let color: String?
+    
+    var body: some View {
+        
+        Group {
+            Text(text)
+                .font(.system(size: 24, weight: .regular, design: .default))
+                .foregroundColor(Color(UIColor.darkText))
+        }
+        .background(Color(UIColor.from(colorNamed: color)))
+        .cornerRadius(10)
+        .padding(4)
+        
+    }
+    
+}
+
 
 struct DrinkDetail_Previews: PreviewProvider {
     
