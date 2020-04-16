@@ -41,7 +41,7 @@ struct CollectionView: SwiftUI.View {
                         CollectionViewCells(drink: self.viewModel.drinks[cellIndex])
                     }.buttonStyle(PlainButtonStyle())
                 }
-            }
+            }.padding(.trailing)
         }
     }
 }
@@ -54,14 +54,9 @@ struct CollectionView_Previews: PreviewProvider {
 
 struct CollectionViewCells: SwiftUI.View {
     var drink: Drink
-    
-    //TODO: - Mudar essa cor para uma cor salva no banco
-    let backgroundTestColor = Color(
-        red     : 130.0/255.0,
-        green   : 23.0/255.0,
-        blue    : 28.0/255.0
-    )
-    
+    var cellWidth = UIScreen.main.bounds.size.width/3.7
+
+    //TODO: - Find a better way of defining the width of the image
     var body: some SwiftUI.View {
         VStack {
             Text(drink.name)
@@ -72,8 +67,8 @@ struct CollectionViewCells: SwiftUI.View {
                 .foregroundColor(.gray)
             URLImage(url: drink.photoUrlMedium, contentMode: .fit)
                 .padding(4)
-        }.background(self.backgroundTestColor.opacity(0.2))
+            .frame(width: cellWidth, height: cellWidth)
+        }.background(Color(UIColor.from(colorNamed: drink.color)))
             .cornerRadius(20)
-            //.aspectRatio(1, contentMode: .fit)
     }
 }

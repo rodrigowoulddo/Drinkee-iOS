@@ -48,22 +48,22 @@ struct FeaturedCategory: SwiftUI.View {
         Group {
             HStack {
                 Text(category.name)
-                    //.font(.system(size: 38))
                     .font(.system(.largeTitle))
                     .bold()
                     .padding(.leading)
                 Spacer()
             }
-            HStack {
-                Spacer()
-                //TODO: - Fazer o request de categorias e ver quantas sao para especificar ao usuario
-                Text("Ver Todos")
-                    //.font(.system(size: 38))
-                    .font(.system(.headline))
-                    .bold()
-                    .padding(.trailing)
-                    .foregroundColor(.gray)
-            }
+    //TODO: - "See all" drinks in the category button, uncomment this when we have that screen ready
+//            HStack {
+//                Spacer()
+//                //TODO: - Fazer o request de categorias e ver quantas sao para especificar ao usuario
+//                Text("Ver Todos")
+//                    //.font(.system(size: 38))
+//                    .font(.system(.headline))
+//                    .bold()
+//                    .padding(.trailing)
+//                    .foregroundColor(.gray)
+//            }
 //            CollectionView(drinks: category.drinks)
             CollectionView(viewModel: CollecTionViewViewModel(categoryId: category.uid)).padding(.bottom, 60)
         }
