@@ -436,7 +436,7 @@ struct DrinkDetailStepRow: View {
                     
                     attributedStepDictionary.append(
                     Text(String(ingredients[i].name))
-                        .font(.system(size: 24, weight: .regular, design: .default))
+                        .font(.system(size: 24, weight: .bold, design: .default))
                         .foregroundColor(Color(UIColor.from(colorNamed: ingredients[i].color)))
                     )
                 }
@@ -475,7 +475,7 @@ struct DrinkDetailStepRow: View {
             HStack{
                 Spacer()
                 
-                Text("Passo \(stepOrder)/\(stepCount)")
+                Text("Passo \(stepOrder + 1)/\(stepCount)")
                     .font(.system(size: 20, weight: .regular, design: .default))
                     .foregroundColor(Color(UIColor.subtitleText))
                 
