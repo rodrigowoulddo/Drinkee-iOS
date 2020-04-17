@@ -1,20 +1,18 @@
 //
-//  ContentView.swift
+//  DrinksFromIngredient.swift
 //  Drinks SwiftUI
 //
-//  Created by Rodrigo Giglio on 01/04/20.
+//  Created by Eduardo Ribeiro on 16/04/20.
 //  Copyright © 2020 Rodrigo Giglio. All rights reserved.
 //
 
 import SwiftUI
 
-struct DrinkList: View {
+struct DrinksFromIngredient: View {
     
-    @State var showLoad: Bool = true
+    @ObservedObject var viewModel: DrinksFromIngredientViewModel
     
-    @ObservedObject var viewModel: DrinkListViewModel
-    
-    init(viewModel: DrinkListViewModel) {
+    init(viewModel: DrinksFromIngredientViewModel) {
         self.viewModel = viewModel
     }
     
@@ -26,65 +24,63 @@ struct DrinkList: View {
             if viewModel.drinks.isEmpty {
                 VStack (alignment: .center) {
                     
+                    Spacer()
+                    
                     HStack {
-                        
                         Spacer()
                         
-                        VStack () {
-                            
-                            Spacer()
-                            ActivityIndicator(isAnimating: $showLoad, style: .large)
-                            Spacer()
-                            
-                        }
+                        Image(systemName: "wifi.slash")
+                            .resizable()
+                            .aspectRatio(contentMode: .fill)
+                            .frame(width: 50, height: 50)
+                            .foregroundColor(Color.white)
                         
                         Spacer()
                     }
+                    
+                    Spacer()
                     
                 }
             } else {
                 
                 ScrollView {
                     
-                    VStack (spacing: 2){
+                    VStack (spacing: 36) {
                         
-                        DrinkListTitle()
+                        DrinkListTitle(ingredient: viewModel.ingredient)
                         
                         ForEach(viewModel.drinks, id: \.self) {
                             drink in
                             DrinkCell(viewModel: self.viewModel, drink: drink)
+                                .frame(width: 825, height: 144)
+                                .clipped()
                         }
                     }
                 }
             }
             
-        }.background(Color(UIColor.listBackground))
+        }
     }
     
     struct DrinkListTitle: View {
+        
+        let ingredient: Ingredient
+        
         var body: some View {
-            VStack(spacing: 0) {
+            
                 
-                Spacer().frame(height: 40)
+            Text("Drinks with \(ingredient.name)")
+                .font(.system(size: 38))
+                .fontWeight(.semibold)
+                .foregroundColor(Color(UIColor.black))
+                .frame(height: 56)
                 
-                Text("Drinks")
-                    .font(.system(size: 33))
-                    .fontWeight(.semibold)
-                    .foregroundColor(Color(UIColor.white))
-                    .frame(height: 50)
-                
-                Image(systemName: "arrowtriangle.down.fill")
-                    .resizable()
-                    .foregroundColor(Color(UIColor.white))
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 50, height: 18)
-            }
         }
     }
     
     struct DrinkCell: View {
         
-        @ObservedObject var viewModel: DrinkListViewModel
+        @ObservedObject var viewModel: DrinksFromIngredientViewModel
         
         let drink: Drink
         
@@ -94,37 +90,28 @@ struct DrinkList: View {
         
         var body: some View {
             
-            Button(action: { self.viewModel.selectedDrink = self.drink }) {
+            ZStack {
                 
-                ZStack {
-                    
-                    RadialGradient(
-                        gradient: Gradient(colors: [.white, backgroundColor]),
-                        center: .center,
-                        startRadius: 1,
-                        endRadius: 125
-                    )
-                    
-                    VStack {
-                        Spacer()
-                        DrinkCellImage(imageUrl: drink.photoUrlMedium)
-                    }
-                    
-                    VStack(alignment: .leading) {
-                        Spacer().frame(height: 8)
-                        DrinkCellTitle(name: drink.name, style: drink.style)
-                        Spacer()
-                    }
-                    
+                RadialGradient(
+                    gradient: Gradient(colors: [.white, backgroundColor]),
+                    center: .center,
+                    startRadius: 1,
+                    endRadius: 125
+                )
+                
+                VStack {
+                    Spacer()
+                    DrinkCellImage(imageUrl: drink.photoUrlMedium)
                 }
+                
+                VStack(alignment: .leading) {
+                    Spacer().frame(height: 8)
+                    DrinkCellTitle(name: drink.name, style: drink.style)
+                    Spacer()
+                }
+                
             }
-            .buttonStyle(PlainButtonStyle())
-            .background(Color(UIColor.quaternarySystemFill))
-            .frame(height: 144)
-            .border(Color.white, width: 2)
-            .cornerRadius(10)
-            .padding(8)
-            
+
         }
     }
     
@@ -135,9 +122,9 @@ struct DrinkList: View {
         var body: some View {
             
             URLImage(url: imageUrl)
+                .scaleEffect(0.2)
                 .aspectRatio(contentMode: .fill)
-                .offset(y: 50)
-            
+                .offset(x: -300, y: 50)
         }
     }
     
