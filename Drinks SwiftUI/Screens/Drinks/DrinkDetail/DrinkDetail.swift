@@ -271,10 +271,16 @@ struct IngredientRow: View {
                                         .font(.system(size: 24, weight: .regular, design: .default))
                                         .foregroundColor(Color(UIColor.darkTitle))
 
-                                }.padding(8)
-                                    .overlay(RoundedRectangle(cornerRadius: 10).stroke(Color(UIColor.darkTitle), lineWidth: 1))
-                                    .background(Color(UIColor.from(colorNamed: ingredient.color)))
-                                    .frame(height: 57)
+                                }
+                                .padding(8)
+                                .frame(height: 41)
+                                .background(Color(UIColor.from(colorNamed: ingredient.color)))
+                                .cornerRadius(10)
+                                .overlay(
+                                    RoundedRectangle(cornerRadius: 10)
+                                        .stroke(Color(UIColor.white), lineWidth: 1)
+                                )
+                                    .padding(8)
                                 
                                 Spacer()
                             }
@@ -437,13 +443,16 @@ struct DrinkDetailIngredientRow: View {
             }
             
             
-        }.padding()
-            .overlay(
-                RoundedRectangle(cornerRadius: 10)
-                    .stroke(Color(UIColor.darkTitle), lineWidth: 1)
+        }
+        .padding()
+        .frame(height: 57)
+        .background(Color(UIColor.from(colorNamed: ingredient.color)))
+        .cornerRadius(10)
+        .overlay(
+            RoundedRectangle(cornerRadius: 10)
+                .stroke(Color(UIColor.white), lineWidth: 1)
         )
-            .background(Color(UIColor.from(colorNamed: ingredient.color)))
-            .frame(height: 57)
+
     }
 }
 
