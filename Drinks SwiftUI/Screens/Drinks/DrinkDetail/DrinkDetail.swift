@@ -414,14 +414,14 @@ struct DrinkDetailIngredientRow: View {
     let ingredient: Ingredient
     
     var adjustedMeasurement: Int {
-        return ingredient.measurement! * (selectedDosageIndex + 1)
+        return (ingredient.measurement ?? 0 ) * (selectedDosageIndex + 1)
     }
     
     var body: some View {
         HStack {
             
             HStack {
-                Text("\(ingredient.measurement!) \(ingredient.measurementUnit!)")
+                Text("\(adjustedMeasurement) \(ingredient.measurementUnit!)")
                     .font(.system(size: 24, weight: .regular, design: .default))
                     .foregroundColor(Color(UIColor.darkTitle))
                 
