@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "75CBB70624351E1800CD6593"
-               BuildableName = "Drinks SwiftUI.app"
+               BuildableName = "Drinkee.app"
                BlueprintName = "Drinks SwiftUI"
                ReferencedContainer = "container:Drinks SwiftUI.xcodeproj">
             </BuildableReference>
@@ -45,7 +45,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "75CBB70624351E1800CD6593"
-            BuildableName = "Drinks SwiftUI.app"
+            BuildableName = "Drinkee.app"
             BlueprintName = "Drinks SwiftUI"
             ReferencedContainer = "container:Drinks SwiftUI.xcodeproj">
          </BuildableReference>
@@ -62,7 +62,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "75CBB70624351E1800CD6593"
-            BuildableName = "Drinks SwiftUI.app"
+            BuildableName = "Drinkee.app"
             BlueprintName = "Drinks SwiftUI"
             ReferencedContainer = "container:Drinks SwiftUI.xcodeproj">
          </BuildableReference>

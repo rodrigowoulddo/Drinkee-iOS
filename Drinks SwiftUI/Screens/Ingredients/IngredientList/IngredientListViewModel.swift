@@ -20,11 +20,6 @@ class IngredientListViewModel: ObservableObject, Identifiable  {
     
     // MARK: - Init
     init() {
-        
-        #if DEBUG
-        //configurePreview()
-        #endif
-        
         fetchIngredients()
     }
     

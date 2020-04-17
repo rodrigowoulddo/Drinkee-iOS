@@ -136,6 +136,7 @@ struct DrinkList: View {
             
             URLImage(url: imageUrl)
                 .aspectRatio(contentMode: .fill)
+                .frame(width: 130, height: 144)
                 .offset(y: 50)
             
         }
