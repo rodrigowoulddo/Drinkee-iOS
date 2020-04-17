@@ -14,15 +14,13 @@ class HomeViewModel: ObservableObject, Identifiable {
     @Published var categories: [Category] = []
     @Published var top5Drinks: [Drink] = []
     
+    @Published var showldDisplayActivityIndicator = true
+        
     // MARK: - Atributtes
     let service = Service<DrinkEndpoint>()
     
     // MARK: - Init
     init() {
-    
-        #if DEBUG
-        configurePreview()
-        #endif
         
         fetchCategories()
         fetchTop5Drinks()
@@ -73,10 +71,4 @@ class HomeViewModel: ObservableObject, Identifiable {
         }
         
     }
-    
-    // MARK: - Previews
-    func configurePreview() {
-        self.categories = Array(repeating: .sampleCategory, count: 3)
-    }
-    
 }
