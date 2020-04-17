@@ -27,7 +27,7 @@ struct DrinkDetail: View {
             drink.map {
                 drink in
                 
-                ScrollView {
+                ScrollView(showsIndicators: false) {
                     
                     VStack(alignment: .center, spacing: 0) {
                         

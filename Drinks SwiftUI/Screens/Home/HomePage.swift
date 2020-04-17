@@ -21,7 +21,7 @@ struct HomePage: View {
             
             Spacer()
             
-            ScrollView (.vertical) {
+            ScrollView (.vertical, showsIndicators: false) {
                 
                 VStack(spacing: 10) {
                     

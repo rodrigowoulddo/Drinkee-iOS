@@ -26,7 +26,7 @@ struct IngredientDetail: View {
             ingredient.map {
                 ingredient in
                 
-                ScrollView {
+                ScrollView(showsIndicators: false) {
                     VStack {
                         ZStack {
                             IngredientDetailBlurImage(imageUrl: ingredient.photoUrlMedium)

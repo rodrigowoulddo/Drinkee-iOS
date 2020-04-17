@@ -44,7 +44,7 @@ struct DrinkList: View {
                 }
             } else {
                 
-                ScrollView {
+                ScrollView(showsIndicators: false) {
                     
                     VStack (spacing: 2){
                         
