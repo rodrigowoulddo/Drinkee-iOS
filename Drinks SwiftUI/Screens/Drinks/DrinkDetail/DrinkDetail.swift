@@ -12,6 +12,7 @@ struct DrinkDetail: View {
     
     @State private var selectedDosageIndex = 0
     @State private var selectedUnitIndex = 0
+    @State var showLoad: Bool = true
     
     let drink: Drink?
     
@@ -63,8 +64,22 @@ struct DrinkDetail: View {
             }
             
             if drink == nil {
-                Text("No drink selected")
-                    .font(.title)
+                
+                HStack {
+                    
+                    Spacer()
+                    
+                    VStack () {
+                        
+                        Spacer()
+                        ActivityIndicator(isAnimating: $showLoad, style: .large)
+                        Spacer()
+                        
+                    }
+                    
+                    Spacer()
+                }
+                
             }
             
             Spacer()
@@ -172,7 +187,8 @@ struct DrinkDetailAttributes: View {
                     AttributeRow(label: "Bebida Base", value: drink.wineVermouth)
                 }
                 
-                AttributeRow(label: "Ingredientes", value: "", showSeparator: false) // TODO
+                IngredientRow(ingredients: drink.ingredients)
+                //AttributeRow(label: "Ingredientes", value: "", showSeparator: false) // TODO
                 
             }
             .cornerRadius(22)
@@ -223,6 +239,62 @@ struct AttributeRow: View {
         .padding(EdgeInsets(top: 30, leading: 40, bottom: 20, trailing: 40))
         .background(Color(UIColor.white))
     }
+}
+
+struct IngredientRow: View {
+    
+    let ingredients: [Ingredient]
+        
+    var body: some View {
+        
+        VStack (spacing: 0) {
+            
+            HStack {
+                
+                HStack {
+                    Text("Ingredientes")
+                        .font(.system(size: 24, weight: .regular, design: .default))
+                    
+                    Spacer()
+                }
+                
+                HStack (spacing: 10) {
+                    
+                    VStack {
+                        
+                        ForEach(self.ingredients.sorted(by: { $0.name.count >  $1.name.count}), id: \.self) {
+                            ingredient in
+                            
+                            HStack {
+                                HStack {
+                                    Text(ingredient.name)
+                                        .font(.system(size: 24, weight: .regular, design: .default))
+                                        .foregroundColor(Color(UIColor.darkTitle))
+
+                                }.padding(8)
+                                    .overlay(RoundedRectangle(cornerRadius: 10).stroke(Color(UIColor.darkTitle), lineWidth: 1))
+                                    .background(Color(UIColor.from(colorNamed: ingredient.color)))
+                                    .frame(height: 57)
+                                
+                                Spacer()
+                            }
+                            
+                        }
+                        
+                    }
+                    
+                    Spacer()
+                }
+                
+            }
+            
+            Spacer().frame(height: 18)
+            
+        }
+        .padding(EdgeInsets(top: 30, leading: 40, bottom: 20, trailing: 40))
+        .background(Color(UIColor.white))
+    }
+    
 }
 
 struct DrinkDetailIngredientSelectors: View {

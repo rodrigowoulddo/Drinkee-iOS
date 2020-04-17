@@ -82,7 +82,7 @@ struct CollectionViewCells: SwiftUI.View {
                     .font(.system(size: 15, weight: .regular, design: .default))
                     .foregroundColor(Color(UIColor.subtitleText))
                 
-                URLImage(url: drink.photoUrlMedium, contentMode: .fit)
+                URLImage(url: drink.photoUrlSmall, contentMode: .fit)
                     .padding(4)
                     .frame(width: cellWidth, height: cellWidth)
                 

@@ -155,7 +155,7 @@ struct FeaturedDrink: SwiftUI.View {
             VStack {
                 
                 //FIXME: - Tirar o ! daqui e substituir por uma imagem placeholder de quando nao conseguir carregar a imagem
-                URLImage(url: drink.photoUrlMedium, contentMode: .fit)
+                URLImage(url: drink.photoUrlSmall, contentMode: .fit)
                     .cornerRadius(10)
                 
                 Text(drink.name)

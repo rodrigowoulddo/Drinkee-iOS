@@ -19,11 +19,6 @@ class DrinkListViewModel: ObservableObject, Identifiable {
 
     // MARK: - Init
     init() {
-        
-        #if DEBUG
-        //configurePreview()
-        #endif
-        
         fetchDrinks()
     }
     
@@ -40,13 +35,8 @@ class DrinkListViewModel: ObservableObject, Identifiable {
                 
             case .success(let drinks):
                 self.drinks = drinks
-                
+                self.selectedDrink = drinks[0]
             }
         }
-    }
-    
-    // MARK: - Previews
-    func configurePreview() {
-        self.drinks = Drink.sampleDrinks
     }
 }

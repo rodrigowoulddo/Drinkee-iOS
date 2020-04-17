@@ -10,6 +10,8 @@ import SwiftUI
 
 struct DrinkList: View {
     
+    @State var showLoad: Bool = true
+    
     @ObservedObject var viewModel: DrinkListViewModel
     
     init(viewModel: DrinkListViewModel) {
@@ -24,21 +26,20 @@ struct DrinkList: View {
             if viewModel.drinks.isEmpty {
                 VStack (alignment: .center) {
                     
-                    Spacer()
-                    
                     HStack {
+                        
                         Spacer()
                         
-                        Image(systemName: "wifi.slash")
-                            .resizable()
-                            .aspectRatio(contentMode: .fill)
-                            .frame(width: 50, height: 50)
-                            .foregroundColor(Color.white)
+                        VStack () {
+                            
+                            Spacer()
+                            ActivityIndicator(isAnimating: $showLoad, style: .large)
+                            Spacer()
+                            
+                        }
                         
                         Spacer()
                     }
-                    
-                    Spacer()
                     
                 }
             } else {
