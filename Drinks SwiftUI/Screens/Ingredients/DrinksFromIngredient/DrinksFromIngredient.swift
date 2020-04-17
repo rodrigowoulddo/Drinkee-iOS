@@ -83,6 +83,8 @@ struct DrinksFromIngredient: View {
         
         @ObservedObject var viewModel: DrinksFromIngredientViewModel
         
+        @State var showingDetail = false
+        
         let drink: Drink
         
         var backgroundColor: Color {
@@ -91,29 +93,35 @@ struct DrinksFromIngredient: View {
         
         var body: some View {
             
-            ZStack {
+            Button (action: {
+                self.showingDetail.toggle()
+            }) {
                 
-                RadialGradient(
-                    gradient: Gradient(colors: [.white, backgroundColor]),
-                    center: .center,
-                    startRadius: 1,
-                    endRadius: 300
-                )
-                
-                HStack {
-                                        
-                    DrinkCellImage(imageUrl: drink.photoUrlMedium)
+                ZStack {
                     
-                    VStack(alignment: .leading) {
-                        DrinkCellContent(name: drink.name, style: drink.style, ingredients: drink.ingredients)
-                        .padding(18)
+                    RadialGradient(
+                        gradient: Gradient(colors: [.white, backgroundColor]),
+                        center: .center,
+                        startRadius: 1,
+                        endRadius: 300
+                    )
+                    
+                    HStack {
+                        
+                        DrinkCellImage(imageUrl: drink.photoUrlMedium)
+                        
+                        VStack(alignment: .leading) {
+                            DrinkCellContent(name: drink.name, style: drink.style, ingredients: drink.ingredients)
+                                .padding(18)
+                        }
                     }
                 }
-                
-
-                
             }
-
+            .buttonStyle(PlainButtonStyle())
+            .sheet(isPresented: $showingDetail) {
+                DrinkDetail(drink: self.drink)
+                .edgesIgnoringSafeArea(.all)
+            }
         }
     }
     
