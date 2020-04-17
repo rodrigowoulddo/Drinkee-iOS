@@ -49,9 +49,9 @@ struct Drink: Identifiable, Codable, Hashable {
     static let sampleDrink: Drink =
         Drink(
             numberOfRatingVotes: 10,
-            name: "Mock Drink",
-            strength: 0.11,
-            style: "Party",
+            name: "",
+            strength: 0,
+            style: "",
             rating: 6.1,
             author: "Didico",
             baseSpirit: nil,
@@ -77,13 +77,13 @@ struct Drink: Identifiable, Codable, Hashable {
                     "Step 1",
                     "Step 2"
                 ],
-            color: "light-green",
+            color: "gray",
             photoUrlSmall: "https://rodrigowoulddo.github.io/DrinKeeImages/blood-mary/small.png",
             photoUrlMedium: "https://rodrigowoulddo.github.io/DrinKeeImages/blood-mary/medium.png",
             photoUrlLarge: "https://rodrigowoulddo.github.io/DrinKeeImages/blood-mary/large.png"
         )
     
-    static let sampleDrinks: [Drink] = Array(repeating: sampleDrink, count: 5)
+    static let sampleDrinks: [Drink] = Array(repeating: sampleDrink, count: 3)
 
     #endif
 

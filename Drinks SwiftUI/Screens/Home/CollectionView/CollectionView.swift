@@ -27,26 +27,26 @@ struct CollectionView: SwiftUI.View {
     
     var body: some View {
         
-        var cells: [[Int]] = []
-        _ = (0...(viewModel.drinks.count-1)).publisher //quantos elementos vao ser
-        .collect(drinksPerRow) //quantos elementos por linha
-        .collect()
-        .sink(receiveValue: { cells = $0 })
-        
-        return ForEach(0..<cells.count, id: \.self) { rowIndex in
-            // Adding HStack to make 2 cells per line
-            HStack (alignment: .firstTextBaseline) {
-               
-                ForEach(cells[rowIndex], id: \.self) {
-                    cellIndex in
+            var cells: [[Int]] = []
+            _ = (0...(viewModel.drinks.count-1)).publisher //quantos elementos vao ser
+            .collect(drinksPerRow) //quantos elementos por linha
+            .collect()
+            .sink(receiveValue: { cells = $0 })
+            
+            return ForEach(0..<cells.count, id: \.self) { rowIndex in
+                // Adding HStack to make 2 cells per line
+                HStack (alignment: .firstTextBaseline) {
+                   
+                    ForEach(cells[rowIndex], id: \.self) {
+                        cellIndex in
+                        
+                        CollectionViewCells(drink: self.viewModel.drinks[cellIndex])
+                    }
                     
-                    CollectionViewCells(drink: self.viewModel.drinks[cellIndex])
-                }
-                
-                Spacer()
-                
-            }.padding(.trailing)
-        }
+                    Spacer()
+                    
+                }.padding(.trailing)
+            }
     }
 }
 
