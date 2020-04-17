@@ -52,13 +52,14 @@ struct DrinksFromIngredient: View {
                         ForEach(viewModel.drinks, id: \.self) {
                             drink in
                             DrinkCell(viewModel: self.viewModel, drink: drink)
-                                .frame(width: 825, height: 144)
-                                .clipped()
+                                .frame(height: 144)
+                                .cornerRadius(10)
+                                .shadow(color: Color(UIColor.shadow), radius: 17)
+                                .overlay(RoundedRectangle(cornerRadius: 10).stroke(Color(UIColor.white), lineWidth: 1))
                         }
-                    }
+                    }.padding(EdgeInsets(top: 0, leading: 40, bottom: 0, trailing: 40))
                 }
             }
-            
         }
     }
     
@@ -69,7 +70,7 @@ struct DrinksFromIngredient: View {
         var body: some View {
             
                 
-            Text("Drinks with \(ingredient.name)")
+            Text("Drinks com \(ingredient.name)")
                 .font(.system(size: 38))
                 .fontWeight(.semibold)
                 .foregroundColor(Color(UIColor.black))
@@ -96,19 +97,20 @@ struct DrinksFromIngredient: View {
                     gradient: Gradient(colors: [.white, backgroundColor]),
                     center: .center,
                     startRadius: 1,
-                    endRadius: 125
+                    endRadius: 300
                 )
                 
-                VStack {
-                    Spacer()
+                HStack {
+                                        
                     DrinkCellImage(imageUrl: drink.photoUrlMedium)
+                    
+                    VStack(alignment: .leading) {
+                        DrinkCellContent(name: drink.name, style: drink.style, ingredients: drink.ingredients)
+                        .padding(18)
+                    }
                 }
                 
-                VStack(alignment: .leading) {
-                    Spacer().frame(height: 8)
-                    DrinkCellTitle(name: drink.name, style: drink.style)
-                    Spacer()
-                }
+
                 
             }
 
@@ -122,31 +124,44 @@ struct DrinksFromIngredient: View {
         var body: some View {
             
             URLImage(url: imageUrl)
-                .scaleEffect(0.2)
                 .aspectRatio(contentMode: .fill)
-                .offset(x: -300, y: 50)
+                .frame(width: 180, height:144)
+                .offset(y: 50)
         }
     }
     
     
-    struct DrinkCellTitle: View {
+    struct DrinkCellContent: View {
         
         let name: String
         let style: String
+        let ingredients: [Ingredient]
         
         var body: some View {
             
-            VStack(spacing: 0) {
-                             
-                Spacer().frame(height: 2)
-                                
-                Text(name)
-                    .font(.system(size: 20, weight: .medium, design: .default))
+            HStack {
+                VStack(alignment: .leading, spacing: 0) {
+                                                                     
+                    Text(name)
+                        .font(.system(size: 28, weight: .semibold, design: .default))
+                        .foregroundColor(Color(UIColor.darkText))
+                    
+                    Spacer().frame(height: 2)
+        
+                    Text(style.capitalized)
+                        .font(.system(size: 20, weight: .regular, design: .default))
+                        .foregroundColor(Color(UIColor.subtitleText))
+                    
+                    Spacer().frame(height: 10)
+                    
+                    Text(ingredients.map{ $0.name }.joined(separator: ", "))
+                        .font(.system(size: 15, weight: .regular, design: .default))
+                        .foregroundColor(Color(UIColor.darkText))
+                        .lineLimit(1)
+
+                }
                 
-                Text(style.capitalized)
-                    .font(.system(size: 10, weight: .medium, design: .default))
-                    .foregroundColor(Color(UIColor.subtitleText))
-                
+                Spacer()
             }
         }
     }
