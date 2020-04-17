@@ -35,12 +35,16 @@ struct CollectionView: SwiftUI.View {
         
         return ForEach(0..<cells.count, id: \.self) { rowIndex in
             // Adding HStack to make 2 cells per line
-            HStack {
-                ForEach(cells[rowIndex], id: \.self) { cellIndex in
-                    NavigationLink(destination: DrinkDetail(drink: self.viewModel.drinks[cellIndex])) {
-                        CollectionViewCells(drink: self.viewModel.drinks[cellIndex])
-                    }.buttonStyle(PlainButtonStyle())
+            HStack (alignment: .firstTextBaseline) {
+               
+                ForEach(cells[rowIndex], id: \.self) {
+                    cellIndex in
+                    
+                    CollectionViewCells(drink: self.viewModel.drinks[cellIndex])
                 }
+                
+                Spacer()
+                
             }.padding(.trailing)
         }
     }
@@ -53,22 +57,43 @@ struct CollectionView_Previews: PreviewProvider {
 }
 
 struct CollectionViewCells: SwiftUI.View {
+    
+    @State var showingDetail = false
+
+    
     var drink: Drink
-    var cellWidth = UIScreen.main.bounds.size.width/3.7
+    var cellWidth = UIScreen.main.bounds.size.width/4
 
     //TODO: - Find a better way of defining the width of the image
     var body: some SwiftUI.View {
-        VStack {
-            Text(drink.name)
-                .padding(.top)
-                .font(.system(.headline))
-            Text(drink.strengthString)
-                .font(.system(.caption))
-                .foregroundColor(.gray)
-            URLImage(url: drink.photoUrlMedium, contentMode: .fit)
-                .padding(4)
-            .frame(width: cellWidth, height: cellWidth)
-        }.background(Color(UIColor.from(colorNamed: drink.color)))
+        
+        Button(action: {
+            self.showingDetail.toggle()
+        }) {
+            
+            VStack {
+                
+                Text(drink.name)
+                    .padding(.top)
+                    .font(.system(size: 24, weight: .regular, design: .default))
+                    .foregroundColor(Color(UIColor.darkText))
+                
+                Text(drink.strengthString)
+                    .font(.system(size: 15, weight: .regular, design: .default))
+                    .foregroundColor(Color(UIColor.subtitleText))
+                
+                URLImage(url: drink.photoUrlSmall, contentMode: .fit)
+                    .padding(4)
+                    .frame(width: cellWidth, height: cellWidth)
+                
+            }
+            .background(Color(UIColor.from(colorNamed: drink.color)))
             .cornerRadius(20)
+            .padding(9)
+        }
+        .buttonStyle(PlainButtonStyle())
+        .sheet(isPresented: $showingDetail) {
+            DrinkDetail(drink: self.drink)
+        }
     }
 }

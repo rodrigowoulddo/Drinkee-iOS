@@ -1,20 +1,20 @@
 //
-//  ContentView.swift
-//  Drinks SwiftUI
+//  IngredientList.swift
+//  Ingredients SwiftUI
 //
-//  Created by Rodrigo Giglio on 01/04/20.
+//  Created by Eduardo Ribeiro on 16/04/20.
 //  Copyright © 2020 Rodrigo Giglio. All rights reserved.
 //
 
 import SwiftUI
 
-struct DrinkList: View {
-    
+struct IngredientList: View {
+
     @State var showLoad: Bool = true
     
-    @ObservedObject var viewModel: DrinkListViewModel
+    @ObservedObject var viewModel: IngredientListViewModel
     
-    init(viewModel: DrinkListViewModel) {
+    init(viewModel: IngredientListViewModel) {
         self.viewModel = viewModel
     }
     
@@ -23,24 +23,20 @@ struct DrinkList: View {
         HStack(spacing: 0) {
             
             
-            if viewModel.drinks.isEmpty {
-                VStack (alignment: .center) {
+            if viewModel.ingredients.isEmpty {
+                HStack {
                     
-                    HStack {
-                        
-                        Spacer()
-                        
-                        VStack () {
+                    Spacer()
+                    
+                    VStack () {
 
-                            Spacer()
-                            ActivityIndicator(isAnimating: $showLoad, style: .large)
-                            Spacer()
-                            
-                        }
-                        
                         Spacer()
+                        ActivityIndicator(isAnimating: $showLoad, style: .large)
+                        Spacer()
+                        
                     }
                     
+                    Spacer()
                 }
             } else {
                 
@@ -48,11 +44,11 @@ struct DrinkList: View {
                     
                     VStack (spacing: 2){
                         
-                        DrinkListTitle()
+                        IngredientListTitle()
                         
-                        ForEach(viewModel.drinks, id: \.self) {
-                            drink in
-                            DrinkCell(viewModel: self.viewModel, drink: drink)
+                        ForEach(viewModel.ingredients, id: \.self) {
+                            ingredient in
+                            IngredientCell(viewModel: self.viewModel, ingredient: ingredient)
                         }
                     }
                 }
@@ -61,13 +57,13 @@ struct DrinkList: View {
         }.background(Color(UIColor.listBackground))
     }
     
-    struct DrinkListTitle: View {
+    struct IngredientListTitle: View {
         var body: some View {
             VStack(spacing: 0) {
                 
                 Spacer().frame(height: 40)
                 
-                Text("Drinks")
+                Text("Ingredients")
                     .font(.system(size: 33))
                     .fontWeight(.semibold)
                     .foregroundColor(Color(UIColor.white))
@@ -82,19 +78,19 @@ struct DrinkList: View {
         }
     }
     
-    struct DrinkCell: View {
+    struct IngredientCell: View {
         
-        @ObservedObject var viewModel: DrinkListViewModel
+        @ObservedObject var viewModel: IngredientListViewModel
         
-        let drink: Drink
+        let ingredient: Ingredient
         
         var backgroundColor: Color {
-            return Color(UIColor.from(colorNamed: drink.color))
+            return Color(UIColor.from(colorNamed: ingredient.color))
         }
         
         var body: some View {
             
-            Button(action: { self.viewModel.selectedDrink = self.drink }) {
+            Button(action: { self.viewModel.selectedIngredient = self.ingredient }) {
                 
                 ZStack {
                     
@@ -107,12 +103,12 @@ struct DrinkList: View {
                     
                     VStack {
                         Spacer()
-                        DrinkCellImage(imageUrl: drink.photoUrlMedium)
+                        IngredientCellImage(imageUrl: ingredient.photoUrlMedium)
                     }
                     
                     VStack(alignment: .leading) {
                         Spacer().frame(height: 8)
-                        DrinkCellTitle(name: drink.name, style: drink.style)
+                        IngredientCellTitle(name: ingredient.name)
                         Spacer()
                     }
                     
@@ -128,7 +124,7 @@ struct DrinkList: View {
         }
     }
     
-    struct DrinkCellImage: View {
+    struct IngredientCellImage: View {
         
         let imageUrl: String?
         
@@ -136,17 +132,16 @@ struct DrinkList: View {
             
             URLImage(url: imageUrl)
                 .aspectRatio(contentMode: .fill)
-                .frame(width: 130, height: 144)
+                .frame(width: 40, height: 144)
                 .offset(y: 50)
             
         }
     }
     
     
-    struct DrinkCellTitle: View {
+    struct IngredientCellTitle: View {
         
         let name: String
-        let style: String
         
         var body: some View {
             
@@ -156,11 +151,7 @@ struct DrinkList: View {
                                 
                 Text(name)
                     .font(.system(size: 20, weight: .medium, design: .default))
-                
-                Text(style.capitalized)
-                    .font(.system(size: 10, weight: .medium, design: .default))
-                    .foregroundColor(Color(UIColor.subtitleText))
-                
+
             }
         }
     }
@@ -171,7 +162,7 @@ struct DrinkList: View {
         static var previews: some SwiftUI.View {
             
             HStack {
-                DrinkList(viewModel: DrinkListViewModel()).frame(width: 215)
+                IngredientList(viewModel: IngredientListViewModel()).frame(width: 215)
                 Spacer()
             }
         }

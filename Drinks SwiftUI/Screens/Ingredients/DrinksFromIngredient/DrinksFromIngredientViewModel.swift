@@ -1,31 +1,32 @@
 //
-//  DrinkListViewModel.swift
+//  DrinksFromIngredientViewModel.swift
 //  Drinks SwiftUI
 //
-//  Created by Rodrigo Giglio on 03/04/20.
+//  Created by Eduardo Ribeiro on 16/04/20.
 //  Copyright © 2020 Rodrigo Giglio. All rights reserved.
 //
 
 import Foundation
 
-class DrinkListViewModel: ObservableObject, Identifiable {
+class DrinksFromIngredientViewModel: ObservableObject, Identifiable {
     
     // MARK: - Observables
     @Published var drinks: [Drink] = []
-    @Published var selectedDrink: Drink?
 
     // MARK: - Atributtes
     let service = Service<DrinkEndpoint>()
+    let ingredient: Ingredient
 
     // MARK: - Init
-    init() {
-        fetchDrinks()
+    init(ingredient: Ingredient) {
+        self.ingredient = ingredient
+        fetchDrinksFromIngredient()
     }
     
     // MARK: - Methods
-    func fetchDrinks() {
+    func fetchDrinksFromIngredient() {
                 
-        service.request(.getAllDrinks) {
+        service.request(.getDrinkByAlchoolicIngredient(liquor: ingredient.name, baseSpirit: ingredient.name, wineVermouth: ingredient.name)) {
             (result: Result<[Drink], Error>) in
 
             switch result {
@@ -35,7 +36,7 @@ class DrinkListViewModel: ObservableObject, Identifiable {
                 
             case .success(let drinks):
                 self.drinks = drinks
-                self.selectedDrink = drinks[0]
+                
             }
         }
     }

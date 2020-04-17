@@ -30,8 +30,8 @@ enum Tab {
         switch self {
             case .home: return "Discover"
             case .drinks: return "Drinks"
-            case .ingredients: return "Favorites"
-            case .favorites: return "Ingredients"
+            case .ingredients: return "Ingredients"
+            case .favorites: return "Favorites"
         }
     }
 }
@@ -44,12 +44,31 @@ struct Sidebar: View {
         
         HStack() {
             
+            
             VStack(alignment: .center, spacing: 40) {
+                
+                VStack {
+                    
+                    Spacer().frame(height: 36)
+                    
+                    Image("Drinkee Icon")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 65)
+                    
+                    Image("Drinkee Name")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 65)
+                    
+                    Spacer().frame(height: 45)
+
+                }
                 
                 TabButton(tab: .home, currentTab: $currentTab)
                 TabButton(tab: .drinks, currentTab: $currentTab)
                 TabButton(tab: .ingredients, currentTab: $currentTab)
-                TabButton(tab: .favorites, currentTab: $currentTab)
+                TabButton(tab: .favorites, isEnabled: false, currentTab: $currentTab)
 
                 Spacer()
                 
@@ -80,6 +99,7 @@ struct Sidebar: View {
 struct TabButton: View {
     
     let tab: Tab
+    var isEnabled: Bool = true
     
     @Binding var currentTab: Tab
     
@@ -100,18 +120,18 @@ struct TabButton: View {
                 
                 Image(tab.iconName) /// TODO: - Verify if asset exists
                     .resizable()
+                    .renderingMode(.template)
                     .scaledToFit()
+                    .foregroundColor(tintColor)
                     .frame(width: 50, height: 50)
-                    .accentColor(.white)
-                    .foregroundColor(Color(UIColor.tabBarSelectedTint))
-                    .colorMultiply(tintColor)
-                
+                            
                 Text(tab.name).font(.system(size: 13))
                     .foregroundColor(tintColor)
             }
             
         }
         .buttonStyle(PlainButtonStyle())
+        .disabled(!isEnabled)
     }
 }
 
