@@ -9,6 +9,8 @@
 import SwiftUI
 
 struct IngredientList: View {
+
+    @State var showLoad: Bool = true
     
     @ObservedObject var viewModel: IngredientListViewModel
     
@@ -22,24 +24,19 @@ struct IngredientList: View {
             
             
             if viewModel.ingredients.isEmpty {
-                VStack (alignment: .center) {
+                HStack {
                     
                     Spacer()
                     
-                    HStack {
+                    VStack () {
+
+                        Spacer()
+                        ActivityIndicator(isAnimating: $showLoad, style: .large)
                         Spacer()
                         
-                        Image(systemName: "wifi.slash")
-                            .resizable()
-                            .aspectRatio(contentMode: .fill)
-                            .frame(width: 50, height: 50)
-                            .foregroundColor(Color.white)
-                        
-                        Spacer()
                     }
                     
                     Spacer()
-                    
                 }
             } else {
                 

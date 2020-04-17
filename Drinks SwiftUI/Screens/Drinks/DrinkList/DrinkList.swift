@@ -31,7 +31,7 @@ struct DrinkList: View {
                         Spacer()
                         
                         VStack () {
-                            
+
                             Spacer()
                             ActivityIndicator(isAnimating: $showLoad, style: .large)
                             Spacer()

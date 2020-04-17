@@ -36,6 +36,7 @@ class IngredientListViewModel: ObservableObject, Identifiable  {
                 
             case .success(let ingredients):
                 self.ingredients = ingredients
+                self.selectedIngredient = ingredients[0]
             }
         }
     }

@@ -11,6 +11,7 @@ struct IngredientDetail: View {
     
     @State private var selectedDosageIndex = 0
     @State private var selectedUnitIndex = 0
+    @State var showLoad: Bool = true
     
     let ingredient: Ingredient?
     
@@ -55,8 +56,21 @@ struct IngredientDetail: View {
             }
             
             if ingredient == nil {
-                Text("No ingredient selected")
-                    .font(.title)
+                
+                HStack {
+                    
+                    Spacer()
+                    
+                    VStack () {
+
+                        Spacer()
+                        ActivityIndicator(isAnimating: $showLoad, style: .large)
+                        Spacer()
+                        
+                    }
+                    
+                    Spacer()
+                }
             }
             
             Spacer()
