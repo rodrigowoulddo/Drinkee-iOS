@@ -19,8 +19,8 @@ extension UIColor {
     
     // MARK: - Tabbar
     static let tabBarBackground = #colorLiteral(red: 0.9764705882, green: 0.9764705882, blue: 0.968627451, alpha: 1)
-    static let tabBarUnselectedTint = #colorLiteral(red: 0.7529411765, green: 0.7529411765, blue: 0.7529411765, alpha: 1)
-    static let tabBarSelectedTint = #colorLiteral(red: 0.1960784314, green: 0.1960784314, blue: 0.1960784314, alpha: 1)
+    static let tabBarUnselectedTint = #colorLiteral(red: 0.6549019608, green: 0.6549019608, blue: 0.6549019608, alpha: 1)
+    static let tabBarSelectedTint = #colorLiteral(red: 1, green: 0.8078431373, blue: 0, alpha: 1)
     static let imagePlaceholder = #colorLiteral(red: 0.3215686275, green: 0.3215686275, blue: 0.3215686275, alpha: 1)
     
     

@@ -28,7 +28,7 @@ struct HomePage: View {
                     HStack {
                         
                         
-                        Text("Discover")
+                        Text("Descubra")
                             .font(.system(size: 38, weight: .bold, design: .default))
                             .foregroundColor(Color(UIColor.darkTitle))
                             .padding()
