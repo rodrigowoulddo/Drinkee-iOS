@@ -52,6 +52,7 @@ struct Drink: Identifiable, Codable, Hashable {
                         measurementUnit: "ml",
                         color: "soft-red",
                         alcoholicType: nil,
+                        origin: "Italy",
                         photoUrlSmall: nil,
                         photoUrlMedium: nil,
                         photoUrlLarge: nil

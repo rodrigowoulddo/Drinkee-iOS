@@ -30,8 +30,8 @@ enum Tab {
         switch self {
             case .home: return "Discover"
             case .drinks: return "Drinks"
-            case .ingredients: return "Favorites"
-            case .favorites: return "Ingredients"
+            case .ingredients: return "Ingredients"
+            case .favorites: return "Favorites"
         }
     }
 }

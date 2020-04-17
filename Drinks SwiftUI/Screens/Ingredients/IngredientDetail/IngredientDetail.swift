@@ -26,26 +26,30 @@ struct IngredientDetail: View {
                 ingredient in
                 
                 ScrollView {
-                    
-                    VStack(alignment: .center, spacing: 0) {
-                        
+                    VStack {
                         ZStack {
-                            
                             IngredientDetailBlurImage(imageUrl: ingredient.photoUrlMedium)
-                                .offset(y: -250)
-                            
-                            VStack {
+                                .offset(y: -450)
+                            VStack(alignment: .center, spacing: 0) {
                                 
                                 Spacer().frame(height: 30)
                                 
                                 IngredientDetailTitle(name: ingredient.name, strength: ingredient.strength)
                                 
                                 IngredientDetailImage(imageUrl: ingredient.photoUrlMedium)
+                                    .scaleEffect(0.8)
                                     .offset(y: -50)
                                 
                             }
                         }
                         
+                        VStack {
+                            
+                            IngredientDetailAttributes(ingredient: ingredient)
+
+                            DrinksFromIngredient(viewModel: DrinksFromIngredientViewModel(ingredient: ingredient))
+                        
+                        }.offset(y: -200)
                     }
                 }
             }
@@ -62,21 +66,6 @@ struct IngredientDetail: View {
         
     }
 }
-
-
-struct IngredientDetailImage: SwiftUI.View  {
-    
-    let imageUrl: String?
-    
-    var body: some SwiftUI.View  {
-        
-        URLImage(url: imageUrl)
-            .aspectRatio(contentMode: .fit)
-            .frame(height: 600)
-            .shadow(radius: 8)
-    }
-}
-
 struct IngredientDetailBlurImage: SwiftUI.View  {
     
     let imageUrl: String?
@@ -88,6 +77,19 @@ struct IngredientDetailBlurImage: SwiftUI.View  {
             .frame(height: 1000)
             .opacity(0.9)
             .blur(radius: 45)
+    }
+}
+
+struct IngredientDetailImage: SwiftUI.View  {
+    
+    let imageUrl: String?
+    
+    var body: some SwiftUI.View  {
+        
+        URLImage(url: imageUrl)
+            .aspectRatio(contentMode: .fit)
+            .frame(height: 600)
+            .shadow(radius: 8)
     }
 }
 
@@ -112,5 +114,31 @@ struct IngredientDetailTitle: View {
     }
 }
 
+struct IngredientDetailAttributes: View {
+    
+    let ingredient: Ingredient
+    
+    var body: some View {
+        VStack {
+            
+            Text("Detalhes")
+                .font(.system(size: 38, weight: .bold, design: .default))
+                .foregroundColor(Color(UIColor.darkTitle))
+            
+            VStack(spacing: 0) {
+                
+                AttributeRow(label: "Teor Alcoolico", value: String("\(Int(round(ingredient.strength * 100)))%"))
+                AttributeRow(label: "Origem", value: ingredient.origin)
 
+                
+            }
+            .cornerRadius(22)
+            .shadow(color: Color(UIColor.shadow), radius: 17)
+            .padding(35)
+            
+        }
+        .padding()
+        
+    }
+}
 

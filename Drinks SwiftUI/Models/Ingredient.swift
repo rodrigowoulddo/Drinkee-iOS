@@ -17,6 +17,7 @@ struct Ingredient: Identifiable, Codable, Hashable {
     let measurementUnit: String?
     let color: String?
     let alcoholicType: String?
+    let origin: String?
 
     /// Photos
     let photoUrlSmall: String?

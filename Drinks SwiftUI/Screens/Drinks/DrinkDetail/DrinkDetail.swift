@@ -342,7 +342,7 @@ struct DrinkDetailIngredientRow: View {
     let ingredient: Ingredient
     
     var adjustedMeasurement: Int {
-        return ingredient.measurement * (selectedDosageIndex + 1)
+        return ingredient.measurement! * (selectedDosageIndex + 1)
     }
     
     var body: some View {
