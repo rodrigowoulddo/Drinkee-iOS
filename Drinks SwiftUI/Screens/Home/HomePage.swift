@@ -16,69 +16,62 @@ struct HomePage: View {
     
     var body: some View {
         
-        NavigationView {
+        
+        HStack {
             
-            HStack {
+            Spacer()
+            
+            ScrollView (.vertical) {
                 
-                Spacer()
-                
-                ScrollView (.vertical) {
+                VStack(spacing: 10) {
                     
-                    VStack(spacing: 10) {
+                    HStack {
                         
-                        HStack {
-                            
-                            Spacer().frame(width: 40)
-                            
-                            Text("Discover")
-                                .font(.system(size: 38, weight: .bold, design: .default))
-                                .foregroundColor(Color(UIColor.darkTitle))
-                                .padding()
-                            
+                        
+                        Text("Discover")
+                            .font(.system(size: 38, weight: .bold, design: .default))
+                            .foregroundColor(Color(UIColor.darkTitle))
+                            .padding()
+                        
+                        Spacer()
+                        
+                    }
+                    .padding(40)
+                    
+                    if viewModel.top5Drinks.isEmpty {
+                        
+                        VStack () {
+                            Spacer()
+                            ActivityIndicator(isAnimating: $showldLoad, style: .large)
                             Spacer()
                             
                         }
-                        
-                        if viewModel.top5Drinks.isEmpty {
-                            
-                            VStack () {
-                                Spacer()
-                                ActivityIndicator(isAnimating: $showldLoad, style: .large)
-                                Spacer()
-                                
-                            }
-                        }
-                        else {
-                            FeaturedDrinksCollectionView(drinks: viewModel.top5Drinks)
-                            
-                        }
-                        
-                        if viewModel.categories.isEmpty {
-                            VStack () {
-                                Spacer()
-                                ActivityIndicator(isAnimating: $showldLoad, style: .large)
-                                Spacer()
-                                
-                            }
-                        }
-                        else {
-                            
-                            ForEach(viewModel.categories, id: \.self) {
-                                category in
-                                
-                                FeaturedCategory(category: category)
-                            }
-                        }
+                    }
+                    else {
+                        FeaturedDrinksCollectionView(drinks: viewModel.top5Drinks)
                         
                     }
+                    
+                    if viewModel.categories.isEmpty {
+                        VStack () {
+                            Spacer()
+                            ActivityIndicator(isAnimating: $showldLoad, style: .large)
+                            Spacer()
+                            
+                        }
+                    }
+                    else {
+                        
+                        ForEach(viewModel.categories, id: \.self) {
+                            category in
+                            
+                            FeaturedCategory(category: category)
+                        }
+                    }
+                    
                 }
-                .navigationBarHidden(true)
-                
-                //Spacer()
-                
             }
         }
-        .navigationViewStyle(StackNavigationViewStyle())
     }
 }
 
@@ -150,10 +143,15 @@ struct FeaturedDrinksCollectionView: SwiftUI.View {
 
 // MARK: - "Celula de cada drink em destaque usada no carrossel
 struct FeaturedDrink: SwiftUI.View {
+    
+    @State var showingDetail = false
+    
     var drink: Drink
     
     var body: some SwiftUI.View {
-        NavigationLink(destination: DrinkDetail(drink: drink)) {
+        Button (action: {
+            self.showingDetail.toggle()
+        }) {
             VStack {
                 
                 //FIXME: - Tirar o ! daqui e substituir por uma imagem placeholder de quando nao conseguir carregar a imagem
@@ -172,7 +170,12 @@ struct FeaturedDrink: SwiftUI.View {
                 
                 
             }.frame(width: 215)
-        }.buttonStyle(PlainButtonStyle())
+        }
+        .buttonStyle(PlainButtonStyle())
+        .sheet(isPresented: $showingDetail) {
+            DrinkDetail(drink: self.drink)
+            .edgesIgnoringSafeArea(.all)
+        }
     }
 }
 
