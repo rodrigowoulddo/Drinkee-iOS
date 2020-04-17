@@ -24,6 +24,18 @@ struct Drink: Identifiable, Codable, Hashable {
     let steps: [String]
     let color: String?
     
+    var strengthString: String {
+        if(strength < 11) {
+            return "Light (\(Int(strength * 100))%)"
+        } else if (strength < 20) {
+            return "Medium (\(Int(strength * 100))%)"
+        } else if (strength < 30) {
+            return "Strong (\(Int(strength * 100))%)"
+        } else {
+            return "Very Strong (\(ceil(strength * 100))%)"
+        }
+    }
+    
     /// Photos
     let photoUrlSmall: String?
     let photoUrlMedium: String?

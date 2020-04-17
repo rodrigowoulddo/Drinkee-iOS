@@ -12,6 +12,7 @@ class HomeViewModel: ObservableObject, Identifiable {
     
     // MARK: - Observables
     @Published var categories: [Category] = []
+    @Published var top5Drinks: [Drink] = []
     
     // MARK: - Atributtes
     let service = Service<DrinkEndpoint>()
@@ -24,6 +25,7 @@ class HomeViewModel: ObservableObject, Identifiable {
         #endif
         
         fetchCategories()
+        fetchTop5Drinks()
     }
     
     
@@ -43,6 +45,28 @@ class HomeViewModel: ObservableObject, Identifiable {
                 
                 /// Debug
                 print(self.categories)
+                ///
+            }
+            
+        }
+        
+    }
+    
+    func fetchTop5Drinks() {
+        
+        service.request(.getTopNDrinks(numberOfDrinks: 5)) {
+            (result: Result<[Drink], Error>) in
+
+            switch result {
+                
+            case .failure(let error):
+                print(error.localizedDescription)
+                
+            case .success(let topDrinks):
+                self.top5Drinks = topDrinks
+                
+                /// Debug
+                print(self.top5Drinks)
                 ///
             }
             

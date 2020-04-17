@@ -39,7 +39,7 @@ struct DrinkDetail: View {
                                 
                                 Spacer().frame(height: 30)
                                 
-                                DrinkDetailTitle(name: drink.name, strength: drink.strength)
+                                DrinkDetailTitle(name: drink.name, strengthString: drink.strengthString)
                                 
                                 DrinkDetailImage(imageUrl: drink.photoUrlMedium)
                                     .offset(y: -50)
@@ -125,7 +125,7 @@ struct FavoriteButton: View {
 struct DrinkDetailTitle: View {
     
     let name: String
-    let strength: Double
+    let strengthString: String
     
     var body: some View {
         VStack {
@@ -134,7 +134,7 @@ struct DrinkDetailTitle: View {
                 .font(.system(size: 48, weight: .bold, design: .default))
                 .foregroundColor(Color(UIColor.darkTitle))
             
-            Text("\(Int(round(strength * 100)))%") // TODO: - Add Light / Medium / Strong
+            Text(strengthString) // TODO: - Add Light / Medium / Strong
                 .font(.system(size:24, weight: .regular, design: .default))
                 .foregroundColor(Color(UIColor.white))
             
@@ -283,12 +283,12 @@ struct DrinkDetailIngredientSelectors: View {
                 Text("Unidade de Medida")
                     .font(.system(size: 24, weight: .regular, design: .default))
                     .foregroundColor(Color(UIColor.darkTitle))
-                
+
                 Picker("Medida", selection: $selectedUnitIndex) {
-                    
+
                     ForEach(self.units, id: \.self) {
                         unit in
-                        
+
                         Text(unit)
                     }
                 }
