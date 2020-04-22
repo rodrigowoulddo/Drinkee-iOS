@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "Ingredient-icon.png",
+      "filename" : "Ingredient-icon-1.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "Ingredient-icon-1.png",
+      "filename" : "Ingredient-icon-2.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "Ingredient-icon-2.png",
+      "filename" : "Ingredient-icon.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

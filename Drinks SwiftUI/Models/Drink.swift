@@ -83,7 +83,7 @@ struct Drink: Identifiable, Codable, Hashable {
             photoUrlLarge: "https://rodrigowoulddo.github.io/DrinKeeImages/blood-mary/large.png"
         )
     
-    static let sampleDrinks: [Drink] = Array(repeating: sampleDrink, count: 3)
+    static let sampleDrinks: [Drink] = Array(repeating: sampleDrink, count: 1)
 
     #endif
 

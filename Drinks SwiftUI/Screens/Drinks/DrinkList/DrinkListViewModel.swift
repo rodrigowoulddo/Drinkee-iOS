@@ -10,6 +10,10 @@ import Foundation
 
 class DrinkListViewModel: ObservableObject, Identifiable {
     
+    //MARK: - Samples
+    let sampleDrinks = Drink.sampleDrinks
+    
+    
     // MARK: - Observables
     @Published var drinks: [Drink] = []
     @Published var selectedDrink: Drink?
@@ -19,13 +23,19 @@ class DrinkListViewModel: ObservableObject, Identifiable {
 
     // MARK: - Init
     init() {
+        
         fetchDrinks()
+        
+        #if DEBUG
+            drinks = sampleDrinks
+        #endif
+        
     }
     
     // MARK: - Methods
     func fetchDrinks() {
                 
-        service.request(.getAllDrinks) {
+        service.request(.getTopNDrinks(numberOfDrinks: 1)) {
             (result: Result<[Drink], Error>) in
 
             switch result {

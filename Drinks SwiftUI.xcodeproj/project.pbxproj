@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -11,7 +11,7 @@
 		1968DF4924493BF400C62738 /* DrinksFromIngredientViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1968DF4824493BF400C62738 /* DrinksFromIngredientViewModel.swift */; };
 		196C1E2B2448F3C600CE9116 /* IngredientList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196C1E2A2448F3C600CE9116 /* IngredientList.swift */; };
 		196C1E2E2449006600CE9116 /* IngredientDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196C1E2D2449006600CE9116 /* IngredientDetail.swift */; };
-		54D4F3B41F3DDF0AEB11CF36 /* Pods_Drinks_SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90344AE1CA02C2BDA4A46B96 /* Pods_Drinks_SwiftUI.framework */; };
+		276734BEB86191C2700E6F81 /* libPods-Drinks SwiftUI.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D859DB2599A731D8E6C5DBEB /* libPods-Drinks SwiftUI.a */; };
 		750E1CA2243D0AC9009F3D97 /* URLImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 750E1CA1243D0AC9009F3D97 /* URLImage.swift */; };
 		751C9B232437CAC7001CDE2F /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751C9B172437CAC7001CDE2F /* Api.swift */; };
 		751C9B242437CAC7001CDE2F /* ApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751C9B192437CAC7001CDE2F /* ApiError.swift */; };
@@ -26,7 +26,7 @@
 		752318A5243CF46700BE3484 /* FavoritesPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752318A4243CF46700BE3484 /* FavoritesPage.swift */; };
 		752318A7243CF48100BE3484 /* IngredientsPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752318A6243CF48100BE3484 /* IngredientsPage.swift */; };
 		752318A9243CF4A500BE3484 /* DrinksPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752318A8243CF4A500BE3484 /* DrinksPage.swift */; };
-		75267F5D243BBB1100636D7B /* Sidebar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75267F5C243BBB1100636D7B /* Sidebar.swift */; };
+		754CA42A2450BB1A0039AE23 /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754CA4292450BB1A0039AE23 /* TabBar.swift */; };
 		758784402448CBF500E4D8AB /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7587843F2448CBF500E4D8AB /* UIColor+Extensions.swift */; };
 		75A3981F2444D7E00073C40E /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A3981E2444D7E00073C40E /* Category.swift */; };
 		75A398212444D82F0073C40E /* Ingredient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A398202444D82F0073C40E /* Ingredient.swift */; };
@@ -70,7 +70,7 @@
 		752318A4243CF46700BE3484 /* FavoritesPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesPage.swift; sourceTree = "<group>"; };
 		752318A6243CF48100BE3484 /* IngredientsPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientsPage.swift; sourceTree = "<group>"; };
 		752318A8243CF4A500BE3484 /* DrinksPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinksPage.swift; sourceTree = "<group>"; };
-		75267F5C243BBB1100636D7B /* Sidebar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sidebar.swift; sourceTree = "<group>"; };
+		754CA4292450BB1A0039AE23 /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
 		7587843F2448CBF500E4D8AB /* UIColor+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 		75A3981E2444D7E00073C40E /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		75A398202444D82F0073C40E /* Ingredient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ingredient.swift; sourceTree = "<group>"; };
@@ -92,7 +92,7 @@
 		75CBB71F24351FB500CD6593 /* Drink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Drink.swift; sourceTree = "<group>"; };
 		75F4F9DE2447A10E009E8766 /* CollecTionViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollecTionViewViewModel.swift; sourceTree = "<group>"; };
 		8D848981986FAE9382657C66 /* Pods-Drinks SwiftUI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Drinks SwiftUI.release.xcconfig"; path = "Target Support Files/Pods-Drinks SwiftUI/Pods-Drinks SwiftUI.release.xcconfig"; sourceTree = "<group>"; };
-		90344AE1CA02C2BDA4A46B96 /* Pods_Drinks_SwiftUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Drinks_SwiftUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D859DB2599A731D8E6C5DBEB /* libPods-Drinks SwiftUI.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Drinks SwiftUI.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,7 +100,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				54D4F3B41F3DDF0AEB11CF36 /* Pods_Drinks_SwiftUI.framework in Frameworks */,
+				276734BEB86191C2700E6F81 /* libPods-Drinks SwiftUI.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -265,7 +265,7 @@
 		75267F5B243BBAFB00636D7B /* Sidebar */ = {
 			isa = PBXGroup;
 			children = (
-				75267F5C243BBB1100636D7B /* Sidebar.swift */,
+				754CA4292450BB1A0039AE23 /* TabBar.swift */,
 			);
 			path = Sidebar;
 			sourceTree = "<group>";
@@ -352,7 +352,7 @@
 		8E94891A13A641C18692A54D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				90344AE1CA02C2BDA4A46B96 /* Pods_Drinks_SwiftUI.framework */,
+				D859DB2599A731D8E6C5DBEB /* libPods-Drinks SwiftUI.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -377,7 +377,6 @@
 				75CBB70324351E1800CD6593 /* Sources */,
 				75CBB70424351E1800CD6593 /* Frameworks */,
 				75CBB70524351E1800CD6593 /* Resources */,
-				811A4CACD967137F89370AD7 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -435,23 +434,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		811A4CACD967137F89370AD7 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Drinks SwiftUI/Pods-Drinks SwiftUI-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Drinks SwiftUI/Pods-Drinks SwiftUI-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Drinks SwiftUI/Pods-Drinks SwiftUI-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		F5C8DF1687CA224FAB44FE9B /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -496,7 +478,6 @@
 				751C9B282437CAC7001CDE2F /* Result+decoded.swift in Sources */,
 				758784402448CBF500E4D8AB /* UIColor+Extensions.swift in Sources */,
 				75C20310244790F100DF905A /* DrinkDetail.swift in Sources */,
-				75267F5D243BBB1100636D7B /* Sidebar.swift in Sources */,
 				751C9B242437CAC7001CDE2F /* ApiError.swift in Sources */,
 				75CBB72024351FB500CD6593 /* Drink.swift in Sources */,
 				752318A5243CF46700BE3484 /* FavoritesPage.swift in Sources */,
@@ -515,6 +496,7 @@
 				1968DF4924493BF400C62738 /* DrinksFromIngredientViewModel.swift in Sources */,
 				75A3981F2444D7E00073C40E /* Category.swift in Sources */,
 				75F4F9DF2447A10E009E8766 /* CollecTionViewViewModel.swift in Sources */,
+				754CA42A2450BB1A0039AE23 /* TabBar.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

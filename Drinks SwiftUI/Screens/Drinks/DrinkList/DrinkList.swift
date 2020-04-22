@@ -44,21 +44,23 @@ struct DrinkList: View {
                 }
             } else {
                 
-                ScrollView(showsIndicators: false) {
+                NavigationView {
                     
-                    VStack (spacing: 2){
+                    ScrollView(showsIndicators: false) {
                         
-                        DrinkListTitle()
-                        
-                        ForEach(viewModel.drinks, id: \.self) {
-                            drink in
-                            DrinkCell(viewModel: self.viewModel, drink: drink)
+                        VStack (spacing: 2){
+                                                        
+                            ForEach(viewModel.drinks, id: \.self) {
+                                drink in
+                                DrinkCell(viewModel: self.viewModel, drink: drink)
+                            }
                         }
-                    }
+                    }.navigationBarTitle(Text("Drinks"))
                 }
             }
             
-        }.background(Color(UIColor.listBackground))
+        }
+        .background(Color(UIColor.listBackground))
     }
     
     struct DrinkListTitle: View {
@@ -86,6 +88,8 @@ struct DrinkList: View {
         
         @ObservedObject var viewModel: DrinkListViewModel
         
+        @State private var showLinkTarget = false
+        
         let drink: Drink
         
         var backgroundColor: Color {
@@ -94,7 +98,7 @@ struct DrinkList: View {
         
         var body: some View {
             
-            Button(action: { self.viewModel.selectedDrink = self.drink }) {
+            NavigationLink(destination: DrinkDetail(drink: drink)) {
                 
                 ZStack {
                     
@@ -124,7 +128,6 @@ struct DrinkList: View {
             .border(Color.white, width: 2)
             .cornerRadius(10)
             .padding(8)
-            
         }
     }
     
@@ -170,11 +173,7 @@ struct DrinkList: View {
         
         static var previews: some SwiftUI.View {
             
-            HStack {
-                DrinkList(viewModel: DrinkListViewModel()).frame(width: 215)
-                Spacer()
-            }
+                DrinkList(viewModel: DrinkListViewModel())
         }
     }
-    
 }

@@ -2,7 +2,7 @@
 platform :ios, '13.0'
 
 target 'Drinks SwiftUI' do
-  use_frameworks!
+  #use_frameworks!
 
 
     pod 'Kingfisher/SwiftUI'

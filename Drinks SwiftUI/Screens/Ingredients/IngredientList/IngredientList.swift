@@ -40,17 +40,18 @@ struct IngredientList: View {
                 }
             } else {
                 
-                ScrollView(showsIndicators: false) {
+                NavigationView {
                     
-                    VStack (spacing: 2){
+                    ScrollView(showsIndicators: false) {
                         
-                        IngredientListTitle()
-                        
-                        ForEach(viewModel.ingredients, id: \.self) {
-                            ingredient in
-                            IngredientCell(viewModel: self.viewModel, ingredient: ingredient)
+                        VStack (spacing: 2){
+                                                        
+                            ForEach(viewModel.ingredients, id: \.self) {
+                                ingredient in
+                                IngredientCell(viewModel: self.viewModel, ingredient: ingredient)
+                            }
                         }
-                    }
+                    }.navigationBarTitle(Text("Ingredientes"))
                 }
             }
             
@@ -90,7 +91,7 @@ struct IngredientList: View {
         
         var body: some View {
             
-            Button(action: { self.viewModel.selectedIngredient = self.ingredient }) {
+            NavigationLink(destination: IngredientDetail(ingredient: ingredient)) {
                 
                 ZStack {
                     
