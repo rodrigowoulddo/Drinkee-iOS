@@ -18,10 +18,10 @@ enum Tab {
         
         // TODO: - Localize
         switch self {
-        case .home: return NSLocalizedString("Sidebar_HomeLabel", comment: "")
-        case .drinks: return NSLocalizedString("Sidebar_DrinksLabel", comment: "")
-        case .ingredients: return NSLocalizedString("Sidebar_IngredientsLabel", comment: "")
-        case .favorites: return NSLocalizedString("Sidebar_FavoritesLabel", comment: "")
+        case .home: return NSLocalizedString("Sidebar_Home", comment: "")
+        case .drinks: return NSLocalizedString("Sidebar_Drinks", comment: "")
+        case .ingredients: return NSLocalizedString("Sidebar_Ingredients", comment: "")
+        case .favorites: return NSLocalizedString("Sidebar_Favorites", comment: "")
         }
     }
     

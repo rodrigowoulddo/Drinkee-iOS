@@ -28,7 +28,7 @@ struct HomePage: View {
                     HStack {
                         
                         
-                        Text(NSLocalizedString("Home_DiscoverLabel", comment: ""))
+                        Text(NSLocalizedString("Home_Discover", comment: ""))
                             .font(.system(size: 38, weight: .bold, design: .default))
                             .foregroundColor(Color(UIColor.darkTitle))
                             .padding()
