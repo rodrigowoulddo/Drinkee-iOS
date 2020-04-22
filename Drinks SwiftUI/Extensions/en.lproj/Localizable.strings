@@ -1,0 +1,9 @@
+/* 
+  Localizable.strings
+  Drinks SwiftUI
+
+  Created by Rafael Ferreira on 22/04/20.
+  Copyright © 2020 Rodrigo Giglio. All rights reserved.
+*/
+
+"Home_DiscoverLabel" = "Discover";
