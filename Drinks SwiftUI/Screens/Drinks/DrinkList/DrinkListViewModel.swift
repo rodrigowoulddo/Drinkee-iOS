@@ -30,7 +30,7 @@ class DrinkListViewModel: ObservableObject, Identifiable {
     // MARK: - Methods
     func fetchDrinks() {
                 
-        service.request(.getAllDrinks) {
+        service.request(.getAllDrinks(.en)) {
             (result: Result<[Drink], Error>) in
 
             switch result {
