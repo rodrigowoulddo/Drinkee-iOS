@@ -6,4 +6,11 @@
   Copyright © 2020 Rodrigo Giglio. All rights reserved.
 */
 
+//MARK: - Home Screen Labels
 "Home_DiscoverLabel" = "Descubra";
+
+//MARK: - Sidebar Labels
+"Sidebar_HomeLabel" = "Descubra";
+"Sidebar_DrinksLabel" = "Drinks";
+"Sidebar_IngredientsLabel" = "Ingredientes";
+"Sidebar_FavoritesLabel" = "Favoritos";
