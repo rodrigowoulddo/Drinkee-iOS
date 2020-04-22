@@ -18,8 +18,6 @@ struct DrinkDetail: View {
     
     var body: some View  {
         
-        
-        
         HStack {
             
             Spacer()
@@ -40,7 +38,7 @@ struct DrinkDetail: View {
                                 
                                 Spacer().frame(height: 30)
                                 
-                                DrinkDetailTitle(name: drink.name, strengthString: drink.strengthString)
+                                //DrinkDetailTitle(name: drink.name, strengthString: drink.strengthString)
                                 
                                 DrinkDetailImage(imageUrl: drink.photoUrlMedium)
                                     .offset(y: -50)
@@ -57,10 +55,12 @@ struct DrinkDetail: View {
                             DrinkDetailSteps(ingredients: drink.ingredients, steps: drink.steps).padding()
                             
                         }
-                        .offset(y: -200)
+                        .offset(y: -80)
                         
                     }
                 }
+                .navigationBarTitle(Text(drink.name))
+
             }
             
             if drink == nil {
@@ -85,8 +85,6 @@ struct DrinkDetail: View {
             Spacer()
             
         }
-        .padding(EdgeInsets(top: 0, leading: 40, bottom: 0, trailing: 40))
-        
     }
 }
 
@@ -99,7 +97,7 @@ struct DrinkDetailImage: SwiftUI.View  {
         
         URLImage(url: imageUrl)
             .aspectRatio(contentMode: .fit)
-            .frame(height: 600)
+            .frame(height: 400)
             //.shadow(radius: 8)
     }
 }
@@ -112,7 +110,7 @@ struct DrinkDetailBlurImage: SwiftUI.View  {
         
         URLImage(url: imageUrl, contentMode: .fit)
             .clipped()
-            .frame(height: 1000)
+            .frame(height: 400)
             .opacity(0.9)
             .blur(radius: 45)
     }
@@ -169,6 +167,8 @@ struct DrinkDetailAttributes: View {
                 .font(.system(size: 38, weight: .bold, design: .default))
                 .foregroundColor(Color(UIColor.darkTitle))
             
+            Spacer().frame(height: 25)
+            
             VStack(spacing: 0) {
                 
                 AttributeRow(label: "Teor Alcoolico", value: String("\(Int(round(drink.strength * 100)))%"))
@@ -188,12 +188,10 @@ struct DrinkDetailAttributes: View {
                 }
                 
                 IngredientRow(ingredients: drink.ingredients)
-                //AttributeRow(label: "Ingredientes", value: "", showSeparator: false) // TODO
                 
             }
             .cornerRadius(22)
             .shadow(color: Color(UIColor.shadow), radius: 17)
-            .padding(35)
             
         }
         .padding()
@@ -391,12 +389,14 @@ struct DrinkDetailIngredients: View {
     var body: some View {
         VStack {
             
+            Spacer().frame(height: 25)
+            
             Text("Ingredientes")
                 .font(.system(size: 38, weight: .bold, design: .default))
                 .foregroundColor(Color(UIColor.darkTitle))
             
             DrinkDetailIngredientSelectors(selectedDosageIndex: $selectedDosageIndex, selectedUnitIndex: $selectedUnitIndex, units: units)
-                .padding(35)
+                .padding(EdgeInsets(top: 25, leading: 0, bottom: 25, trailing: 0))
             
             VStack {
                 
@@ -477,7 +477,7 @@ struct DrinkDetailSteps: View {
                 }
             }.padding()
             
-        }.padding()
+        }
     }
 }
 
@@ -577,7 +577,7 @@ struct DrinkDetailStepRow: View {
             .cornerRadius(22)
             .shadow(color: Color(UIColor.shadow), radius: 17)
             
-        }.padding()
+        }//.padding()
     }
 }
 

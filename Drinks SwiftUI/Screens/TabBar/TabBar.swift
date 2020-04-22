@@ -54,6 +54,7 @@ struct TabBar: View {
             
         }
         .accentColor(Color(UIColor.tabBarSelectedTint))
+
     }
 }
 
