@@ -81,7 +81,7 @@ struct FeaturedCategory: SwiftUI.View {
     
     var body: some SwiftUI.View {
         VStack {
-            Group {
+            //Group {
                 
                 HStack {
                     
@@ -108,9 +108,9 @@ struct FeaturedCategory: SwiftUI.View {
                 //            }
                 //            CollectionView(drinks: category.drinks)
                 
-                CollectionView(viewModel: CollecTionViewViewModel(categoryId: category.uid))
-            }
-        }.padding(20)
+            CollectionView(viewModel: CollecTionViewViewModel(categoryId: category.uid)).frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: Alignment.topLeading)
+           // }
+        }//.padding(20)
     }
 }
 
