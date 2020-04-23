@@ -22,8 +22,11 @@ class HomeViewModel: ObservableObject, Identifiable {
     // MARK: - Init
     init() {
         
-        fetchCategories()
-        fetchTop5Drinks()
+        // fetchCategories()
+        // fetchTop5Drinks()
+        
+        categories = [Category.sampleCategory]
+        top5Drinks = Drink.sampleDrinks
     }
     
     
