@@ -26,3 +26,9 @@
 "DrinkDetail_MeasurementUnit" = "Unidade de medida";
 "DrinkDetail_Preparation" = "Preparação";
 "DrinkDetail_Step" = "Passo";
+
+//MARK: - Drink List Label
+"DrinkList_DrinksTitle" = "Drinks";
+
+//MARK: - Drinks From Ingredient Label
+"DrinksFromIngredient_DrinksWith" = "Drinks com";
