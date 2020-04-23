@@ -10,6 +10,8 @@ import SwiftUI
 
 struct DrinksFromIngredient: View {
     
+    @State var showLoad: Bool = true
+    
     @ObservedObject var viewModel: DrinksFromIngredientViewModel
     
     init(viewModel: DrinksFromIngredientViewModel) {
@@ -22,25 +24,22 @@ struct DrinksFromIngredient: View {
             
             
             if viewModel.drinks.isEmpty {
-                VStack (alignment: .center) {
+
+                HStack {
                     
                     Spacer()
                     
-                    HStack {
-                        Spacer()
-                        
-                        Image(systemName: "wifi.slash")
-                            .resizable()
-                            .aspectRatio(contentMode: .fill)
-                            .frame(width: 50, height: 50)
-                            .foregroundColor(Color.white)
+                    VStack () {
                         
                         Spacer()
+                        ActivityIndicator(isAnimating: $showLoad, style: .large)
+                        Spacer()
+                        
                     }
                     
                     Spacer()
-                    
                 }
+                
             } else {
                 
                 ScrollView(showsIndicators: false) {
@@ -51,13 +50,17 @@ struct DrinksFromIngredient: View {
                         
                         ForEach(viewModel.drinks, id: \.self) {
                             drink in
+                            
                             DrinkCell(viewModel: self.viewModel, drink: drink)
                                 .frame(height: 144)
                                 .cornerRadius(10)
                                 .shadow(color: Color(UIColor.shadow), radius: 17)
-                                .overlay(RoundedRectangle(cornerRadius: 10).stroke(Color(UIColor.white), lineWidth: 1))
+                                .overlay(
+                                    RoundedRectangle(cornerRadius: 10).stroke(Color(UIColor.white), lineWidth: 1)
+                                )
                         }
-                    }.padding(EdgeInsets(top: 0, leading: 40, bottom: 0, trailing: 40))
+                        
+                    }.padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20))
                 }
             }
         }
@@ -71,7 +74,7 @@ struct DrinksFromIngredient: View {
             
                 
             Text("Drinks com \(ingredient.name)")
-                .font(.system(size: 38))
+                .font(.system(size: 36))
                 .fontWeight(.semibold)
                 .foregroundColor(Color(UIColor.black))
                 .frame(height: 56)
@@ -82,9 +85,7 @@ struct DrinksFromIngredient: View {
     struct DrinkCell: View {
         
         @ObservedObject var viewModel: DrinksFromIngredientViewModel
-        
-        @State var showingDetail = false
-        
+                
         let drink: Drink
         
         var backgroundColor: Color {
@@ -93,9 +94,7 @@ struct DrinksFromIngredient: View {
         
         var body: some View {
             
-            Button (action: {
-                self.showingDetail.toggle()
-            }) {
+            NavigationLink (destination: DrinkDetail(drink: drink)){
                 
                 ZStack {
                     
@@ -112,16 +111,12 @@ struct DrinksFromIngredient: View {
                         
                         VStack(alignment: .leading) {
                             DrinkCellContent(name: drink.name, style: drink.style, ingredients: drink.ingredients)
-                                .padding(18)
+                                .padding(EdgeInsets(top: 10, leading: 0, bottom: 10, trailing: 10))
                         }
                     }
                 }
             }
             .buttonStyle(PlainButtonStyle())
-            .sheet(isPresented: $showingDetail) {
-                DrinkDetail(drink: self.drink)
-                .edgesIgnoringSafeArea(.all)
-            }
         }
     }
     
@@ -133,8 +128,8 @@ struct DrinksFromIngredient: View {
             
             URLImage(url: imageUrl)
                 .aspectRatio(contentMode: .fill)
-                .frame(width: 180, height:144)
-                .offset(y: 50)
+                .frame(width: 150, height:144)
+                .offset(y: 45)
         }
     }
     
@@ -151,19 +146,19 @@ struct DrinksFromIngredient: View {
                 VStack(alignment: .leading, spacing: 0) {
                                                                      
                     Text(name)
-                        .font(.system(size: 28, weight: .semibold, design: .default))
+                        .font(.system(size: 20, weight: .semibold, design: .default))
                         .foregroundColor(Color(UIColor.darkText))
                     
                     Spacer().frame(height: 2)
         
                     Text(style.capitalized)
-                        .font(.system(size: 20, weight: .regular, design: .default))
+                        .font(.system(size: 17, weight: .regular, design: .default))
                         .foregroundColor(Color(UIColor.subtitleText))
                     
                     Spacer().frame(height: 10)
                     
                     Text(ingredients.map{ $0.name }.joined(separator: ", "))
-                        .font(.system(size: 15, weight: .regular, design: .default))
+                        .font(.system(size: 14, weight: .regular, design: .default))
                         .foregroundColor(Color(UIColor.darkText))
                         .lineLimit(1)
 

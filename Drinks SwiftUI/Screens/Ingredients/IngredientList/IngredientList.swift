@@ -118,8 +118,7 @@ struct IngredientList: View {
             .buttonStyle(PlainButtonStyle())
             .background(Color(UIColor.quaternarySystemFill))
             .frame(height: 144)
-            .border(Color.white, width: 2)
-            .cornerRadius(10)
+            .cornerRadius(12)
             .padding(8)
             
         }

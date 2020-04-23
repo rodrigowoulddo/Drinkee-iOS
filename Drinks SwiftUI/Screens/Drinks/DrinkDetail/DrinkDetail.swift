@@ -96,7 +96,6 @@ struct DrinkDetailImage: SwiftUI.View  {
         URLImage(url: imageUrl)
             .aspectRatio(contentMode: .fit)
             .frame(height: 400)
-            //.shadow(radius: 8)
     }
 }
 
@@ -191,6 +190,7 @@ struct AttributeRow: View {
                 HStack {
                     Text(label)
                         .font(.system(size: 17, weight: .regular, design: .default))
+                        .foregroundColor(Color(UIColor.darkText))
                     
                     Spacer()
                 }
@@ -198,7 +198,8 @@ struct AttributeRow: View {
                 HStack {
                     Text(value?.capitalized ?? "")
                         .font(.system(size: 17, weight: .regular, design: .default))
-                    
+                        .foregroundColor(Color(UIColor.darkText))
+
                     Spacer()
                 }
                 
@@ -244,7 +245,7 @@ struct IngredientRow: View {
                                 HStack {
                                     Text(ingredient.name)
                                         .font(.system(size: 17, weight: .regular, design: .default))
-                                        .foregroundColor(Color(UIColor.darkTitle))
+                                        .foregroundColor(Color(UIColor.darkText))
 
                                 }
                                 .padding(8)
@@ -308,12 +309,14 @@ struct DrinkDetailIngredientSelectors: View {
         UISegmentedControl.appearance().setTitleTextAttributes(selectedAttributes, for: .selected)
         UISegmentedControl.appearance().setTitleTextAttributes(unselectedAttributes, for: .normal)
         
-        UISegmentedControl.appearance().selectedSegmentTintColor = .white
+        UISegmentedControl.appearance().selectedSegmentTintColor = .lightText
         UISegmentedControl.appearance().backgroundColor = .listBackground
+        
+        UISegmentedControl.appearance().heightAnchor.constraint(equalToConstant: 100).isActive = true
     }
     
     var body: some View {
-        HStack (spacing: 10) {
+        HStack (spacing: 15) {
             
             VStack {
                 
@@ -329,6 +332,7 @@ struct DrinkDetailIngredientSelectors: View {
                     }
                 }
                 .pickerStyle(SegmentedPickerStyle())
+                
             }
             
             VStack {
@@ -404,7 +408,7 @@ struct DrinkDetailIngredientRow: View {
             HStack {
                 Text("\(adjustedMeasurement) \(ingredient.measurementUnit!)")
                     .font(.system(size: 17, weight: .regular, design: .default))
-                    .foregroundColor(Color(UIColor.darkTitle))
+                    .foregroundColor(Color(UIColor.darkText))
                 
                 Spacer()
             }
@@ -412,7 +416,7 @@ struct DrinkDetailIngredientRow: View {
             HStack {
                 Text(ingredient.name)
                     .font(.system(size: 17, weight: .regular, design: .default))
-                    .foregroundColor(Color(UIColor.darkTitle))
+                    .foregroundColor(Color(UIColor.darkText))
                 
                 Spacer()
             }
@@ -554,26 +558,6 @@ struct DrinkDetailStepRow: View {
             
         }
     }
-}
-
-struct IngredientText: View {
-    
-    let text: String
-    let color: String?
-    
-    var body: some View {
-        
-        Group {
-            Text(text)
-                .font(.system(size: 17, weight: .regular, design: .default))
-                .foregroundColor(Color(UIColor.darkText))
-        }
-        .background(Color(UIColor.from(colorNamed: color)))
-        .cornerRadius(10)
-        .padding(4)
-        
-    }
-    
 }
 
 

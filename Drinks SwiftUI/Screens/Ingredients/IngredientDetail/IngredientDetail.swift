@@ -27,18 +27,19 @@ struct IngredientDetail: View {
                 ingredient in
                 
                 ScrollView(showsIndicators: false) {
+                    
                     VStack {
+                        
                         ZStack {
+                            
                             IngredientDetailBlurImage(imageUrl: ingredient.photoUrlMedium)
-                                .offset(y: -450)
+                                .offset(y: -250)
+                            
                             VStack(alignment: .center, spacing: 0) {
                                 
                                 Spacer().frame(height: 30)
                                 
-                                IngredientDetailTitle(name: ingredient.name, strength: ingredient.strength)
-                                
                                 IngredientDetailImage(imageUrl: ingredient.photoUrlMedium)
-                                    .scaleEffect(0.8)
                                     .offset(y: -50)
                                 
                             }
@@ -47,12 +48,16 @@ struct IngredientDetail: View {
                         VStack {
                             
                             IngredientDetailAttributes(ingredient: ingredient)
-
+                            
+                            Spacer().frame(height: 25)
+                            
                             DrinksFromIngredient(viewModel: DrinksFromIngredientViewModel(ingredient: ingredient))
-                        
-                        }.offset(y: -200)
+                            
+                        }.offset(y: -80)
                     }
                 }
+                .navigationBarTitle(Text(ingredient.name))
+                
             }
             
             if ingredient == nil {
@@ -62,7 +67,7 @@ struct IngredientDetail: View {
                     Spacer()
                     
                     VStack () {
-
+                        
                         Spacer()
                         ActivityIndicator(isAnimating: $showLoad, style: .large)
                         Spacer()
@@ -76,8 +81,6 @@ struct IngredientDetail: View {
             Spacer()
             
         }
-        .padding(EdgeInsets(top: 0, leading: 40, bottom: 0, trailing: 40))
-        
     }
 }
 struct IngredientDetailBlurImage: SwiftUI.View  {
@@ -88,7 +91,7 @@ struct IngredientDetailBlurImage: SwiftUI.View  {
         
         URLImage(url: imageUrl, contentMode: .fit)
             .clipped()
-            .frame(height: 1000)
+            .frame(height: 400)
             .opacity(0.9)
             .blur(radius: 45)
     }
@@ -102,8 +105,7 @@ struct IngredientDetailImage: SwiftUI.View  {
         
         URLImage(url: imageUrl)
             .aspectRatio(contentMode: .fit)
-            .frame(height: 600)
-            .shadow(radius: 8)
+            .frame(height: 325)
     }
 }
 
@@ -136,19 +138,19 @@ struct IngredientDetailAttributes: View {
         VStack {
             
             Text("Detalhes")
-                .font(.system(size: 38, weight: .bold, design: .default))
+                .font(.system(size: 36, weight: .bold, design: .default))
                 .foregroundColor(Color(UIColor.darkTitle))
+            
+            Spacer().frame(height: 25)
             
             VStack(spacing: 0) {
                 
                 AttributeRow(label: "Teor Alcoolico", value: String("\(Int(round(ingredient.strength * 100)))%"))
-                AttributeRow(label: "Origem", value: ingredient.origin)
-
+                AttributeRow(label: "Origem", value: ingredient.origin, showSeparator: false)
                 
             }
             .cornerRadius(22)
             .shadow(color: Color(UIColor.shadow), radius: 17)
-            .padding(35)
             
         }
         .padding()
