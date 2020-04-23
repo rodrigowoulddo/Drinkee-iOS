@@ -16,6 +16,7 @@ struct DrinkList: View {
     
     init(viewModel: DrinkListViewModel) {
         self.viewModel = viewModel
+        
     }
     
     var body: some View {
@@ -125,8 +126,7 @@ struct DrinkList: View {
             .buttonStyle(PlainButtonStyle())
             .background(Color(UIColor.quaternarySystemFill))
             .frame(height: 144)
-            .border(Color.white, width: 2)
-            .cornerRadius(10)
+            .cornerRadius(12)
             .padding(8)
         }
     }

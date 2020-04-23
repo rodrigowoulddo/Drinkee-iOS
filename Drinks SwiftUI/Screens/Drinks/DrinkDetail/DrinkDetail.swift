@@ -38,8 +38,6 @@ struct DrinkDetail: View {
                                 
                                 Spacer().frame(height: 30)
                                 
-                                //DrinkDetailTitle(name: drink.name, strengthString: drink.strengthString)
-                                
                                 DrinkDetailImage(imageUrl: drink.photoUrlMedium)
                                     .offset(y: -50)
                                 
@@ -135,27 +133,6 @@ struct FavoriteButton: View {
     }
 }
 
-struct DrinkDetailTitle: View {
-    
-    let name: String
-    let strengthString: String
-    
-    var body: some View {
-        VStack {
-            
-            Text(name)
-                .font(.system(size: 48, weight: .bold, design: .default))
-                .foregroundColor(Color(UIColor.darkTitle))
-            
-            Text(strengthString) // TODO: - Add Light / Medium / Strong
-                .font(.system(size:24, weight: .regular, design: .default))
-                .foregroundColor(Color(UIColor.white))
-            
-        }
-        .padding()
-    }
-}
-
 struct DrinkDetailAttributes: View {
     
     let drink: Drink
@@ -164,13 +141,13 @@ struct DrinkDetailAttributes: View {
         VStack {
             
             Text("Detalhes")
-                .font(.system(size: 38, weight: .bold, design: .default))
+                .font(.system(size: 36, weight: .bold, design: .default))
                 .foregroundColor(Color(UIColor.darkTitle))
             
             Spacer().frame(height: 25)
             
             VStack(spacing: 0) {
-                
+                                                
                 AttributeRow(label: "Teor Alcoolico", value: String("\(Int(round(drink.strength * 100)))%"))
                 AttributeRow(label: "Estilo", value: drink.style)
                 AttributeRow(label: "Autor", value: drink.author)
@@ -213,14 +190,14 @@ struct AttributeRow: View {
                 
                 HStack {
                     Text(label)
-                        .font(.system(size: 24, weight: .regular, design: .default))
+                        .font(.system(size: 17, weight: .regular, design: .default))
                     
                     Spacer()
                 }
                 
                 HStack {
                     Text(value?.capitalized ?? "")
-                        .font(.system(size: 24, weight: .regular, design: .default))
+                        .font(.system(size: 17, weight: .regular, design: .default))
                     
                     Spacer()
                 }
@@ -234,7 +211,7 @@ struct AttributeRow: View {
             }
             
         }
-        .padding(EdgeInsets(top: 30, leading: 40, bottom: 20, trailing: 40))
+        .padding(EdgeInsets(top: 25, leading: 20, bottom: 5, trailing: 20))
         .background(Color(UIColor.white))
     }
 }
@@ -251,12 +228,12 @@ struct IngredientRow: View {
                 
                 HStack {
                     Text("Ingredientes")
-                        .font(.system(size: 24, weight: .regular, design: .default))
+                        .font(.system(size: 17, weight: .regular, design: .default))
                     
                     Spacer()
                 }
                 
-                HStack (spacing: 10) {
+                HStack (spacing: 4) {
                     
                     VStack {
                         
@@ -266,7 +243,7 @@ struct IngredientRow: View {
                             HStack {
                                 HStack {
                                     Text(ingredient.name)
-                                        .font(.system(size: 24, weight: .regular, design: .default))
+                                        .font(.system(size: 17, weight: .regular, design: .default))
                                         .foregroundColor(Color(UIColor.darkTitle))
 
                                 }
@@ -295,7 +272,7 @@ struct IngredientRow: View {
             Spacer().frame(height: 18)
             
         }
-        .padding(EdgeInsets(top: 30, leading: 40, bottom: 20, trailing: 40))
+        .padding(EdgeInsets(top: 15, leading: 20, bottom: 5, trailing: 20))
         .background(Color(UIColor.white))
     }
     
@@ -316,7 +293,7 @@ struct DrinkDetailIngredientSelectors: View {
         
         
         
-        let font = UIFont.systemFont(ofSize: 24)
+        let font = UIFont.systemFont(ofSize: 17)
         
         let selectedAttributes: [NSAttributedString.Key: Any] = [
             .foregroundColor: UIColor.listBackground,
@@ -336,12 +313,12 @@ struct DrinkDetailIngredientSelectors: View {
     }
     
     var body: some View {
-        HStack {
+        HStack (spacing: 10) {
             
             VStack {
                 
-                Text("Doses")
-                    .font(.system(size: 24, weight: .regular, design: .default))
+                Text("Nº de Doses")
+                    .font(.system(size: 14, weight: .regular, design: .default))
                     .foregroundColor(Color(UIColor.darkTitle))
                 
                 Picker("Doses", selection: $selectedDosageIndex) {
@@ -353,11 +330,10 @@ struct DrinkDetailIngredientSelectors: View {
                 }
                 .pickerStyle(SegmentedPickerStyle())
             }
-            .padding()
             
             VStack {
                 Text("Unidade de Medida")
-                    .font(.system(size: 24, weight: .regular, design: .default))
+                    .font(.system(size: 14, weight: .regular, design: .default))
                     .foregroundColor(Color(UIColor.darkTitle))
 
                 Picker("Medida", selection: $selectedUnitIndex) {
@@ -370,7 +346,6 @@ struct DrinkDetailIngredientSelectors: View {
                 }
                 .pickerStyle(SegmentedPickerStyle())
             }
-            .padding()
             .disabled(true)
             
         }
@@ -392,24 +367,24 @@ struct DrinkDetailIngredients: View {
             Spacer().frame(height: 25)
             
             Text("Ingredientes")
-                .font(.system(size: 38, weight: .bold, design: .default))
+                .font(.system(size: 36, weight: .bold, design: .default))
                 .foregroundColor(Color(UIColor.darkTitle))
             
             DrinkDetailIngredientSelectors(selectedDosageIndex: $selectedDosageIndex, selectedUnitIndex: $selectedUnitIndex, units: units)
-                .padding(EdgeInsets(top: 25, leading: 0, bottom: 25, trailing: 0))
+                .padding(EdgeInsets(top: 25, leading: 20, bottom: 15, trailing: 20))
             
-            VStack {
+            VStack (spacing: 10) {
                 
                 ForEach(ingredients, id: \.self) {
                     ingredient in
                     
                     DrinkDetailIngredientRow(selectedDosageIndex: self.$selectedDosageIndex, ingredient: ingredient)
                     
-                }.padding()
+                }
                 
             }
-            
-        }.padding()
+            .padding(EdgeInsets(top: 0, leading: 20, bottom: 25, trailing: 20))
+        }
     }
 }
 
@@ -428,7 +403,7 @@ struct DrinkDetailIngredientRow: View {
             
             HStack {
                 Text("\(adjustedMeasurement) \(ingredient.measurementUnit!)")
-                    .font(.system(size: 24, weight: .regular, design: .default))
+                    .font(.system(size: 17, weight: .regular, design: .default))
                     .foregroundColor(Color(UIColor.darkTitle))
                 
                 Spacer()
@@ -436,7 +411,7 @@ struct DrinkDetailIngredientRow: View {
             
             HStack {
                 Text(ingredient.name)
-                    .font(.system(size: 24, weight: .regular, design: .default))
+                    .font(.system(size: 17, weight: .regular, design: .default))
                     .foregroundColor(Color(UIColor.darkTitle))
                 
                 Spacer()
@@ -465,18 +440,18 @@ struct DrinkDetailSteps: View {
         VStack {
             
             Text("Preparação")
-                .font(.system(size: 38, weight: .bold, design: .default))
+                .font(.system(size: 36, weight: .bold, design: .default))
                 .foregroundColor(Color(UIColor.darkTitle))
             
-            VStack {
+            VStack(spacing: 16) {
                 
                 ForEach(steps, id: \.self) {
                     step in
                     
                     DrinkDetailStepRow(stepOrder: self.steps.firstIndex(of: step) ?? 0, step: step, stepCount: self.steps.count, ingredients: self.ingredients)
                 }
-            }.padding()
-            
+            }
+            .padding()
         }
     }
 }
@@ -517,7 +492,7 @@ struct DrinkDetailStepRow: View {
                     
                     attributedStepDictionary.append(
                     Text(String(ingredients[i].name))
-                        .font(.system(size: 24, weight: .bold, design: .default))
+                        .font(.system(size: 17, weight: .bold, design: .default))
                         .foregroundColor(Color(UIColor.yellowText))
                     )
                 }
@@ -526,7 +501,7 @@ struct DrinkDetailStepRow: View {
             if !didFound {
                 attributedStepDictionary.append(
                     Text(String(split))
-                    .font(.system(size: 24, weight: .regular, design: .default))
+                    .font(.system(size: 17, weight: .regular, design: .default))
                     .foregroundColor(Color(UIColor.darkText))
 
                         
@@ -552,18 +527,18 @@ struct DrinkDetailStepRow: View {
     
     var body: some View {
         VStack (alignment: .leading) {
-            
+                        
             HStack{
                 Spacer()
                 
                 Text("Passo \(stepOrder + 1)/\(stepCount)")
-                    .font(.system(size: 20, weight: .regular, design: .default))
+                    .font(.system(size: 14, weight: .regular, design: .default))
                     .foregroundColor(Color(UIColor.subtitleText))
                 
                 Spacer()
             }
             
-            Spacer().frame(height: 10)
+            Spacer().frame(height: 8)
             
             HStack {
                 
@@ -572,12 +547,12 @@ struct DrinkDetailStepRow: View {
                 Spacer()
 
             }
-            .padding(EdgeInsets(top: 30, leading: 40, bottom: 20, trailing: 40))
+            .padding()
             .background(Color(UIColor.white))
             .cornerRadius(22)
             .shadow(color: Color(UIColor.shadow), radius: 17)
             
-        }//.padding()
+        }
     }
 }
 
@@ -590,7 +565,7 @@ struct IngredientText: View {
         
         Group {
             Text(text)
-                .font(.system(size: 24, weight: .regular, design: .default))
+                .font(.system(size: 17, weight: .regular, design: .default))
                 .foregroundColor(Color(UIColor.darkText))
         }
         .background(Color(UIColor.from(colorNamed: color)))

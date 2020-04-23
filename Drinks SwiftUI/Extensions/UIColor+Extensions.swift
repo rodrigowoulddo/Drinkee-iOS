@@ -43,6 +43,7 @@ extension UIColor {
         case "light-burgundy": return #colorLiteral(red: 0.9019607843, green: 0.8196078431, blue: 0.8235294118, alpha: 1)
         case "strong-burgundy": return #colorLiteral(red: 0.9568627451, green: 0.8156862745, blue: 0.8156862745, alpha: 1)
         case "light-yellow": return #colorLiteral(red: 1, green: 0.9725490196, blue: 0.8784313725, alpha: 1)
+        case "soft-yellow": return #colorLiteral(red: 0.9882352941, green: 0.9725490196, blue: 0.9176470588, alpha: 1)
         case "light-green": return #colorLiteral(red: 0.9254901961, green: 0.9647058824, blue: 0.9411764706, alpha: 1)
         case "soft-red": return #colorLiteral(red: 0.9294117647, green: 0.7215686275, blue: 0.7215686275, alpha: 1)
         case "soft-orange": return #colorLiteral(red: 1, green: 0.9058823529, blue: 0.7647058824, alpha: 1)

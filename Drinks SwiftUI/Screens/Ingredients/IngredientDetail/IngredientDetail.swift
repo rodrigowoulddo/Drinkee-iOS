@@ -155,4 +155,3 @@ struct IngredientDetailAttributes: View {
         
     }
 }
-
