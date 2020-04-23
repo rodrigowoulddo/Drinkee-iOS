@@ -32,3 +32,17 @@
 
 //MARK: - Drinks From Ingredient Label
 "DrinksFromIngredient_DrinksWith" = "Drinks com";
+
+//MARK: - Ingredient Detail Labels
+"IngredientDetail_DetailTitle" = "Detalhes";
+"IngredientDetail_AlcoholContent" = "Porcentagem Alcólica";
+"IngredientDetail_Origin" = "Origem";
+
+//MARK: - Ingredient List Label
+"IngredientList_IngredientsTitle" = "Ingredientes";
+
+//MARK: - Drink Strenght Labels
+"DrinkStrength_Light" = "Fraco";
+"DrinkStrength_Medium" = "Médio";
+"DrinkStrength_Strong" = "Forte";
+"DrinkStrength_VeryStrong" = "Muito Forte";

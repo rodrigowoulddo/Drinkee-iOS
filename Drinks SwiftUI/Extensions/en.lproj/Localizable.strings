@@ -32,3 +32,17 @@
 
 //MARK: - Drinks From Ingredient Label
 "DrinksFromIngredient_DrinksWith" = "Drinks with";
+
+//MARK: - Ingredient Detail Labels
+"IngredientDetail_DetailTitle" = "Details";
+"IngredientDetail_AlcoholContent" = "Alcohol Percentage";
+"IngredientDetail_Origin" = "Origin";
+
+//MARK: - Ingredient List Label
+"IngredientList_IngredientsTitle" = "Ingredients";
+
+//MARK: - Drink Strenght Labels
+"DrinkStrength_Light" = "Light";
+"DrinkStrength_Medium" = "Medium";
+"DrinkStrength_Strong" = "Strong";
+"DrinkStrength_VeryStrong" = "Very Strong";
