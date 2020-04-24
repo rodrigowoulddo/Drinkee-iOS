@@ -46,11 +46,14 @@ struct TabBar: View {
     var body: some View {
         
         TabView {
+            /// Anable when home screen is adapted to iPhones
+            //TabItem(page: AnyView(HomePage()), tab: .home)
             
-            TabItem(page: AnyView(HomePage()), tab: .home)
             TabItem(page: AnyView(DrinksPage()), tab: .drinks)
             TabItem(page: AnyView(IngredientsPage()), tab: .ingredients)
-            TabItem(page: AnyView(FavoritesPage()), tab: .favorites)
+            
+            /// Anable when favortes screen is implemented
+            // TabItem(page: AnyView(FavoritesPage()), tab: .favorites)
             
         }
         .accentColor(Color(UIColor.tabBarSelectedTint))
