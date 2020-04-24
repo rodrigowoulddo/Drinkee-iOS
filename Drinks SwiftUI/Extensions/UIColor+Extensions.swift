@@ -54,12 +54,12 @@ extension UIColor {
         case "soft-red": return #colorLiteral(red: 0.9294117647, green: 0.7215686275, blue: 0.7215686275, alpha: 1)
         case "soft-orange": return #colorLiteral(red: 1, green: 0.9058823529, blue: 0.7647058824, alpha: 1)
         case "gray": return #colorLiteral(red: 0.937254902, green: 0.937254902, blue: 0.937254902, alpha: 1)
-        case "orange": return #colorLiteral(red: 1, green: 0.8117647059, blue: 0.6392156863, alpha: 1)
+        case "orange": return #colorLiteral(red: 1, green: 0.9137254902, blue: 0.8470588235, alpha: 1)
         case "green": return #colorLiteral(red: 0.721568644, green: 0.8862745166, blue: 0.5921568871, alpha: 1)
-        case "brown": return .brown
-        case "light-gray": return #colorLiteral(red: 0.9882352941, green: 0.9882352941, blue: 0.9882352941, alpha: 1)
-        case "red": return #colorLiteral(red: 0.9254901961, green: 0.5882352941, blue: 0.5882352941, alpha: 1)
-        case "gold": return #colorLiteral(red: 0.9490196078, green: 0.831372549, blue: 0.6509803922, alpha: 1)
+        case "brown": return #colorLiteral(red: 0.7176470588, green: 0.5921568627, blue: 0.5215686275, alpha: 1)
+        case "light-gray": return #colorLiteral(red: 0.9647058824, green: 0.9647058824, blue: 0.9647058824, alpha: 1)
+        case "red": return #colorLiteral(red: 1, green: 0.8588235294, blue: 0.8509803922, alpha: 1)
+        case "gold": return #colorLiteral(red: 0.9647058824, green: 0.9490196078, blue: 0.8509803922, alpha: 1)
         default: return .white
         }
         
