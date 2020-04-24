@@ -63,7 +63,7 @@ struct IngredientList: View {
                 
                 Spacer().frame(height: 40)
                 
-                Text(NSLocalizedString("IngredientList_IngredientsTitle", comment: ""))
+                Text("IngredientList_IngredientsTitle".localized())
                     .font(.system(size: 33))
                     .fontWeight(.semibold)
                     .foregroundColor(Color(UIColor.white))

@@ -135,14 +135,14 @@ struct IngredientDetailAttributes: View {
     var body: some View {
         VStack {
             
-            Text(NSLocalizedString("IngredientDetail_DetailTitle", comment: ""))
+            Text("IngredientDetail_DetailTitle".localized())
                 .font(.system(size: 38, weight: .bold, design: .default))
                 .foregroundColor(Color(UIColor.darkTitle))
             
             VStack(spacing: 0) {
                 
-                AttributeRow(label: NSLocalizedString("IngredientDetail_AlcoholContent", comment: ""), value: String("\(Int(round(ingredient.strength * 100)))%"))
-                AttributeRow(label: NSLocalizedString("IngredientDetail_Origin", comment: ""), value: ingredient.origin)
+                AttributeRow(label: "IngredientDetail_AlcoholContent".localized(), value: String("\(Int(round(ingredient.strength * 100)))%"))
+                AttributeRow(label: "IngredientDetail_Origin".localized(), value: ingredient.origin)
 
                 
             }
