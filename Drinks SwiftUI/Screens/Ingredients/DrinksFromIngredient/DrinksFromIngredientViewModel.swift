@@ -21,9 +21,7 @@ class DrinksFromIngredientViewModel: ObservableObject, Identifiable {
     init(ingredient: Ingredient) {
         self.ingredient = ingredient
         
-        //fetchDrinksFromIngredient()
-        drinks = [Drink.sampleDrink]
-        
+        fetchDrinksFromIngredient()
     }
     
     // MARK: - Methods

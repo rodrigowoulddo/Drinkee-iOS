@@ -16,7 +16,6 @@ struct IngredientsPage: View {
         
         HStack {
                 IngredientList(viewModel: viewModel)
-                //IngredientDetail(ingredient: viewModel.selectedIngredient)
         }
         
     }

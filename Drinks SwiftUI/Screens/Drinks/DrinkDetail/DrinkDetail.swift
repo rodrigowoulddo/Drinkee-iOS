@@ -203,6 +203,7 @@ struct AttributeRow: View {
 
                     Spacer()
                 }
+                .frame(width: 200)
                 
             }
             
@@ -214,7 +215,7 @@ struct AttributeRow: View {
             
         }
         .padding(EdgeInsets(top: 25, leading: 20, bottom: 5, trailing: 20))
-        .background(Color(UIColor.white))
+        .background(Color(UIColor.background))
     }
 }
 
@@ -247,7 +248,7 @@ struct IngredientRow: View {
                                 HStack {
                                     Text(ingredient.name)
                                         .font(.system(size: 17, weight: .regular, design: .default))
-                                        .foregroundColor(Color(UIColor.darkText))
+                                        .foregroundColor(Color(UIColor.allwaysDarkText))
 
                                 }
                                 .padding(8)
@@ -256,7 +257,7 @@ struct IngredientRow: View {
                                 .cornerRadius(10)
                                 .overlay(
                                     RoundedRectangle(cornerRadius: 10)
-                                        .stroke(Color(UIColor.white), lineWidth: 1)
+                                        .stroke(Color(UIColor.background), lineWidth: 1)
                                 )
                                     .padding(8)
                                 
@@ -269,6 +270,7 @@ struct IngredientRow: View {
                     
                     Spacer()
                 }
+                .frame(width: 200)
                 
             }
             
@@ -276,7 +278,7 @@ struct IngredientRow: View {
             
         }
         .padding(EdgeInsets(top: 15, leading: 20, bottom: 5, trailing: 20))
-        .background(Color(UIColor.white))
+        .background(Color(UIColor.background))
     }
     
 }
@@ -409,7 +411,7 @@ struct DrinkDetailIngredientRow: View {
             HStack {
                 Text("\(adjustedMeasurement) \(ingredient.measurementUnit!)")
                     .font(.system(size: 17, weight: .regular, design: .default))
-                    .foregroundColor(Color(UIColor.darkText))
+                    .foregroundColor(Color(UIColor.allwaysDarkText))
                 
                 Spacer()
             }
@@ -417,7 +419,7 @@ struct DrinkDetailIngredientRow: View {
             HStack {
                 Text(ingredient.name)
                     .font(.system(size: 17, weight: .regular, design: .default))
-                    .foregroundColor(Color(UIColor.darkText))
+                    .foregroundColor(Color(UIColor.allwaysDarkText))
                 
                 Spacer()
             }
@@ -430,7 +432,7 @@ struct DrinkDetailIngredientRow: View {
         .cornerRadius(10)
         .overlay(
             RoundedRectangle(cornerRadius: 10)
-                .stroke(Color(UIColor.white), lineWidth: 1)
+                .stroke(Color(UIColor.background), lineWidth: 1)
         )
 
     }
@@ -554,7 +556,7 @@ struct DrinkDetailStepRow: View {
 
             }
             .padding()
-            .background(Color(UIColor.white))
+            .background(Color(UIColor.background))
             .cornerRadius(22)
             .shadow(color: Color(UIColor.shadow), radius: 17)
             

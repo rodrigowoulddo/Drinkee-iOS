@@ -12,28 +12,34 @@ import SwiftUI
 
 extension UIColor {
     
+    static func named(_ name: String) -> UIColor {
+        return UIColor(named: name) ?? UIColor.white
+    }
+    
     // MARK: - Basic Layout
-    static let shadow = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0.1)
-    static let separator = #colorLiteral(red: 0.7725490196, green: 0.7725490196, blue: 0.7725490196, alpha: 1)
+    static let shadow = UIColor.named("Shadow")
+    static let separator = UIColor.named("Separator")
+    static let background = UIColor.named("Background")
 
     
     // MARK: - Tabbar
-    static let tabBarBackground = #colorLiteral(red: 0.9764705882, green: 0.9764705882, blue: 0.968627451, alpha: 1)
-    static let tabBarUnselectedTint = #colorLiteral(red: 0.6549019608, green: 0.6549019608, blue: 0.6549019608, alpha: 1)
-    static let tabBarSelectedTint = #colorLiteral(red: 1, green: 0.8078431373, blue: 0, alpha: 1)
-    static let imagePlaceholder = #colorLiteral(red: 0.3215686275, green: 0.3215686275, blue: 0.3215686275, alpha: 1)
+    static let tabBarBackground = UIColor.named("Tab Bar Background")
+    static let tabBarUnselectedTint = UIColor.named("Tab Bar Unselected Tint")
+    static let tabBarSelectedTint = UIColor.named("Tab Bar Selected Tint")
+    static let imagePlaceholder = UIColor.named("Image Placeholder")
     
     
     // MARK: - Drink List
-    static let listBackground = #colorLiteral(red: 0.1960784314, green: 0.1960784314, blue: 0.1960784314, alpha: 1)
+    static let listBackground = UIColor.named("List Background")
     
     
     // MARK: - Text
-    static let lightText = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
-    static let darkText = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
-    static let subtitleText = #colorLiteral(red: 0.4588235294, green: 0.4588235294, blue: 0.4588235294, alpha: 1)
-    static let darkTitle = #colorLiteral(red: 0.1960784314, green: 0.1960784314, blue: 0.1960784314, alpha: 1)
-    static let yellowText = #colorLiteral(red: 1, green: 0.8078431373, blue: 0, alpha: 1)
+    static let lightText = UIColor.named("Light Text")
+    static let darkText = UIColor.named("Dark Text")
+    static let allwaysDarkText = UIColor.named("Allways Dark Text")
+    static let subtitleText = UIColor.named("Subtitle Text")
+    static let darkTitle = UIColor.named("Dark Title")
+    static let yellowText = UIColor.named("Yellow Text")
 
     
     // MARK: - Methods

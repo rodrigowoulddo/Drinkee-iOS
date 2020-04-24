@@ -159,6 +159,7 @@ struct DrinkList: View {
                                 
                 Text(name)
                     .font(.system(size: 20, weight: .medium, design: .default))
+                    .foregroundColor(Color(UIColor.allwaysDarkText))
                 
                 Text(style.capitalized)
                     .font(.system(size: 10, weight: .medium, design: .default))

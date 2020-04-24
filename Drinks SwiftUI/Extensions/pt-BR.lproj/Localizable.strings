@@ -17,7 +17,7 @@
 
 //MARK: - Drink Detail Labels
 "DrinkDetail_DetailTitle" = "Detalhes";
-"DrinkDetail_AlcoholContent" = "Porcentagem Alcólica";
+"DrinkDetail_AlcoholContent" = "Teor Alcólico";
 "DrinkDetail_Style" = "Estilo";
 "DrinkDetail_Author" = "Autor";
 "DrinkDetail_BaseSpirit" = "Bebida Base";
@@ -35,7 +35,7 @@
 
 //MARK: - Ingredient Detail Labels
 "IngredientDetail_DetailTitle" = "Detalhes";
-"IngredientDetail_AlcoholContent" = "Porcentagem Alcólica";
+"IngredientDetail_AlcoholContent" = "Teor Alcólico";
 "IngredientDetail_Origin" = "Origem";
 
 //MARK: - Ingredient List Label

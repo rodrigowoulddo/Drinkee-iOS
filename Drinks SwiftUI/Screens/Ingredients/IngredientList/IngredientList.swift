@@ -151,6 +151,7 @@ struct IngredientList: View {
                                 
                 Text(name)
                     .font(.system(size: 20, weight: .medium, design: .default))
+                    .foregroundColor(Color(UIColor.allwaysDarkText))
 
             }
         }

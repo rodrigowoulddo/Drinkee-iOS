@@ -77,7 +77,7 @@ struct DrinksFromIngredient: View {
             Text("DrinksFromIngredient_DrinksWith".localized() + " \(ingredient.name)")
                 .font(.system(size: 36))
                 .fontWeight(.semibold)
-                .foregroundColor(Color(UIColor.black))
+                .foregroundColor(Color(UIColor.darkTitle))
                 .frame(height: 56)
                 
         }
@@ -148,7 +148,7 @@ struct DrinksFromIngredient: View {
                                                                      
                     Text(name)
                         .font(.system(size: 20, weight: .semibold, design: .default))
-                        .foregroundColor(Color(UIColor.darkText))
+                        .foregroundColor(Color(UIColor.allwaysDarkText))
                     
                     Spacer().frame(height: 2)
         
@@ -160,7 +160,7 @@ struct DrinksFromIngredient: View {
                     
                     Text(ingredients.map{ $0.name }.joined(separator: ", "))
                         .font(.system(size: 14, weight: .regular, design: .default))
-                        .foregroundColor(Color(UIColor.darkText))
+                        .foregroundColor(Color(UIColor.allwaysDarkText))
                         .lineLimit(1)
 
                 }

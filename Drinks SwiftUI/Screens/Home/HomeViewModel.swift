@@ -15,18 +15,15 @@ class HomeViewModel: ObservableObject, Identifiable {
     @Published var top5Drinks: [Drink] = []
     
     @Published var showldDisplayActivityIndicator = true
-        
+    
     // MARK: - Atributtes
     let service = Service<DrinkEndpoint>()
     
     // MARK: - Init
     init() {
         
-        // fetchCategories()
-        // fetchTop5Drinks()
-        
-        categories = [Category.sampleCategory]
-        top5Drinks = Drink.sampleDrinks
+        fetchCategories()
+        fetchTop5Drinks()
     }
     
     
@@ -35,7 +32,7 @@ class HomeViewModel: ObservableObject, Identifiable {
         
         service.request(.getAllCategories) {
             (result: Result<[Category], Error>) in
-
+            
             switch result {
                 
             case .failure(let error):
@@ -57,7 +54,7 @@ class HomeViewModel: ObservableObject, Identifiable {
         
         service.request(.getTopNDrinks(numberOfDrinks: 5)) {
             (result: Result<[Drink], Error>) in
-
+            
             switch result {
                 
             case .failure(let error):
