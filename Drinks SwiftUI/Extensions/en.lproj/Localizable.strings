@@ -1,0 +1,48 @@
+/* 
+  Localizable.strings
+  Drinks SwiftUI
+
+  Created by Rafael Ferreira on 22/04/20.
+  Copyright © 2020 Rodrigo Giglio. All rights reserved.
+*/
+
+//MARK: - Home Screen Labels
+"Home_Discover" = "Discover";
+
+//MARK: - Sidebar Labels
+"Sidebar_Home" = "Discover";
+"Sidebar_Drinks" = "Drinks";
+"Sidebar_Ingredients" = "Ingredients";
+"Sidebar_Favorites" = "Favorites";
+
+//MARK: - Drink Detail Labels
+"DrinkDetail_DetailTitle" = "Details";
+"DrinkDetail_AlcoholContent" = "Alcohol Percentage";
+"DrinkDetail_Style" = "Style";
+"DrinkDetail_Author" = "Author";
+"DrinkDetail_BaseSpirit" = "Base Spirit";
+"DrinkDetail_Ingredients" = "Ingredients";
+"DrinkDetail_Doses" = "Doses";
+"DrinkDetail_MeasurementUnit" = "Measurement Unit";
+"DrinkDetail_Preparation" = "Preparation";
+"DrinkDetail_Step" = "Step";
+
+//MARK: - Drink List Label
+"DrinkList_DrinksTitle" = "Drinks";
+
+//MARK: - Drinks From Ingredient Label
+"DrinksFromIngredient_DrinksWith" = "Drinks with";
+
+//MARK: - Ingredient Detail Labels
+"IngredientDetail_DetailTitle" = "Details";
+"IngredientDetail_AlcoholContent" = "Alcohol Percentage";
+"IngredientDetail_Origin" = "Origin";
+
+//MARK: - Ingredient List Label
+"IngredientList_IngredientsTitle" = "Ingredients";
+
+//MARK: - Drink Strenght Labels
+"DrinkStrength_Light" = "Light";
+"DrinkStrength_Medium" = "Medium";
+"DrinkStrength_Strong" = "Strong";
+"DrinkStrength_VeryStrong" = "Very Strong";

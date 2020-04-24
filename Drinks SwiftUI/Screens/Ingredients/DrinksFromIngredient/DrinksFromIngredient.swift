@@ -70,7 +70,7 @@ struct DrinksFromIngredient: View {
         var body: some View {
             
                 
-            Text("Drinks com \(ingredient.name)")
+            Text("DrinksFromIngredient_DrinksWith".localized() + " \(ingredient.name)")
                 .font(.system(size: 38))
                 .fontWeight(.semibold)
                 .foregroundColor(Color(UIColor.black))
