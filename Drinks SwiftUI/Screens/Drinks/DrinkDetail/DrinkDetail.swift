@@ -139,28 +139,29 @@ struct DrinkDetailAttributes: View {
     var body: some View {
         VStack {
             
-            Text("Detalhes")
+
+            Text("DrinkDetail_DetailTitle".localized())
                 .font(.system(size: 36, weight: .bold, design: .default))
                 .foregroundColor(Color(UIColor.darkTitle))
             
             Spacer().frame(height: 25)
             
             VStack(spacing: 0) {
-                                                
-                AttributeRow(label: "Teor Alcoolico", value: String("\(Int(round(drink.strength * 100)))%"))
-                AttributeRow(label: "Estilo", value: drink.style)
-                AttributeRow(label: "Autor", value: drink.author)
+                
+                AttributeRow(label: "DrinkDetail_AlcoholContent".localized(), value: String("\(Int(round(drink.strength * 100)))%"))
+                AttributeRow(label: "DrinkDetail_Style".localized(), value: drink.style)
+                AttributeRow(label: "DrinkDetail_Author".localized(), value: drink.author)
                 
                 if drink.baseSpirit != nil  {
-                    AttributeRow(label: "Bebida base", value: drink.baseSpirit)
+                    AttributeRow(label: "DrinkDetail_BaseSpirit".localized(), value: drink.baseSpirit)
                 }
                 
                 if drink.liquor != nil {
-                    AttributeRow(label: "Bebida base", value: drink.liquor)
+                    AttributeRow(label: "DrinkDetail_BaseSpirit".localized(), value: drink.liquor)
                 }
                 
                 if drink.wineVermouth != nil {
-                    AttributeRow(label: "Bebida Base", value: drink.wineVermouth)
+                    AttributeRow(label: "DrinkDetail_BaseSpirit".localized(), value: drink.wineVermouth)
                 }
                 
                 IngredientRow(ingredients: drink.ingredients)
@@ -228,7 +229,8 @@ struct IngredientRow: View {
             HStack {
                 
                 HStack {
-                    Text("Ingredientes")
+
+                    Text("DrinkDetail_Ingredients".localized())
                         .font(.system(size: 17, weight: .regular, design: .default))
                     
                     Spacer()
@@ -320,7 +322,7 @@ struct DrinkDetailIngredientSelectors: View {
             
             VStack {
                 
-                Text("Nº de Doses")
+                Text("DrinkDetail_Doses".localized())
                     .font(.system(size: 14, weight: .regular, design: .default))
                     .foregroundColor(Color(UIColor.darkTitle))
                 
@@ -336,7 +338,8 @@ struct DrinkDetailIngredientSelectors: View {
             }
             
             VStack {
-                Text("Unidade de Medida")
+
+                Text("DrinkDetail_MeasurementUnit".localized())
                     .font(.system(size: 14, weight: .regular, design: .default))
                     .foregroundColor(Color(UIColor.darkTitle))
 
@@ -368,9 +371,7 @@ struct DrinkDetailIngredients: View {
     var body: some View {
         VStack {
             
-            Spacer().frame(height: 25)
-            
-            Text("Ingredientes")
+            Text("DrinkDetail_Ingredients".localized())
                 .font(.system(size: 36, weight: .bold, design: .default))
                 .foregroundColor(Color(UIColor.darkTitle))
             
@@ -442,8 +443,8 @@ struct DrinkDetailSteps: View {
     
     var body: some View {
         VStack {
-            
-            Text("Preparação")
+
+            Text("DrinkDetail_Preparation".localized())
                 .font(.system(size: 36, weight: .bold, design: .default))
                 .foregroundColor(Color(UIColor.darkTitle))
             
@@ -533,9 +534,10 @@ struct DrinkDetailStepRow: View {
         VStack (alignment: .leading) {
                         
             HStack{
+                
                 Spacer()
                 
-                Text("Passo \(stepOrder + 1)/\(stepCount)")
+                Text("DrinkDetail_Step".localized() + " \(stepOrder + 1)/\(stepCount)")
                     .font(.system(size: 14, weight: .regular, design: .default))
                     .foregroundColor(Color(UIColor.subtitleText))
                 

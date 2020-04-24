@@ -137,7 +137,7 @@ struct IngredientDetailAttributes: View {
     var body: some View {
         VStack {
             
-            Text("Detalhes")
+            Text("IngredientDetail_DetailTitle".localized())
                 .font(.system(size: 36, weight: .bold, design: .default))
                 .foregroundColor(Color(UIColor.darkTitle))
             
@@ -145,8 +145,9 @@ struct IngredientDetailAttributes: View {
             
             VStack(spacing: 0) {
                 
-                AttributeRow(label: "Teor Alcoolico", value: String("\(Int(round(ingredient.strength * 100)))%"))
-                AttributeRow(label: "Origem", value: ingredient.origin, showSeparator: false)
+
+                AttributeRow(label: "IngredientDetail_AlcoholContent".localized(), value: String("\(Int(round(ingredient.strength * 100)))%"))
+                AttributeRow(label: "IngredientDetail_Origin".localized(), value: ingredient.origin, showSeparator: false)
                 
             }
             .cornerRadius(22)
