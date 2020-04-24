@@ -28,13 +28,13 @@ struct Drink: Identifiable, Codable, Hashable {
         let strengthAdjusted = strength * 100
         
         if(strengthAdjusted < 11) {
-            return "\(NSLocalizedString("DrinkStrength_Light", comment: "")) (\(Int(strengthAdjusted))%)"
+            return "DrinkStrength_Light".localized() + " \(Int(strengthAdjusted))%"
         } else if (strengthAdjusted < 20) {
-            return "\(NSLocalizedString("DrinkStrength_Medium", comment: "")) (\(Int(strengthAdjusted))%)"
+            return "DrinkStrength_Medium".localized() + " \(Int(strengthAdjusted))%"
         } else if (strengthAdjusted < 30) {
-            return "\(NSLocalizedString("DrinkStrength_Strong", comment: "")) (\(Int(strengthAdjusted))%)"
+            return "DrinkStrength_Strong".localized() + " \(Int(strengthAdjusted))%"
         } else {
-            return "\(NSLocalizedString("DrinkStrength_VeryStrong", comment: "")) (\(Int(strengthAdjusted))%)"
+            return "DrinkStrength_VeryStrong".localized() + " \(Int(strengthAdjusted))%"
         }
     }
     

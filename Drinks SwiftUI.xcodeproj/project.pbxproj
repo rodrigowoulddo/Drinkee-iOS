@@ -3,16 +3,16 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		04D330F124534EA50043B81E /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D330F024534EA50043B81E /* String+Extensions.swift */; };
 		04DEE2322450CE2B005F088B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 04DEE2342450CE2B005F088B /* Localizable.strings */; };
 		1968DF4724493BE500C62738 /* DrinksFromIngredient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1968DF4624493BE500C62738 /* DrinksFromIngredient.swift */; };
 		1968DF4924493BF400C62738 /* DrinksFromIngredientViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1968DF4824493BF400C62738 /* DrinksFromIngredientViewModel.swift */; };
 		196C1E2B2448F3C600CE9116 /* IngredientList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196C1E2A2448F3C600CE9116 /* IngredientList.swift */; };
 		196C1E2E2449006600CE9116 /* IngredientDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196C1E2D2449006600CE9116 /* IngredientDetail.swift */; };
-		54D4F3B41F3DDF0AEB11CF36 /* Pods_Drinks_SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90344AE1CA02C2BDA4A46B96 /* Pods_Drinks_SwiftUI.framework */; };
 		750E1CA2243D0AC9009F3D97 /* URLImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 750E1CA1243D0AC9009F3D97 /* URLImage.swift */; };
 		751C9B232437CAC7001CDE2F /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751C9B172437CAC7001CDE2F /* Api.swift */; };
 		751C9B242437CAC7001CDE2F /* ApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751C9B192437CAC7001CDE2F /* ApiError.swift */; };
@@ -29,7 +29,6 @@
 		752318A9243CF4A500BE3484 /* DrinksPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752318A8243CF4A500BE3484 /* DrinksPage.swift */; };
 		75267F5D243BBB1100636D7B /* Sidebar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75267F5C243BBB1100636D7B /* Sidebar.swift */; };
 		754CA42C2450EF330039AE23 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754CA42B2450EF330039AE23 /* File.swift */; };
-		75673D112448DC03009F3B96 /* AlcohoolicIngredient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75673D102448DC03009F3B96 /* AlcohoolicIngredient.swift */; };
 		758784402448CBF500E4D8AB /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7587843F2448CBF500E4D8AB /* UIColor+Extensions.swift */; };
 		75A3981F2444D7E00073C40E /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A3981E2444D7E00073C40E /* Category.swift */; };
 		75A398212444D82F0073C40E /* Ingredient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A398202444D82F0073C40E /* Ingredient.swift */; };
@@ -54,6 +53,7 @@
 /* Begin PBXFileReference section */
 		0482119F243E640900D1B798 /* URLImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLImage.swift; sourceTree = "<group>"; };
 		04BD50CC243E36D600741911 /* URLImage_OLD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLImage_OLD.swift; sourceTree = "<group>"; };
+		04D330F024534EA50043B81E /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		04DEE2312450CDCD005F088B /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		04DEE2332450CE2B005F088B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		04DEE2352450CE32005F088B /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
@@ -159,6 +159,7 @@
 				750E1CA1243D0AC9009F3D97 /* URLImage.swift */,
 				75BA3D9F24494185009339BB /* Activity Indicator.swift */,
 				04DEE2342450CE2B005F088B /* Localizable.strings */,
+				04D330F024534EA50043B81E /* String+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -481,6 +482,7 @@
 				752318A7243CF48100BE3484 /* IngredientsPage.swift in Sources */,
 				196C1E2E2449006600CE9116 /* IngredientDetail.swift in Sources */,
 				75C2030F244790F100DF905A /* DrinkList.swift in Sources */,
+				04D330F124534EA50043B81E /* String+Extensions.swift in Sources */,
 				752318A3243CF3F000BE3484 /* HomePage.swift in Sources */,
 				751C9B2A2437CAC7001CDE2F /* JSONDecoder+Extensions.swift in Sources */,
 				75C203122447912900DF905A /* CollectionView.swift in Sources */,
