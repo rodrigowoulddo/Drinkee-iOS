@@ -165,26 +165,26 @@ struct DrinkDetailAttributes: View {
     var body: some View {
         VStack {
             
-            Text("Detalhes")
+            Text("DrinkDetail_DetailTitle".localized())
                 .font(.system(size: 38, weight: .bold, design: .default))
                 .foregroundColor(Color(UIColor.darkTitle))
             
             VStack(spacing: 0) {
                 
-                AttributeRow(label: "Teor Alcoolico", value: String("\(Int(round(drink.strength * 100)))%"))
-                AttributeRow(label: "Estilo", value: drink.style)
-                AttributeRow(label: "Autor", value: drink.author)
+                AttributeRow(label: "DrinkDetail_AlcoholContent".localized(), value: String("\(Int(round(drink.strength * 100)))%"))
+                AttributeRow(label: "DrinkDetail_Style".localized(), value: drink.style)
+                AttributeRow(label: "DrinkDetail_Author".localized(), value: drink.author)
                 
                 if drink.baseSpirit != nil  {
-                    AttributeRow(label: "Bebida base", value: drink.baseSpirit)
+                    AttributeRow(label: "DrinkDetail_BaseSpirit".localized(), value: drink.baseSpirit)
                 }
                 
                 if drink.liquor != nil {
-                    AttributeRow(label: "Bebida base", value: drink.liquor)
+                    AttributeRow(label: "DrinkDetail_BaseSpirit".localized(), value: drink.liquor)
                 }
                 
                 if drink.wineVermouth != nil {
-                    AttributeRow(label: "Bebida Base", value: drink.wineVermouth)
+                    AttributeRow(label: "DrinkDetail_BaseSpirit".localized(), value: drink.wineVermouth)
                 }
                 
                 IngredientRow(ingredients: drink.ingredients)
@@ -252,7 +252,7 @@ struct IngredientRow: View {
             HStack {
                 
                 HStack {
-                    Text("Ingredientes")
+                    Text("DrinkDetail_Ingredients".localized())
                         .font(.system(size: 24, weight: .regular, design: .default))
                     
                     Spacer()
@@ -342,7 +342,7 @@ struct DrinkDetailIngredientSelectors: View {
             
             VStack {
                 
-                Text("Doses")
+                Text("DrinkDetail_Doses".localized())
                     .font(.system(size: 24, weight: .regular, design: .default))
                     .foregroundColor(Color(UIColor.darkTitle))
                 
@@ -358,7 +358,7 @@ struct DrinkDetailIngredientSelectors: View {
             .padding()
             
             VStack {
-                Text("Unidade de Medida")
+                Text("DrinkDetail_MeasurementUnit".localized())
                     .font(.system(size: 24, weight: .regular, design: .default))
                     .foregroundColor(Color(UIColor.darkTitle))
 
@@ -391,7 +391,7 @@ struct DrinkDetailIngredients: View {
     var body: some View {
         VStack {
             
-            Text("Ingredientes")
+            Text("DrinkDetail_Ingredients".localized())
                 .font(.system(size: 38, weight: .bold, design: .default))
                 .foregroundColor(Color(UIColor.darkTitle))
             
@@ -464,7 +464,7 @@ struct DrinkDetailSteps: View {
     var body: some View {
         VStack {
             
-            Text("Preparação")
+            Text("DrinkDetail_Preparation".localized())
                 .font(.system(size: 38, weight: .bold, design: .default))
                 .foregroundColor(Color(UIColor.darkTitle))
             
@@ -556,7 +556,7 @@ struct DrinkDetailStepRow: View {
             HStack{
                 Spacer()
                 
-                Text("Passo \(stepOrder + 1)/\(stepCount)")
+                Text("DrinkDetail_Step".localized() + " \(stepOrder + 1)/\(stepCount)")
                     .font(.system(size: 20, weight: .regular, design: .default))
                     .foregroundColor(Color(UIColor.subtitleText))
                 

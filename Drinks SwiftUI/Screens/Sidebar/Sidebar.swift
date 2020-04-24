@@ -18,10 +18,10 @@ enum Tab {
         
         // TODO: - Localize
         switch self {
-            case .home: return "Descubra"
-            case .drinks: return "Drinks"
-            case .ingredients: return "Ingredientes"
-            case .favorites: return "Favoritos"
+        case .home: return "Sidebar_Home".localized()
+        case .drinks: return "Sidebar_Drinks".localized()
+        case .ingredients: return "Sidebar_Ingredients".localized()
+        case .favorites: return "Sidebar_Favorites".localized()
         }
     }
     

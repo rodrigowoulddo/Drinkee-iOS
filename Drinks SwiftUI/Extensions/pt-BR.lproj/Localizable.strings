@@ -1,0 +1,48 @@
+/* 
+  Localizable.strings
+  Drinks SwiftUI
+
+  Created by Rafael Ferreira on 22/04/20.
+  Copyright © 2020 Rodrigo Giglio. All rights reserved.
+*/
+
+//MARK: - Home Screen Labels
+"Home_Discover" = "Descubra";
+
+//MARK: - Sidebar Labels
+"Sidebar_Home" = "Descubra";
+"Sidebar_Drinks" = "Drinks";
+"Sidebar_Ingredients" = "Ingredientes";
+"Sidebar_Favorites" = "Favoritos";
+
+//MARK: - Drink Detail Labels
+"DrinkDetail_DetailTitle" = "Detalhes";
+"DrinkDetail_AlcoholContent" = "Porcentagem Alcólica";
+"DrinkDetail_Style" = "Estilo";
+"DrinkDetail_Author" = "Autor";
+"DrinkDetail_BaseSpirit" = "Bebida Base";
+"DrinkDetail_Ingredients" = "Ingredientes";
+"DrinkDetail_Doses" = "Doses";
+"DrinkDetail_MeasurementUnit" = "Unidade de medida";
+"DrinkDetail_Preparation" = "Preparação";
+"DrinkDetail_Step" = "Passo";
+
+//MARK: - Drink List Label
+"DrinkList_DrinksTitle" = "Drinks";
+
+//MARK: - Drinks From Ingredient Label
+"DrinksFromIngredient_DrinksWith" = "Drinks com";
+
+//MARK: - Ingredient Detail Labels
+"IngredientDetail_DetailTitle" = "Detalhes";
+"IngredientDetail_AlcoholContent" = "Porcentagem Alcólica";
+"IngredientDetail_Origin" = "Origem";
+
+//MARK: - Ingredient List Label
+"IngredientList_IngredientsTitle" = "Ingredientes";
+
+//MARK: - Drink Strenght Labels
+"DrinkStrength_Light" = "Fraco";
+"DrinkStrength_Medium" = "Médio";
+"DrinkStrength_Strong" = "Forte";
+"DrinkStrength_VeryStrong" = "Muito Forte";
