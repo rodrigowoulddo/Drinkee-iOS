@@ -81,8 +81,6 @@ struct FeaturedCategory: SwiftUI.View {
     
     var body: some SwiftUI.View {
         VStack {
-            //Group {
-                
                 HStack {
                     
                     Text(category.name)
@@ -92,8 +90,6 @@ struct FeaturedCategory: SwiftUI.View {
                     
                     Spacer()
                 }
-                
-                Spacer().frame(height: 40)
                 
                 //TODO: - "See all" drinks in the category button, uncomment this when we have that screen ready
                 //            HStack {
@@ -108,9 +104,8 @@ struct FeaturedCategory: SwiftUI.View {
                 //            }
                 //            CollectionView(drinks: category.drinks)
                 
-            CollectionView(viewModel: CollecTionViewViewModel(categoryId: category.uid)).frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: Alignment.topLeading)
-           // }
-        }//.padding(20)
+            CollectionView(viewModel: CollecTionViewViewModel(categoryId: category.uid)).frame(minWidth: 0, maxWidth: .infinity, alignment: Alignment.topLeading)
+        }.padding(.trailing, 10)
     }
 }
 
@@ -153,8 +148,6 @@ struct FeaturedDrink: SwiftUI.View {
             self.showingDetail.toggle()
         }) {
             VStack {
-                
-                //FIXME: - Tirar o ! daqui e substituir por uma imagem placeholder de quando nao conseguir carregar a imagem
                 URLImage(url: drink.photoUrlSmall, contentMode: .fit)
                     .cornerRadius(10)
                 

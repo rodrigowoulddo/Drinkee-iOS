@@ -63,7 +63,7 @@ struct CollectionViewCells: SwiftUI.View {
 
     
     var drink: Drink
-    var cellWidth = UIScreen.main.bounds.size.width/2.5
+    var cellWidth = UIScreen.main.bounds.size.width/3.5//2.5
 
     //TODO: - Find a better way of defining the width of the image
     var body: some SwiftUI.View {
@@ -85,13 +85,13 @@ struct CollectionViewCells: SwiftUI.View {
                 
                 URLImage(url: drink.photoUrlSmall, contentMode: .fit)
                     .padding(4)
-                    .frame(width: cellWidth, height: cellWidth)
+                    .frame(maxWidth: .infinity)
                 
             }
             .background(Color(UIColor.from(colorNamed: drink.color)))
             .cornerRadius(20)
-            .padding(9)
             .frame(minWidth: 0,maxWidth: .infinity, alignment: Alignment.topLeading)
+            .aspectRatio(1, contentMode: .fit)
             
         }
         .buttonStyle(PlainButtonStyle())
