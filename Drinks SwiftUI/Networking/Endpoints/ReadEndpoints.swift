@@ -11,7 +11,7 @@ import Moya
 
 enum DrinkEndpoint {
     
-    case getAllDrinks(Language)
+    case getAllDrinks
     case getDrinkByName(String)
     case getDrinkByAlchoolicIngredient(liquor: String?, baseSpirit: String?, wineVermouth: String?)
     case getAllCategories
@@ -49,9 +49,8 @@ extension DrinkEndpoint: TargetType {
         
         switch self {
         
-        case .getAllDrinks(let language):
-            let params = makeParamsDictionary(["language": language])
-            return .requestParameters(parameters: params, encoding: URLEncoding.queryString)
+        case .getAllDrinks:
+            return .requestPlain
 
         case .getDrinkByName:
             return .requestPlain
