@@ -13,6 +13,13 @@ struct HomePage: View {
     @ObservedObject var viewModel: HomeViewModel = HomeViewModel()
     
     @State var showldLoad = true
+//    var CarousselCellHeight: Int {
+//        if UIDevice.current.model == "iPad" {
+//            return 3
+//        } else {
+//            return 2
+//        }
+//    }
     
     var body: some View {
         
@@ -36,7 +43,6 @@ struct HomePage: View {
                         Spacer()
                         
                     }
-                    .padding(40)
                     
                     if viewModel.top5Drinks.isEmpty {
                         
@@ -84,7 +90,7 @@ struct FeaturedCategory: SwiftUI.View {
                 HStack {
                     
                     Text(category.name)
-                        .font(.system(size: 38, weight: .bold, design: .default))
+                        .font(.system(size: 28, weight: .bold, design: .default))
                         .foregroundColor(Color(UIColor.darkTitle))
                         .padding()
                     
@@ -120,18 +126,18 @@ struct FeaturedDrinksCollectionView: SwiftUI.View {
                 if !drinks.isEmpty {
                     HStack(spacing: 40) {
                         
-                        //Spacer().frame(width:20)
+                        Spacer().frame(width:20) //Spacer usado para centralizar o carrosel
                         
                         ForEach(drinks, id: \.name) { drink in
                             FeaturedDrink(drink: drink)
                         }
                         
-                        Spacer().frame(width:40)
+                        Spacer().frame(width:40) //Spacer usado para centralizar o carrosel
                         
                     }
                 }
             }
-        }.padding()
+        }//.padding()
     }
 }
 
@@ -142,8 +148,10 @@ struct FeaturedDrink: SwiftUI.View {
     @State var showingDetail = false
     
     var drink: Drink
+    var carousselCellHeight: CGFloat = UIScreen.main.bounds.size.height/4.5
     
     var body: some SwiftUI.View {
+        
         Button (action: {
             self.showingDetail.toggle()
         }) {
@@ -162,7 +170,7 @@ struct FeaturedDrink: SwiftUI.View {
                     .offset(y: -20)
                 
                 
-            }.frame(width: 215)
+            }.frame(width: carousselCellHeight)
         }
         .buttonStyle(PlainButtonStyle())
         .sheet(isPresented: $showingDetail) {

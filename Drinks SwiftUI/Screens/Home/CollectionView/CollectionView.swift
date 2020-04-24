@@ -61,6 +61,13 @@ struct CollectionViewCells: SwiftUI.View {
     
     @State var showingDetail = false
 
+    var cellCornerRadius: CGFloat {
+        if UIDevice.current.model == "iPad" {
+            return 20
+        } else {
+            return 10
+        }
+    }
     
     var drink: Drink
     var cellWidth = UIScreen.main.bounds.size.width/3.5//2.5
@@ -89,7 +96,7 @@ struct CollectionViewCells: SwiftUI.View {
                 
             }
             .background(Color(UIColor.from(colorNamed: drink.color)))
-            .cornerRadius(20)
+            .cornerRadius(cellCornerRadius)
             .frame(minWidth: 0,maxWidth: .infinity, alignment: Alignment.topLeading)
             .aspectRatio(1, contentMode: .fit)
             
