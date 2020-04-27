@@ -61,7 +61,7 @@ struct DrinkList: View {
             }
             
         }
-        .background(Color(UIColor.listBackground))
+        //.background(Color(UIColor.listBackground))
     }
     
     struct DrinkListTitle: View {

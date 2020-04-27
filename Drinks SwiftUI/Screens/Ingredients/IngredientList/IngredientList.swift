@@ -24,6 +24,7 @@ struct IngredientList: View {
             
             
             if viewModel.ingredients.isEmpty {
+                
                 HStack {
                     
                     Spacer()
@@ -38,6 +39,7 @@ struct IngredientList: View {
                     
                     Spacer()
                 }
+                
             } else {
                 
                 NavigationView {
@@ -54,8 +56,7 @@ struct IngredientList: View {
                     }.navigationBarTitle(Text("Ingredientes"))
                 }
             }
-            
-        }.background(Color(UIColor.listBackground))
+        }
     }
     
     struct IngredientListTitle: View {

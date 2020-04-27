@@ -26,9 +26,8 @@ class DrinkListViewModel: ObservableObject, Identifiable {
         
         fetchDrinks()
         
-        #if DEBUG
-            drinks = sampleDrinks
-        #endif
+        /// For debug
+        //drinks = sampleDrinks
         
     }
     
